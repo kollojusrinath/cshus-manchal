@@ -1,0 +1,52 @@
+{
+  "members": [
+    {
+      "avatar": "👑",
+      "name_te": "పేరు ఇక్కడ",
+      "name_en": "Name Here",
+      "role": "అధ్యక్షుడు",
+      "role_en": "President",
+      "phone": "+91 XXXXX XXXXX"
+    },
+    {
+      "avatar": "📋",
+      "name_te": "పేరు ఇక్కడ",
+      "name_en": "Name Here",
+      "role": "కార్యదర్శి",
+      "role_en": "Secretary",
+      "phone": "+91 XXXXX XXXXX"
+    },
+    {
+      "avatar": "💰",
+      "name_te": "పేరు ఇక్కడ",
+      "name_en": "Name Here",
+      "role": "కోశాధికారి",
+      "role_en": "Treasurer",
+      "phone": "+91 XXXXX XXXXX"
+    },
+    {
+      "avatar": "🎊",
+      "name_te": "పేరు ఇక్కడ",
+      "name_en": "Name Here",
+      "role": "ఉత్సవ నిర్వాహకుడు",
+      "role_en": "Event Coordinator",
+      "phone": "+91 XXXXX XXXXX"
+    },
+    {
+      "avatar": "📢",
+      "name_te": "పేరు ఇక్కడ",
+      "name_en": "Name Here",
+      "role": "ప్రచార సభ్యుడు",
+      "role_en": "Publicity",
+      "phone": "+91 XXXXX XXXXX"
+    },
+    {
+      "avatar": "🏗️",
+      "name_te": "పేరు ఇక్కడ",
+      "name_en": "Name Here",
+      "role": "విగ్రహ కమిటీ",
+      "role_en": "Statue Committee",
+      "phone": "+91 XXXXX XXXXX"
+    }
+  ]
+}
