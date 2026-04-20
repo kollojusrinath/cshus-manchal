@@ -5,81 +5,46 @@ backend:
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
-locale: 'en'
-
 collections:
-
-  # ── MEMBERS ──────────────────────────────────────────
-  - name: "members"
-    label: "👥 కమిటీ సభ్యులు"
-    files:
-      - label: "సభ్యుల జాబితా"
-        name: "members_list"
-        file: "content/members.json"
-        fields:
-          - label: "Members"
-            name: "members"
-            widget: "list"
-            fields:
-              - {label: "Avatar Emoji", name: "avatar", widget: "string", default: "👤"}
-              - {label: "పేరు (Telugu)", name: "name_te", widget: "string"}
-              - {label: "Name (English)", name: "name_en", widget: "string"}
-              - {label: "పదవి (Telugu)", name: "role", widget: "string"}
-              - {label: "Role (English)", name: "role_en", widget: "string"}
-              - {label: "Phone", name: "phone", widget: "string", required: false}
-
-  # ── EVENTS ──────────────────────────────────────────
   - name: "events"
-    label: "🎊 ఉత్సవాలు"
+    label: "Events"
     files:
-      - label: "ఉత్సవాల జాబితా"
-        name: "events_list"
+      - label: "Events List"
+        name: "events"
         file: "content/events.json"
         fields:
           - label: "Events"
             name: "events"
             widget: "list"
             fields:
-              - {label: "Day (Number)", name: "day", widget: "string"}
-              - {label: "Month (English)", name: "month_en", widget: "string"}
-              - {label: "తెలుగు మాసం", name: "month_te", widget: "string"}
-              - {label: "Badge", name: "badge", widget: "string", default: "🎊 EVENT"}
-              - {label: "శీర్షిక (Title)", name: "title", widget: "string"}
-              - {label: "వివరణ (Description)", name: "desc", widget: "text"}
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Date", name: "date", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
 
-  # ── GALLERY ──────────────────────────────────────────
-  - name: "gallery"
-    label: "🖼️ గ్యాలరీ"
+  - name: "members"
+    label: "Members"
     files:
-      - label: "గ్యాలరీ చిత్రాలు"
-        name: "gallery_items"
+      - label: "Members List"
+        name: "members"
+        file: "content/members.json"
+        fields:
+          - label: "Members"
+            name: "members"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+
+  - name: "gallery"
+    label: "Gallery"
+    files:
+      - label: "Gallery List"
+        name: "gallery"
         file: "content/gallery.json"
         fields:
-          - label: "Gallery Items"
-            name: "items"
+          - label: "Images"
+            name: "images"
             widget: "list"
             fields:
-              - {label: "Title (Telugu)", name: "title", widget: "string"}
-              - {label: "Description", name: "desc", widget: "string"}
-              - {label: "Photo", name: "image", widget: "image", required: false}
-              - {label: "Emoji (fallback)", name: "emoji", widget: "string", default: "🏰"}
-              - {label: "Background Style", name: "bg_class", widget: "select", options: ["fort","battle","navy","crown","people","admin"], default: "fort"}
-
-  # ── UPDATES / ANNOUNCEMENTS ──────────────────────────
-  - name: "updates"
-    label: "📢 అప్‌డేట్స్ & ప్రకటనలు"
-    files:
-      - label: "Latest Updates"
-        name: "updates_list"
-        file: "content/updates.json"
-        fields:
-          - label: "Updates"
-            name: "updates"
-            widget: "list"
-            fields:
-              - {label: "Date", name: "date", widget: "date"}
-              - {label: "తెలుగు తేదీ", name: "date_te", widget: "string"}
-              - {label: "Badge", name: "badge", widget: "string", default: "🚩 అప్‌డేట్"}
-              - {label: "శీర్షిక (Title)", name: "title", widget: "string"}
-              - {label: "వివరణ (Body)", name: "body", widget: "text"}
-              - {label: "Photo (optional)", name: "image", widget: "image", required: false}
+              - { label: "Image", name: "url", widget: "image" }
+              - { label: "Caption", name: "caption", widget: "string" }
