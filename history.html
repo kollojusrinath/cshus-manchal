@@ -6,16 +6,80 @@
 <meta name="description" content="హైందవి స్వరాజ్యం — శివాజీకి ముందు నుండి మరాఠా సామ్రాజ్యం పతనం వరకు సమగ్ర తెలుగు చరిత్ర">
 <link rel="stylesheet" href="styles.css">
 <style>
-.toc{background:rgba(212,160,23,.05);border:1px solid var(--border);border-radius:6px;padding:28px 32px;margin-bottom:48px}
-.toc h3{font-family:'Cinzel Decorative',cursive;font-size:12px;letter-spacing:2px;color:var(--saffron);margin-bottom:16px}
-.toc ol{padding-left:20px;display:grid;grid-template-columns:1fr 1fr;gap:6px 32px}
-.toc li{font-family:'Tiro Devanagari Sanskrit',serif;font-size:13px;color:var(--muted);margin-bottom:4px}
-.toc a{color:var(--gold);transition:color .2s}
-.toc a:hover{color:var(--gold2)}
-.era-intro{font-family:'Tiro Devanagari Sanskrit',serif;font-size:15px;color:var(--muted);line-height:1.8;max-width:820px;margin-bottom:36px;border-left:3px solid var(--saffron);padding-left:18px}
-.share-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);color:#25D366;font-size:11px;padding:5px 12px;border-radius:3px;cursor:pointer;font-family:'Crimson Pro',serif;transition:background .2s;margin-top:12px}
-.share-btn:hover{background:rgba(37,211,102,.2)}
-@media(max-width:560px){.toc ol{grid-template-columns:1fr}}
+/* History page extras */
+.toc{background:linear-gradient(135deg,#fff,#FFF3E0);border:2px solid rgba(200,134,10,0.4);border-radius:14px;padding:28px 32px;margin-bottom:48px;box-shadow:0 4px 24px rgba(139,26,42,0.1)}
+.toc h3{font-family:'Cinzel Decorative',cursive;font-size:12px;letter-spacing:2px;color:var(--saffron);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.toc h3::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent)}
+.toc ol{padding-left:20px;display:grid;grid-template-columns:1fr 1fr;gap:6px 40px}
+.toc li{font-family:'Tiro Devanagari Sanskrit',serif;font-size:13px;color:var(--muted);margin-bottom:6px}
+.toc a{color:var(--saffron2);transition:color .2s;font-weight:600}
+.toc a:hover{color:var(--maroon)}
+
+/* Animated banner for each era */
+.era-animated-banner{position:relative;height:260px;border-radius:14px 14px 0 0;overflow:hidden;margin-bottom:0}
+.era-animated-banner img{width:100%;height:100%;object-fit:cover;transition:transform 8s ease-in-out}
+.era-animated-banner:hover img{transform:scale(1.06)}
+.era-animated-banner .banner-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(92,10,20,.88) 0%,rgba(139,26,42,.6) 50%,rgba(92,10,20,.3) 100%)}
+.era-animated-banner .banner-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:28px 32px;z-index:2}
+.era-gif-badge{display:inline-flex;align-items:center;gap:8px;background:var(--saffron);color:#fff;font-size:9px;padding:4px 12px;border-radius:20px;font-family:'Cinzel Decorative',cursive;letter-spacing:1.5px;margin-bottom:12px;width:fit-content;animation:pulseBadge 2s ease-in-out infinite}
+@keyframes pulseBadge{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.85;transform:scale(1.02)}}
+.banner-content .era-num{color:rgba(255,200,100,.9);font-size:9px;letter-spacing:3px;font-family:'Cinzel Decorative',cursive;display:block;margin-bottom:6px}
+.banner-content .era-title{font-family:'Cinzel Decorative',cursive;font-size:clamp(18px,3vw,28px);color:#FFF8EC;text-shadow:0 2px 12px rgba(0,0,0,.6);margin-bottom:4px}
+.banner-content .era-te{font-family:'Tiro Devanagari Sanskrit',serif;font-size:clamp(14px,2vw,18px);color:rgba(255,248,236,.85)}
+.banner-content .era-period{font-family:'Crimson Pro',serif;font-size:13px;color:var(--saffron3);margin-top:6px}
+
+/* Horizontal scroll image strip */
+.img-scroll-strip{display:flex;gap:10px;overflow-x:auto;padding:10px 0 16px;scrollbar-width:thin;scrollbar-color:var(--saffron) var(--bg2);margin-top:14px}
+.img-scroll-strip::-webkit-scrollbar{height:4px}
+.img-scroll-strip::-webkit-scrollbar-track{background:var(--bg2)}
+.img-scroll-strip::-webkit-scrollbar-thumb{background:var(--saffron);border-radius:4px}
+.img-scroll-strip img{height:160px;width:auto;min-width:220px;border-radius:8px;object-fit:cover;border:2px solid var(--border);flex-shrink:0;transition:transform .3s;cursor:pointer}
+.img-scroll-strip img:hover{transform:scale(1.04)}
+
+/* Map/animation SVG embed */
+.tl-map-anim{background:linear-gradient(135deg,#FFF3E8,#FFF8E0);border:2px solid var(--border2);border-radius:12px;padding:20px;margin-top:16px;text-align:center}
+.tl-map-anim p{font-family:'Tiro Devanagari Sanskrit',serif;font-size:13px;color:var(--muted);margin-top:8px}
+
+/* Floating flag animation */
+.flag-float{display:inline-block;animation:flagFloat 2s ease-in-out infinite}
+@keyframes flagFloat{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+
+/* Sword cross animation */
+.sword-anim{display:inline-block;animation:swordGlow 1.5s ease-in-out infinite alternate}
+@keyframes swordGlow{from{filter:drop-shadow(0 0 4px rgba(232,96,10,0.4))}to{filter:drop-shadow(0 0 12px rgba(232,96,10,0.8))}}
+
+/* Crown shimmer */
+.crown-shine{display:inline-block;background:linear-gradient(90deg,var(--gold3),var(--gold2),var(--saffron3),var(--gold2),var(--gold3));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shine 3s linear infinite}
+@keyframes shine{from{background-position:0% center}to{background-position:200% center}}
+
+/* Battle scene decorative */
+.battle-scene{background:linear-gradient(135deg,#5A0020,#8B1030);border-radius:10px;padding:20px;margin-top:14px;display:flex;align-items:center;gap:16px;color:#FFF8EC}
+.battle-scene .bs-icon{font-size:48px;animation:shake 0.8s ease-in-out infinite alternate}
+@keyframes shake{from{transform:translateX(-3px) rotate(-5deg)}to{transform:translateX(3px) rotate(5deg)}}
+.battle-scene .bs-text{font-family:'Tiro Devanagari Sanskrit',serif;font-size:14px;line-height:1.7;color:rgba(255,248,236,.9)}
+.battle-scene .bs-text strong{color:var(--gold2)}
+
+/* Fort card */
+.fort-card{border:2px solid var(--border2);border-radius:10px;overflow:hidden;margin-top:14px;box-shadow:0 4px 16px var(--shadow)}
+.fort-card img{width:100%;height:200px;object-fit:cover;transition:transform .4s}
+.fort-card:hover img{transform:scale(1.04)}
+.fort-card-cap{padding:14px 16px;background:linear-gradient(135deg,var(--maroon2),var(--maroon));color:#FFF8EC}
+.fort-card-cap h5{font-family:'Tiro Devanagari Sanskrit',serif;font-size:15px;color:var(--gold2);margin-bottom:4px}
+.fort-card-cap p{font-size:12px;color:rgba(255,248,220,.75)}
+
+/* Stats inline */
+.inline-stats{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px}
+.ist{background:#fff;border:1.5px solid var(--border2);border-radius:8px;padding:12px 18px;text-align:center;flex:1;min-width:100px;box-shadow:0 2px 10px var(--shadow)}
+.ist-num{font-family:'Cinzel Decorative',cursive;font-size:22px;color:var(--saffron2);display:block}
+.ist-label{font-family:'Tiro Devanagari Sanskrit',serif;font-size:11px;color:var(--muted)}
+
+/* Coronation golden section */
+.coronation-box{background:linear-gradient(135deg,#FFF8E0,#FFF3E0,#FFF8E0);border:3px solid var(--gold2);border-radius:14px;padding:24px;margin-top:16px;position:relative;overflow:hidden;text-align:center}
+.coronation-box::before{content:'👑';position:absolute;font-size:80px;opacity:.08;top:50%;left:50%;transform:translate(-50%,-50%)}
+.coronation-box h4{font-family:'Cinzel Decorative',cursive;font-size:16px;color:var(--maroon);margin-bottom:10px}
+.coronation-box p{font-family:'Tiro Devanagari Sanskrit',serif;font-size:14px;color:var(--muted);line-height:1.75;position:relative;z-index:1}
+
+@media(max-width:560px){.toc ol{grid-template-columns:1fr}.inline-stats{flex-direction:column}}
 </style>
 </head>
 <body>
@@ -25,7 +89,7 @@
 <div class="page-hero">
   <div class="page-hero-bg">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Shivaji_BhosaleI.jpg/1200px-Shivaji_BhosaleI.jpg"
-         alt="శివాజీ" onerror="this.parentNode.style.background='linear-gradient(135deg,#0A0400,#3D0008,#6B2E00)'">
+         alt="శివాజీ" onerror="this.parentNode.style.background='linear-gradient(135deg,#1A0A00,#5C0A14,#8B1A2A)'">
   </div>
   <div class="page-hero-content container">
     <span class="section-tag">Complete Chronicle</span>
@@ -39,469 +103,535 @@
 
   <!-- TABLE OF CONTENTS -->
   <div class="toc fade-in">
-    <h3>విషయ సూచిక — TABLE OF CONTENTS</h3>
+    <h3>📜 విషయ సూచిక — TABLE OF CONTENTS</h3>
     <ol>
-      <li><a href="#era1">అంధకార యుగం (1000–1600)</a></li>
-      <li><a href="#era2">విజయనగర సామ్రాజ్యం (1336–1646)</a></li>
-      <li><a href="#era3">మరాఠా వీరుల ఆవిర్భావం (1550–1630)</a></li>
-      <li><a href="#era4">శివాజీ బాల్యం మరియు తొలి విజయాలు (1630–1655)</a></li>
-      <li><a href="#era5">మహా యుద్ధాలు — స్వరాజ్య స్థాపన (1655–1670)</a></li>
-      <li><a href="#era6">చత్రపతి పట్టాభిషేకం — రాజ్య విస్తరణ (1670–1680)</a></li>
-      <li><a href="#era7">సంభాజీ మహారాజ్ — వీర మరణం (1680–1689)</a></li>
-      <li><a href="#era8">తారాబాయి — మహిళా నేతృత్వం (1689–1707)</a></li>
-      <li><a href="#era9">పేష్వా యుగం — సామ్రాజ్య విస్తరణ (1707–1761)</a></li>
-      <li><a href="#era10">పానిపట్ పతనం మరియు క్షీణత (1761–1818)</a></li>
+      <li><a href="#era1">🌑 అంధకార యుగం (1000–1600)</a></li>
+      <li><a href="#era2">🏯 విజయనగర సామ్రాజ్యం (1336–1646)</a></li>
+      <li><a href="#era3">⚔️ మరాఠా వీరుల ఆవిర్భావం (1550–1630)</a></li>
+      <li><a href="#era4">👶 శివాజీ జన్మం — తొలి విజయాలు (1630–1655)</a></li>
+      <li><a href="#era5">🔥 మహా యుద్ధాలు — స్వరాజ్య స్థాపన (1655–1670)</a></li>
+      <li><a href="#era6">👑 చత్రపతి పట్టాభిషేకం (1670–1680)</a></li>
+      <li><a href="#era7">🦁 సంభాజీ మహారాజ్ (1680–1689)</a></li>
+      <li><a href="#era8">💪 తారాబాయి — మహిళా నేతృత్వం (1689–1707)</a></li>
+      <li><a href="#era9">🚩 పేష్వా యుగం (1707–1761)</a></li>
+      <li><a href="#era10">📉 పానిపట్ పతనం & చారిత్రక వారసత్వం (1761–నేటి వరకు)</a></li>
     </ol>
   </div>
 
   <!-- ═══ ERA 1 ═══ -->
-  <div class="timeline-era" id="era1">
-    <div class="era-header">
-      <div class="era-header-bg" style="background:linear-gradient(135deg,#0A0400,#2D0010,#5A1A00)">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Delhi_sultanate.jpg/800px-Delhi_sultanate.jpg"
-             alt="" onerror="this.style.display='none'" style="opacity:.4">
-      </div>
-      <div class="era-header-content">
-        <span class="era-num">అధ్యాయం 1 • CHAPTER 1</span>
+  <div class="timeline-era fade-in" id="era1">
+    <div class="era-animated-banner">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Somnath_temple_at_sunrise_2.jpg/1200px-Somnath_temple_at_sunrise_2.jpg"
+           alt="సోమనాథ్ ఆలయం" onerror="this.src='';this.parentElement.style.background='linear-gradient(135deg,#0A0400,#2D0010,#5A1A00)'">
+      <div class="banner-overlay"></div>
+      <div class="banner-content">
+        <div class="era-gif-badge">🌑 CHAPTER 1</div>
+        <span class="era-num">అధ్యాయం 1</span>
         <h2 class="era-title">అంధకార యుగం</h2>
         <p class="era-te">Hindu Kingdoms Under Siege</p>
         <p class="era-period">1000 CE — 1600 CE</p>
       </div>
     </div>
-    <p class="era-intro">మహమ్మద్ ఘజ్ని దాడి నుండి మొఘల్ సామ్రాజ్యం స్థాపన వరకు — హిందూ రాజ్యాలు ఒకటొకటిగా పడిపోయాయి. ఆలయాలు ధ్వంసమయ్యాయి, జనం బానిసలయ్యారు. కానీ ఈ చీకటిలోనే హైందవి స్వరాజ్యం బీజం పడింది.</p>
-    <div class="timeline-items">
+    <div class="era-body">
+      <p class="era-intro-inner">మహమ్మద్ ఘజ్ని దాడి నుండి మొఘల్ సామ్రాజ్యం స్థాపన వరకు — హిందూ రాజ్యాలు ఒకటొకటిగా పడిపోయాయి. ఆలయాలు ధ్వంసమయ్యాయి, జనం బానిసలయ్యారు. కానీ ఈ చీకటిలోనే హైందవి స్వరాజ్యం బీజం పడింది.</p>
+      <div class="timeline-items">
 
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1000–1026 CE</span>
-        <span class="tl-te-date">శాలివాహన శకం 922–948 • కలి యుగం 4101</span>
-        <h3 class="tl-title">మహమ్మద్ ఘజ్ని దాడులు — 17 సార్లు భారత్ పై దాడి</h3>
-        <p class="tl-body">మహమ్మద్ ఘజ్ని <strong>17 సార్లు</strong> భారతదేశంపై దాడి చేశాడు. సోమనాథ్ ఆలయాన్ని ధ్వంసం చేశాడు, వేల కోట్ల సంపదను లూటీ చేశాడు. హిందూ రాజులు ఐక్యత లేక ఓడిపోయారు. ఈ పతనం భారతదేశపు రాజకీయ దుర్బలతను చూపించింది.</p>
-        <p class="tl-quote">ఐక్యత లేనిదే రాజ్యం నిలబడదు — ఇది శివాజీ నేర్చిన మొదటి పాఠం.</p>
+        <div class="timeline-item fade-in">
+          <span class="tl-year">1000–1026 CE</span>
+          <span class="tl-te-date">శాలివాహన శకం 922–948 • కలి యుగం 4101</span>
+          <h3 class="tl-title">మహమ్మద్ ఘజ్ని దాడులు — 17 సార్లు భారత్ పై దాడి</h3>
+          <p class="tl-body">మహమ్మద్ ఘజ్ని <strong>17 సార్లు</strong> భారతదేశంపై దాడి చేశాడు. సోమనాథ్ ఆలయాన్ని ధ్వంసం చేశాడు, వేల కోట్ల సంపదను లూటీ చేశాడు. హిందూ రాజులు ఐక్యత లేక ఓడిపోయారు. ఈ పతనం భారతదేశపు రాజకీయ దుర్బలతను చూపించింది.</p>
+          <div class="img-scroll-strip">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Somnath_temple_at_sunrise_2.jpg/600px-Somnath_temple_at_sunrise_2.jpg" alt="సోమనాథ్ ఆలయం" onerror="this.style.display='none'">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Delhi_sultanate.jpg/600px-Delhi_sultanate.jpg" alt="ఢిల్లీ సుల్తానేట్" onerror="this.style.display='none'">
+          </div>
+          <p class="tl-quote">ఐక్యత లేనిదే రాజ్యం నిలబడదు — ఇది శివాజీ నేర్చిన మొదటి పాఠం.</p>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <span class="tl-year">1192 CE</span>
+          <span class="tl-te-date">శాలివాహన శకం 1114 • భాద్రపద మాసం</span>
+          <h3 class="tl-title">తరాయిన్ యుద్ధం — పృథ్వీరాజ్ చౌహాన్ పతనం</h3>
+          <p class="tl-body">రాజపుత్ర వీరుడు <strong>పృథ్వీరాజ్ చౌహాన్</strong> మహమ్మద్ ఘోరి చేతిలో ఓడిపోయాడు. ఢిల్లీ సుల్తానేట్ స్థాపన జరిగింది. ఉత్తర భారతంలో హిందూ రాజ్యాలు పతనమయ్యాయి.</p>
+          <div class="inline-stats">
+            <div class="ist"><span class="ist-num">500+</span><span class="ist-label">ఆలయాలు ధ్వంసం</span></div>
+            <div class="ist"><span class="ist-num">1192</span><span class="ist-label">CE - ఢిల్లీ పతనం</span></div>
+            <div class="ist"><span class="ist-num">300</span><span class="ist-label">సంవత్సరాల చీకటి</span></div>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <span class="tl-year">1323 CE</span>
+          <span class="tl-te-date">శాలివాహన శకం 1245 • చైత్ర మాసం</span>
+          <h3 class="tl-title">కాకతీయ సామ్రాజ్యం పతనం — ప్రతాపరుద్రుని బంధనం</h3>
+          <p class="tl-body">ఉలుఘ్ ఖాన్ దాడిలో <strong>ప్రతాపరుద్ర మహారాజు</strong> బంధించబడ్డాడు. వేయి స్తంభాల గుడి, రామప్ప దేవాలయాలు దోచుకోబడ్డాయి. తెలుగు ప్రజలకు ఇది చీకటి రోజు.</p>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Ramappa_temple.jpg/640px-Ramappa_temple.jpg"
+               class="tl-img" alt="రామప్ప దేవాలయం" onerror="this.style.display='none'">
+        </div>
+
+        <div class="timeline-item fade-in">
+          <span class="tl-year">1526 CE</span>
+          <span class="tl-te-date">శాలివాహన శకం 1448 • వైశాఖ మాసం</span>
+          <h3 class="tl-title">పానిపట్ మొదటి యుద్ధం — మొఘల్ సామ్రాజ్య స్థాపన</h3>
+          <p class="tl-body"><strong>బాబర్</strong> ఇబ్రహీం లోడీని ఓడించి మొఘల్ సామ్రాజ్యం స్థాపించాడు. హిందువులపై జిజ్యా పన్ను, ఆలయ ధ్వంసాలు మళ్ళీ మొదలయ్యాయి. ఈ నేపథ్యంలోనే శివాజీ అవసరం తెలంగింది.</p>
+          <button class="share-btn" onclick="shareWA('పానిపట్ మొదటి యుద్ధం 1526 — మొఘల్ సామ్రాజ్య స్థాపన | హైందవి స్వరాజ్య చరిత్ర')">📤 WhatsApp Share</button>
+        </div>
+
       </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1192 CE</span>
-        <span class="tl-te-date">శాలివాహన శకం 1114 • భాద్రపద మాసం</span>
-        <h3 class="tl-title">తరాయిన్ యుద్ధం — పృథ్వీరాజ్ చౌహాన్ పతనం</h3>
-        <p class="tl-body">రాజపుత్ర వీరుడు <strong>పృథ్వీరాజ్ చౌహాన్</strong> మహమ్మద్ ఘోరి చేతిలో ఓడిపోయాడు. ఢిల్లీ సుల్తానేట్ స్థాపన జరిగింది. ఉత్తర భారతంలో హిందూ రాజ్యాలు పతనమయ్యాయి. అయినా దక్కన్ లో మరాఠా, కన్నడ, తెలుగు రాజులు పోరాటం కొనసాగించారు.</p>
-      </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1296–1316 CE</span>
-        <span class="tl-te-date">శాలివాహన శకం 1218–1238</span>
-        <h3 class="tl-title">అలాఉద్దీన్ ఖిల్జీ — దక్కన్ పై దండయాత్ర</h3>
-        <p class="tl-body">ఖిల్జీ సేనాపతి <strong>మాలిక్ కాఫూర్</strong> దక్కన్ పై దండయాత్రలు చేసి దేవగిరి యాదవులను, కాకతీయులను వశపరచుకున్నాడు. వేలాది ఆలయాలు ధ్వంసమయ్యాయి. తెలంగాణ, మహారాష్ట్ర ప్రజలు అసహ్యమైన అణచివేతకు గురయ్యారు.</p>
-      </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1323 CE</span>
-        <span class="tl-te-date">శాలివాహన శకం 1245 • చైత్ర మాసం</span>
-        <h3 class="tl-title">కాకతీయ సామ్రాజ్యం పతనం — ప్రతాపరుద్రుని బంధనం</h3>
-        <p class="tl-body">ఉలుఘ్ ఖాన్ దాడిలో <strong>ప్రతాపరుద్ర మహారాజు</strong> బంధించబడ్డాడు. వేయి స్తంభాల గుడి, రామప్ప దేవాలయాలు దోచుకోబడ్డాయి. తెలుగు ప్రజలకు ఇది చీకటి రోజు. కానీ కాకతీయ వీరత్వం పరిపాలన నైపుణ్యం తర్వాతి తరాలకు స్ఫూర్తి ఇచ్చింది.</p>
-      </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1526 CE</span>
-        <span class="tl-te-date">శాలివాహన శకం 1448 • వైశాఖ మాసం</span>
-        <h3 class="tl-title">పానిపట్ మొదటి యుద్ధం — మొఘల్ సామ్రాజ్య స్థాపన</h3>
-        <p class="tl-body"><strong>బాబర్</strong> ఇబ్రహీం లోడీని ఓడించి మొఘల్ సామ్రాజ్యం స్థాపించాడు. ఢిల్లీ నుండి దక్కన్ వరకు ముస్లిం పాలన విస్తరించింది. హిందువులపై జిజ్యా పన్ను, ఆలయ ధ్వంసాలు మళ్ళీ మొదలయ్యాయి. ఈ నేపథ్యంలోనే శివాజీ అవసరం తెలంగింది.</p>
-        <button class="share-btn" onclick="shareWA('పానిపట్ మొదటి యుద్ధం 1526 — మొఘల్ సామ్రాజ్య స్థాపన | హైందవి స్వరాజ్య చరిత్ర')">📤 WhatsApp Share</button>
-      </div>
-
     </div>
   </div>
 
   <!-- ═══ ERA 2 ═══ -->
-  <div class="timeline-era" id="era2">
-    <div class="era-header">
-      <div class="era-header-bg" style="background:linear-gradient(135deg,#1A0A00,#5A3000,#8B5000)">
-      </div>
-      <div class="era-header-content">
-        <span class="era-num">అధ్యాయం 2 • CHAPTER 2</span>
+  <div class="timeline-era fade-in" id="era2">
+    <div class="era-animated-banner">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Hampi_Vijayanagara_Empire.jpg/1200px-Hampi_Vijayanagara_Empire.jpg"
+           alt="హంపి" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Virupaksha_temple.jpg/800px-Virupaksha_temple.jpg';this.onerror=function(){this.parentElement.style.background='linear-gradient(135deg,#1A0A00,#5A3000,#8B5000)'}">
+      <div class="banner-overlay"></div>
+      <div class="banner-content">
+        <div class="era-gif-badge">🏯 CHAPTER 2</div>
+        <span class="era-num">అధ్యాయం 2</span>
         <h2 class="era-title">విజయనగర సామ్రాజ్యం</h2>
         <p class="era-te">The Last Great Hindu Empire</p>
         <p class="era-period">1336 CE — 1646 CE</p>
       </div>
     </div>
-    <p class="era-intro">అంధకారంలో ఒక దీపం వెలిగింది — విజయనగర సామ్రాజ్యం. దక్కన్ లో హిందూ సంస్కృతి, శిల్పకళ, సాహిత్యం అభివృద్ధి చెందాయి. శివాజీకి ఈ సామ్రాజ్యమే స్వరాజ్య కలకు మూలం.</p>
-    <div class="timeline-items">
+    <div class="era-body">
+      <p class="era-intro-inner">అంధకారంలో ఒక దీపం వెలిగింది — విజయనగర సామ్రాజ్యం. దక్కన్ లో హిందూ సంస్కృతి, శిల్పకళ, సాహిత్యం అభివృద్ధి చెందాయి. శివాజీకి ఈ సామ్రాజ్యమే స్వరాజ్య కలకు మూలం.</p>
+      <div class="timeline-items">
 
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1336 CE</span>
-        <span class="tl-te-date">శాలివాహన శకం 1258 • వైశాఖ శుద్ధ తృతీయ</span>
-        <h3 class="tl-title">విజయనగర సామ్రాజ్య స్థాపన — హరిహర మరియు బుక్క రాయలు</h3>
-        <p class="tl-body"><strong>హరిహర మరియు బుక్క రాయలు</strong> కర్నాటకలో విజయనగర సామ్రాజ్యాన్ని స్థాపించారు. తుంగభద్ర నది తీరాన ఈ మహా నగరం నిర్మించబడింది. ఇది ముస్లిం ఆక్రమణకు ప్రతిఘటనగా నిలిచింది. మరాఠా, తెలుగు, కన్నడ వీరులందరూ ఈ సామ్రాజ్యంలో కలిశారు.</p>
+        <div class="timeline-item fade-in">
+          <span class="tl-year">1336 CE</span>
+          <span class="tl-te-date">శాలివాహన శకం 1258 • వైశాఖ శుద్ధ తృతీయ</span>
+          <h3 class="tl-title">విజయనగర సామ్రాజ్య స్థాపన — హరిహర మరియు బుక్క రాయలు</h3>
+          <p class="tl-body"><strong>హరిహర మరియు బుక్క రాయలు</strong> కర్నాటకలో విజయనగర సామ్రాజ్యాన్ని స్థాపించారు. తుంగభద్ర నది తీరాన ఈ మహా నగరం నిర్మించబడింది. ముస్లిం ఆక్రమణకు ప్రతిఘటన గోడగా నిలిచింది.</p>
+          <div class="img-scroll-strip">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Virupaksha_temple.jpg/600px-Virupaksha_temple.jpg" alt="విరూపాక్ష ఆలయం" onerror="this.style.display='none'">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Hampi_vittala_stone_chariot.jpg/600px-Hampi_vittala_stone_chariot.jpg" alt="హంపి రథం" onerror="this.style.display='none'">
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <span class="tl-year">1509–1529 CE</span>
+          <span class="tl-te-date">శాలివాహన శకం 1431–1451</span>
+          <h3 class="tl-title">కృష్ణదేవరాయలు — విజయనగరం స్వర్ణయుగం</h3>
+          <p class="tl-body"><strong>కృష్ణదేవరాయలు</strong> విజయనగరాన్ని అత్యున్నత స్థాయికి తీసుకెళ్ళారు. "ఆముక్తమాల్యద" రచించారు, తెలుగు సాహిత్యానికి స్వర్ణయుగం ఇచ్చారు.</p>
+          <div class="tl-highlight">
+            <p>🌟 పోర్చుగీసు రాయబారి <em>డోమింగో పైస్</em> — "ఇది ప్రపంచంలోనే అత్యంత సుందరమైన నగరం, రోమ్ నగరానికి సమానంగా ఉంది" అని వర్ణించాడు.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <span class="tl-year">1565 CE</span>
+          <span class="tl-te-date">శాలివాహన శకం 1487 • కార్తీక మాసం</span>
+          <h3 class="tl-title">తళ్ళికోట యుద్ధం — విజయనగర పతనం</h3>
+          <p class="tl-body">దక్కన్ సుల్తానుల కూటమి <strong>తళ్ళికోట యుద్ధంలో</strong> విజయనగరాన్ని ఓడించింది. నగరం నాలుగు నెలలపాటు దోచుకోబడింది, కాల్చబడింది. వేలాది ఆలయాలు నాశనమయ్యాయి.</p>
+          <p class="tl-quote">విజయనగరం పడిపోయినా, హిందూ స్ఫూర్తి పడిపోలేదు. శివాజీ రూపంలో అది మళ్ళీ లేచింది.</p>
+        </div>
+
       </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1509–1529 CE</span>
-        <span class="tl-te-date">శాలివాహన శకం 1431–1451</span>
-        <h3 class="tl-title">కృష్ణదేవరాయలు — విజయనగరం స్వర్ణయుగం</h3>
-        <p class="tl-body"><strong>కృష్ణదేవరాయలు</strong> విజయనగరాన్ని అత్యున్నత స్థాయికి తీసుకెళ్ళారు. "ఆముక్తమాల్యద" రచించారు, తెలుగు సాహిత్యానికి స్వర్ణయుగం ఇచ్చారు. పోర్చుగీసు రాయబారి <em>డోమింగో పైస్</em> "ఇది ప్రపంచంలోనే అత్యంత సుందరమైన నగరం" అని వర్ణించాడు. ఈయన పాలనలో హిందూ ధర్మం, కళ, వ్యాపారం అన్నీ వికసించాయి.</p>
-      </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1565 CE</span>
-        <span class="tl-te-date">శాలివాహన శకం 1487 • కార్తీక మాసం</span>
-        <h3 class="tl-title">తళ్ళికోట యుద్ధం — విజయనగర పతనం</h3>
-        <p class="tl-body">దక్కన్ సుల్తానుల కూటమి <strong>తళ్ళికోట యుద్ధంలో</strong> విజయనగరాన్ని ఓడించింది. నగరం నాలుగు నెలలపాటు దోచుకోబడింది, కాల్చబడింది. వేలాది ఆలయాలు, కళాఖండాలు నాశనమయ్యాయి. హిందూ సామ్రాజ్యం పతనమైంది — కానీ మరాఠా వీరులు పోరాటం ఆపలేదు.</p>
-        <p class="tl-quote">విజయనగరం పడిపోయినా, హిందూ స్ఫూర్తి పడిపోలేదు. శివాజీ రూపంలో అది మళ్ళీ లేచింది.</p>
-      </div>
-
     </div>
   </div>
 
   <!-- ═══ ERA 3 ═══ -->
-  <div class="timeline-era" id="era3">
-    <div class="era-header">
-      <div class="era-header-bg" style="background:linear-gradient(135deg,#0D1F0D,#1A3A1A,#2D5A2D)"></div>
-      <div class="era-header-content">
-        <span class="era-num">అధ్యాయం 3 • CHAPTER 3</span>
+  <div class="timeline-era fade-in" id="era3">
+    <div class="era-animated-banner">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Shivaji_BhosaleI.jpg/800px-Shivaji_BhosaleI.jpg"
+           alt="మరాఠా వీరులు" onerror="this.parentElement.style.background='linear-gradient(135deg,#0D1F0D,#1A3A1A,#2D5A2D)'">
+      <div class="banner-overlay" style="background:linear-gradient(135deg,rgba(20,50,20,.9),rgba(40,100,40,.6))"></div>
+      <div class="banner-content">
+        <div class="era-gif-badge" style="background:#2D6A2D">⚔️ CHAPTER 3</div>
+        <span class="era-num">అధ్యాయం 3</span>
         <h2 class="era-title">మరాఠా వీరుల ఆవిర్భావం</h2>
         <p class="era-te">The Rise of Maratha Warriors</p>
         <p class="era-period">1550 CE — 1630 CE</p>
       </div>
     </div>
-    <p class="era-intro">విజయనగరం పతనం తర్వాత మరాఠా వీరులు బీజాపూర్, అహ్మద్‌నగర్ సుల్తానుల కింద సేవ చేస్తూ, తమ శక్తిని, యుద్ధ నైపుణ్యాన్ని పెంచుకున్నారు. శివాజీ తండ్రి శహాజీ భోసలే ఈ తరానికి ప్రతీక.</p>
-    <div class="timeline-items">
+    <div class="era-body">
+      <p class="era-intro-inner">విజయనగరం పతనం తర్వాత మరాఠా వీరులు బీజాపూర్, అహ్మద్‌నగర్ సుల్తానుల కింద సేవ చేస్తూ, తమ శక్తిని, యుద్ధ నైపుణ్యాన్ని పెంచుకున్నారు. శివాజీ తండ్రి శహాజీ భోసలే ఈ తరానికి ప్రతీక.</p>
+      <div class="timeline-items">
 
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1564 CE</span>
-        <span class="tl-te-date">శాలివాహన శకం 1486</span>
-        <h3 class="tl-title">మరాఠా సైనికుల బీజాపూర్ సేవ — శక్తి సంపాదన</h3>
-        <p class="tl-body">మరాఠా వీరులు బీజాపూర్ సుల్తానేట్ లో <strong>కీలక సైనిక పదవులు</strong> పొందారు. యుద్ధ వ్యూహాలు, కోట నిర్మాణ కళ, ఆర్థిక నిర్వహణ నేర్చుకున్నారు. ఈ అనుభవమే తర్వాత శివాజీకి పని వచ్చింది.</p>
+        <div class="timeline-item fade-in">
+          <span class="tl-year">1594 CE</span>
+          <span class="tl-te-date">శాలివాహన శకం 1516 • శ్రావణ మాసం</span>
+          <h3 class="tl-title">శహాజీ భోసలే జన్మం — శివాజీ తండ్రి</h3>
+          <p class="tl-body"><strong>శహాజీ భోసలే</strong> మహారాష్ట్రలో జన్మించారు. బీజాపూర్ మరియు అహ్మద్‌నగర్ సుల్తానుల కింద అత్యంత ప్రతిభావంతమైన సేనానిగా ఎదిగారు. అయినా స్వతంత్ర హిందూ రాజ్యం కోసం కలలు కన్నారు.</p>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <span class="tl-year">1605 CE</span>
+          <span class="tl-te-date">శాలివాహన శకం 1527 • మాఘ మాసం</span>
+          <h3 class="tl-title">జిజాబాయి జన్మం — శివాజీ మాత</h3>
+          <p class="tl-body">శివాజీ తల్లి <strong>జిజాబాయి</strong> లఖూజీ జాదవ్ కుమార్తె. ధర్మ నిష్ఠ, రాజనీతి జ్ఞానం కలిగిన మహిళ. శివాజీకి రామాయణం, మహాభారతం నేర్పి, స్వరాజ్య కలను నాటారు.</p>
+          <div class="tl-highlight">
+            <p>👩 జిజాబాయి లేకుండా శివాజీ లేడు. శివాజీ లేకుండా హైందవి స్వరాజ్యం లేదు. తల్లే కాదు — ఆమె శివాజీకి మొదటి రాజకీయ గురువు.</p>
+          </div>
+          <p class="tl-quote">జిజాబాయి లేకుండా శివాజీ లేడు. శివాజీ లేకుండా హైందవి స్వరాజ్యం లేదు.</p>
+        </div>
+
       </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1594 CE</span>
-        <span class="tl-te-date">శాలివాహన శకం 1516 • శ్రావణ మాసం</span>
-        <h3 class="tl-title">శహాజీ భోసలే జన్మం — శివాజీ తండ్రి</h3>
-        <p class="tl-body"><strong>శహాజీ భోసలే</strong> మహారాష్ట్రలో జన్మించారు. బీజాపూర్ మరియు అహ్మద్‌నగర్ సుల్తానుల కింద అత్యంత ప్రతిభావంతమైన సేనానిగా ఎదిగారు. అయినా స్వతంత్ర హిందూ రాజ్యం కోసం కలలు కన్నారు. ఆ కల తర్వాత శివాజీ నెరవేర్చాడు.</p>
-      </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1605 CE</span>
-        <span class="tl-te-date">శాలివాహన శకం 1527 • మాఘ మాసం</span>
-        <h3 class="tl-title">జిజాబాయి జన్మం — శివాజీ మాత</h3>
-        <p class="tl-body">శివాజీ తల్లి <strong>జిజాబాయి</strong> లఖూజీ జాదవ్ కుమార్తె. రాజపుత్ర వంశం నుండి వచ్చిన ఈమె ధర్మ నిష్ఠ, రాజనీతి జ్ఞానం కలిగిన మహిళ. శివాజీకి రామాయణం, మహాభారతం నేర్పి, స్వరాజ్య కలను నాటారు. తల్లే కాదు — ఆమె శివాజీకి మొదటి రాజకీయ గురువు.</p>
-        <p class="tl-quote">జిజాబాయి లేకుండా శివాజీ లేడు. శివాజీ లేకుండా హైందవి స్వరాజ్యం లేదు.</p>
-      </div>
-
     </div>
   </div>
 
   <!-- ═══ ERA 4 ═══ -->
-  <div class="timeline-era" id="era4">
-    <div class="era-header">
-      <div class="era-header-bg" style="background:linear-gradient(135deg,#1a0a2e,#3D0008,#6B0F1A)">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Shivaji_BhosaleI.jpg/800px-Shivaji_BhosaleI.jpg"
-             alt="" onerror="this.style.display='none'" style="opacity:.35">
-      </div>
-      <div class="era-header-content">
-        <span class="era-num">అధ్యాయం 4 • CHAPTER 4</span>
+  <div class="timeline-era fade-in" id="era4">
+    <div class="era-animated-banner">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Shivneri_fort_Junnar.jpg/1200px-Shivneri_fort_Junnar.jpg"
+           alt="శివనేరి కోట" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Shivaji_BhosaleI.jpg/800px-Shivaji_BhosaleI.jpg';this.onerror=function(){this.parentElement.style.background='linear-gradient(135deg,#1a0a2e,#3D0008,#6B0F1A)'}">
+      <div class="banner-overlay"></div>
+      <div class="banner-content">
+        <div class="era-gif-badge">👶 CHAPTER 4</div>
+        <span class="era-num">అధ్యాయం 4</span>
         <h2 class="era-title">శివాజీ — జన్మం నుండి తొలి విజయాలు</h2>
         <p class="era-te">Birth of Swarajya</p>
         <p class="era-period">1630 CE — 1655 CE</p>
       </div>
     </div>
-    <p class="era-intro">ఫాల్గుణ కృష్ణ తృతీయ, శాలివాహన శకం 1551 — శివనేరి కోటలో ఒక శిశువు జన్మించాడు. ఆ జననంతో హిందూ ప్రజలకు ఒక కొత్త ఆశ వెలిగింది. ఆ శిశువే చత్రపతి శివాజీ మహారాజ్.</p>
-    <div class="timeline-items">
+    <div class="era-body">
+      <p class="era-intro-inner">ఫాల్గుణ కృష్ణ తృతీయ, శాలివాహన శకం 1551 — శివనేరి కోటలో ఒక శిశువు జన్మించాడు. ఆ జననంతో హిందూ ప్రజలకు ఒక కొత్త ఆశ వెలిగింది. ఆ శిశువే చత్రపతి శివాజీ మహారాజ్.</p>
+      <div class="timeline-items">
 
-      <div class="timeline-item fade-in">
-        <span class="tl-year">19 ఫిబ్రవరి 1630</span>
-        <span class="tl-te-date">శాలివాహన శకం 1551 • ఫాల్గుణ కృష్ణ తృతీయ • కృత్తిక నక్షత్రం • శుక్రవారం</span>
-        <h3 class="tl-title">శివాజీ జన్మం — శివనేరి కోట, పుణే</h3>
-        <p class="tl-body">పుణే జిల్లాలోని <strong>శివనేరి కోటలో</strong> శివాజీ జన్మించాడు. తండ్రి శహాజీ భోసలే, తల్లి జిజాబాయి. పురవారాశి నక్షత్రంలో జన్మించిన ఈ బాలుడు "శివాయ" అని పిలవబడ్డాడు — శివుని ఆశీర్వాదంతో. జన్మించినప్పటి నుండే జ్యోతిషులు ఈ బాలుడు చక్రవర్తి అవుతాడని చెప్పారు.</p>
-        <button class="share-btn" onclick="shareWA('శివాజీ జన్మం — 19 Feb 1630 | ఫాల్గుణ కృష్ణ తృతీయ | కృత్తిక నక్షత్రం | శివనేరి కోట 🚩')">📤 Share</button>
+        <div class="timeline-item fade-in">
+          <span class="tl-year">19 ఫిబ్రవరి 1630</span>
+          <span class="tl-te-date">శాలివాహన శకం 1551 • ఫాల్గుణ కృష్ణ తృతీయ • కృత్తిక నక్షత్రం • శుక్రవారం</span>
+          <h3 class="tl-title">శివాజీ జన్మం — శివనేరి కోట, పుణే <span class="flag-float">🚩</span></h3>
+          <p class="tl-body">పుణే జిల్లాలోని <strong>శివనేరి కోటలో</strong> శివాజీ జన్మించాడు. తండ్రి శహాజీ భోసలే, తల్లి జిజాబాయి. "శివాయ" అని పిలవబడ్డాడు — శివుని ఆశీర్వాదంతో.</p>
+          <div class="img-scroll-strip">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Shivneri_fort_Junnar.jpg/600px-Shivneri_fort_Junnar.jpg" alt="శివనేరి కోట" onerror="this.style.display='none'">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Shivaji_BhosaleI.jpg/400px-Shivaji_BhosaleI.jpg" alt="శివాజీ" onerror="this.style.display='none'">
+          </div>
+          <button class="share-btn" onclick="shareWA('శివాజీ జన్మం — 19 Feb 1630 | ఫాల్గుణ కృష్ణ తృతీయ | శివనేరి కోట 🚩')">📤 Share</button>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <span class="tl-year">1636–1645</span>
+          <span class="tl-te-date">శాలివాహన శకం 1558–1567</span>
+          <h3 class="tl-title">దాదోజీ కొండదేవ్ శిక్షణ — యోధుని నిర్మాణం</h3>
+          <p class="tl-body"><strong>దాదోజీ కొండదేవ్</strong> శివాజీకి గురువు అయ్యారు. కత్తి యుద్ధం, గుర్రపు స్వారీ, ఈత, కొండలపై పరిగెత్తడం — అన్నీ నేర్పించారు. 12 ఏళ్ళ వయసుకే మావళ యువకులతో సొంత సైన్యం నిర్మించాడు.</p>
+          <div class="inline-stats">
+            <div class="ist"><span class="ist-num">12</span><span class="ist-label">సంవత్సరాల వయసు</span></div>
+            <div class="ist"><span class="ist-num">మావళ</span><span class="ist-label">మొదటి సైన్యం</span></div>
+            <div class="ist"><span class="ist-num">9</span><span class="ist-label">సంవత్సరాల శిక్షణ</span></div>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <span class="tl-year">1645</span>
+          <span class="tl-te-date">శాలివాహన శకం 1567 • వైశాఖ శుద్ధ పంచమి • మృగశిర నక్షత్రం</span>
+          <h3 class="tl-title">తొర్ణా కోట స్వాధీనం — 16 ఏళ్ళకే మొదటి విజయం ⚔️</h3>
+          <p class="tl-body">కేవలం <strong>16 ఏళ్ళ వయసులో</strong> బీజాపూర్ సుల్తాన్ నియంత్రణలో ఉన్న తొర్ణా కోటను స్వాధీనం చేసుకున్నాడు. ఇది హైందవి స్వరాజ్య పునాది వేయడం.</p>
+          <div class="fort-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Torna_fort.jpg/640px-Torna_fort.jpg" alt="తొర్ణా కోట" onerror="this.style.display='none'">
+            <div class="fort-card-cap">
+              <h5>తొర్ణా కోట — మొదటి విజయం 1645</h5>
+              <p>బీజాపూర్ సుల్తాన్ నుండి స్వాధీనం • శివాజీ వయసు 16 సంవత్సరాలు</p>
+            </div>
+          </div>
+          <button class="share-btn" onclick="shareWA('తొర్ణా కోట 1645 — 16 ఏళ్ళకే మొదటి విజయం 🚩')">📤 Share</button>
+        </div>
+
       </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1636–1645</span>
-        <span class="tl-te-date">శాలివాహన శకం 1558–1567 • శ్రావణ–వైశాఖ మాసాలు</span>
-        <h3 class="tl-title">దాదోజీ కొండదేవ్ శిక్షణ — యోధుని నిర్మాణం</h3>
-        <p class="tl-body">తండ్రి శహాజీ వేరే చోట ఉండటంతో <strong>దాదోజీ కొండదేవ్</strong> శివాజీకి గురువు అయ్యారు. కత్తి యుద్ధం (ఖడ్గ విద్య), గుర్రపు స్వారీ (అశ్వారోహణ), ఈత, కొండలపై పరిగెత్తడం — అన్నీ నేర్పించారు. 12 ఏళ్ళ వయసుకే శివాజీ మావళ ప్రాంతపు యువకులతో సొంత సైన్యం నిర్మించాడు.</p>
-      </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1645</span>
-        <span class="tl-te-date">శాలివాహన శకం 1567 • వైశాఖ శుద్ధ పంచమి • మృగశిర నక్షత్రం</span>
-        <h3 class="tl-title">తొర్ణా కోట స్వాధీనం — 16 ఏళ్ళకే మొదటి విజయం</h3>
-        <p class="tl-body">కేవలం <strong>16 ఏళ్ళ వయసులో</strong> బీజాపూర్ సుల్తాన్ నియంత్రణలో ఉన్న తొర్ణా కోటను స్వాధీనం చేసుకున్నాడు. ఇది కేవలం ఒక కోట పట్టడం కాదు — హైందవి స్వరాజ్య పునాది వేయడం. "కోటకు రాజు ఎవరు? ఆ కోటలో ఉన్న హిందువులు" అన్నాడు శివాజీ.</p>
-        <button class="share-btn" onclick="shareWA('తొర్ణా కోట 1645 — 16 ఏళ్ళకే మొదటి విజయం | వైశాఖ మాసం | మృగశిర నక్షత్రం 🚩')">📤 Share</button>
-      </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1647–1655</span>
-        <span class="tl-te-date">శాలివాహన శకం 1569–1577</span>
-        <h3 class="tl-title">రాయగఢ్, చాకణ్, పురందర్ కోటలు — వేగవంతమైన విస్తరణ</h3>
-        <p class="tl-body">తొర్ణా తర్వాత <strong>రాయగఢ్, చాకణ్, పురందర్, కొండాణ</strong> కోటలు వరుసగా స్వాధీనమయ్యాయి. రాయగఢ్ ను రాజధానిగా నిర్మించాడు. ప్రతి కోటకు వందల అడుగుల ఎత్తైన గోడలు, సిపాయిలు, ఆహార నిల్వలు ఏర్పాటు చేశాడు. బీజాపూర్ సుల్తాన్ ఆందోళన పడ్డాడు.</p>
-      </div>
-
     </div>
   </div>
 
   <!-- ═══ ERA 5 ═══ -->
-  <div class="timeline-era" id="era5">
-    <div class="era-header">
-      <div class="era-header-bg" style="background:linear-gradient(135deg,#1A0A00,#4A1500,#8B3000)"></div>
-      <div class="era-header-content">
-        <span class="era-num">అధ్యాయం 5 • CHAPTER 5</span>
+  <div class="timeline-era fade-in" id="era5">
+    <div class="era-animated-banner">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Shivaji_at_Pratapgad.jpg/1200px-Shivaji_at_Pratapgad.jpg"
+           alt="ప్రతాపగఢ్" onerror="this.parentElement.style.background='linear-gradient(135deg,#3A0010,#7A1020,#C41840)'">
+      <div class="banner-overlay" style="background:linear-gradient(135deg,rgba(92,0,20,.9),rgba(180,10,40,.6))"></div>
+      <div class="banner-content">
+        <div class="era-gif-badge" style="background:#8B1020">🔥 CHAPTER 5</div>
+        <span class="era-num">అధ్యాయం 5</span>
         <h2 class="era-title">మహా యుద్ధాలు — స్వరాజ్య స్థాపన</h2>
         <p class="era-te">Great Battles — Swarajya Established</p>
         <p class="era-period">1656 CE — 1670 CE</p>
       </div>
     </div>
-    <p class="era-intro">ఒక వైపు బీజాపూర్ సుల్తాన్, మరొక వైపు మొఘల్ చక్రవర్తి అయిన ఔరంగజేబు — ఇద్దరూ శివాజీని నాశనం చేయాలని యత్నించారు. కానీ శివాజీ తన తెలివి, సాహసంతో ఇద్దరినీ ఓడించాడు.</p>
-    <div class="timeline-items">
+    <div class="era-body">
+      <p class="era-intro-inner">ఒక వైపు బీజాపూర్ సుల్తాన్, మరొక వైపు మొఘల్ చక్రవర్తి ఔరంగజేబు — ఇద్దరూ శివాజీని నాశనం చేయాలని యత్నించారు. కానీ శివాజీ తన తెలివి, సాహసంతో ఇద్దరినీ ఓడించాడు.</p>
+      <div class="timeline-items">
 
-      <div class="timeline-item fade-in">
-        <span class="tl-year">10 నవంబర్ 1659</span>
-        <span class="tl-te-date">శాలివాహన శకం 1581 • కార్తీక కృష్ణ ద్వాదశి • విశాఖ నక్షత్రం • మంగళవారం</span>
-        <h3 class="tl-title">ప్రతాపగఢ్ యుద్ధం — అఫ్జల్ ఖాన్ వధ</h3>
-        <p class="tl-body">బీజాపూర్ సుల్తాన్ పంపిన <strong>7 అడుగుల పొడవైన బలవంతుడు అఫ్జల్ ఖాన్</strong> 12,000 సైన్యంతో వచ్చాడు. "మీటింగ్" పేరిట శివాజీని హగ్ చేయబోయినప్పుడు, శివాజీ చేతిలో దాచిన <em>వాఘనఖ్ (పులి గోళ్ళు)</em> ఆయుధంతో అఫ్జల్ ఖాన్ ని సంహరించాడు. 3,000+ శత్రు సైనికులు మరణించారు. మరాఠా వీరత్వం ప్రపంచానికి తెలిసింది.</p>
-        <p class="tl-quote">శత్రువు పరిమాణంలో కాదు, మన తెలివిలో శక్తి ఉంది.</p>
-        <button class="share-btn" onclick="shareWA('అఫ్జల్ ఖాన్ వధ — 10 Nov 1659 | కార్తీక కృష్ణ ద్వాదశి | విశాఖ నక్షత్రం 🚩 జై శివాజీ!')">📤 Share</button>
+        <div class="timeline-item fade-in">
+          <span class="tl-year">10 నవంబర్ 1659</span>
+          <span class="tl-te-date">శాలివాహన శకం 1581 • కార్తీక కృష్ణ ద్వాదశి • విశాఖ నక్షత్రం • మంగళవారం</span>
+          <h3 class="tl-title">ప్రతాపగఢ్ యుద్ధం — అఫ్జల్ ఖాన్ వధ <span class="sword-anim">⚔️</span></h3>
+          <p class="tl-body">బీజాపూర్ సుల్తాన్ పంపిన <strong>7 అడుగుల పొడవైన బలవంతుడు అఫ్జల్ ఖాన్</strong> 12,000 సైన్యంతో వచ్చాడు. "మీటింగ్" పేరిట శివాజీని హగ్ చేయబోయినప్పుడు, శివాజీ చేతిలో దాచిన <em>వాఘనఖ్ (పులి గోళ్ళు)</em> ఆయుధంతో అఫ్జల్ ఖాన్ ని సంహరించాడు.</p>
+          <div class="battle-scene">
+            <div class="bs-icon">⚔️</div>
+            <div class="bs-text">
+              <strong>అఫ్జల్ ఖాన్ సైన్యం: 12,000</strong> vs <strong>శివాజీ మావళ వీరులు</strong><br>
+              ఫలితం: 3,000+ శత్రు సైనికులు మరణించారు. మరాఠా విజయం!
+            </div>
+          </div>
+          <div class="img-scroll-strip">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Shivaji_at_Pratapgad.jpg/600px-Shivaji_at_Pratapgad.jpg" alt="ప్రతాపగఢ్" onerror="this.style.display='none'">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Pratapgad_Fort_Maharashtra_India.jpg/600px-Pratapgad_Fort_Maharashtra_India.jpg" alt="ప్రతాపగఢ్ కోట" onerror="this.style.display='none'">
+          </div>
+          <p class="tl-quote">శత్రువు పరిమాణంలో కాదు, మన తెలివిలో శక్తి ఉంది.</p>
+          <button class="share-btn" onclick="shareWA('అఫ్జల్ ఖాన్ వధ — 10 Nov 1659 | కార్తీక కృష్ణ ద్వాదశి 🚩 జై శివాజీ!')">📤 Share</button>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <span class="tl-year">ఏప్రిల్ 1663</span>
+          <span class="tl-te-date">శాలివాహన శకం 1585 • చైత్ర కృష్ణ ఏకాదశి</span>
+          <h3 class="tl-title">శైస్తా ఖాన్ పై అర్ధరాత్రి దాడి — 350 మంది వీరులు</h3>
+          <p class="tl-body">మొఘల్ గవర్నర్ <strong>శైస్తా ఖాన్</strong> పుణే ఆక్రమించుకున్నాడు. శివాజీ కేవలం <strong>350 మంది</strong> ఎంపిక చేసిన వీరులతో అర్ధరాత్రి కిటికీ నుండి శైస్తా ఖాన్ భవనంలోకి చొరబడ్డాడు. శైస్తా ఖాన్ పారిపోయాడు — చేయి మాత్రం పోగొట్టుకున్నాడు.</p>
+          <div class="inline-stats">
+            <div class="ist"><span class="ist-num">350</span><span class="ist-label">మావళ వీరులు</span></div>
+            <div class="ist"><span class="ist-num">1663</span><span class="ist-label">అర్ధరాత్రి దాడి</span></div>
+            <div class="ist"><span class="ist-num">✓</span><span class="ist-label">మొఘల్ పలాయనం</span></div>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <span class="tl-year">17 ఆగస్ట్ 1666</span>
+          <span class="tl-te-date">శాలివాహన శకం 1588 • శ్రావణ శుద్ధ దశమి • హస్త నక్షత్రం</span>
+          <h3 class="tl-title">ఆగ్రా నుండి అద్భుతమైన తప్పింపు — మిఠాయి బుట్టలు 🧺</h3>
+          <p class="tl-body">ఔరంగజేబు శివాజీని ఆగ్రాలో బంధించాడు. శివాజీ తెలివిగా <strong>మిఠాయి బుట్టల్లో</strong> కొడుకు సంభాజీతో సహా మారువేషంలో తప్పించుకున్నాడు. వేలాది కిలోమీటర్లు ప్రయాణించి మహారాష్ట్ర చేరుకున్నాడు.</p>
+          <div class="tl-highlight">
+            <p>🧺 మిఠాయి బుట్టలు → 🏃 మారువేషం → 🗺️ వేలాది కి.మీ. ప్రయాణం → 🏰 మహారాష్ట్ర చేరుకోవడం<br><br>చరిత్రలో అత్యంత సాహసోపేత తప్పింపు!</p>
+          </div>
+          <p class="tl-quote">శత్రువు జైలు కూడా ఆపలేదు — అది శివాజీ.</p>
+          <button class="share-btn" onclick="shareWA('ఆగ్రా తప్పింపు — 17 Aug 1666 | శ్రావణ మాసం 🚩 జై శివాజీ!')">📤 Share</button>
+        </div>
+
       </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">ఏప్రిల్ 1663</span>
-        <span class="tl-te-date">శాలివాహన శకం 1585 • చైత్ర కృష్ణ ఏకాదశి • పూర్వభాద్ర నక్షత్రం</span>
-        <h3 class="tl-title">శైస్తా ఖాన్ పై అర్ధరాత్రి దాడి — 350 మంది వీరులు</h3>
-        <p class="tl-body">మొఘల్ గవర్నర్ <strong>శైస్తా ఖాన్</strong> పుణే ఆక్రమించుకున్నాడు. శివాజీ కేవలం <strong>350 మంది</strong> ఎంపిక చేసిన వీరులతో అర్ధరాత్రి ఒంటరిగా శైస్తా ఖాన్ ఉన్న భవనంలోకి చొరబడ్డాడు. శైస్తా ఖాన్ కిటికీ నుండి పారిపోయాడు — చేయి మాత్రం పోగొట్టుకున్నాడు. ఈ సాహసానికి ఔరంగజేబు నివ్వెరపోయాడు.</p>
-      </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">జనవరి 1664</span>
-        <span class="tl-te-date">శాలివాహన శకం 1585 • పుష్య శుద్ధ అష్టమి • అశ్లేష నక్షత్రం</span>
-        <h3 class="tl-title">సూరత్ దాడి — మొఘల్ ధనాగారం లూటీ</h3>
-        <p class="tl-body">మొఘలుల అత్యంత సంపన్నమైన వ్యాపార నగరం <strong>సూరత్</strong> పై దాడి చేసి కోట్ల సంపదను స్వాధీనం చేసుకున్నాడు. కానీ సామాన్య ప్రజలను, స్త్రీలను, ఇతర మత ప్రార్థనా స్థలాలను హాని చేయలేదు. ఈ విచక్షణ శివాజీని సాధారణ దోపిడి నుండి వేరు చేసింది.</p>
-      </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">జూన్ 1665</span>
-        <span class="tl-te-date">శాలివాహన శకం 1587 • జ్యేష్ఠ మాసం</span>
-        <h3 class="tl-title">పురందర్ సంధి — ఔరంగజేబుకు 23 కోటలు</h3>
-        <p class="tl-body">మొఘల్ సేనాపతి <strong>జై సింగ్ I</strong> భారీ సేనతో వచ్చాడు. శివాజీ తాత్కాలికంగా 23 కోటలు ఇచ్చాడు, 13 ఉంచుకున్నాడు. ఈ సంధి వ్యూహాత్మకమైంది — శివాజీ సమయం కోసం వేచాడు, శక్తి కూడగట్టాడు, తర్వాత అన్నీ వెనక్కి తీసుకున్నాడు.</p>
-      </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">17 ఆగస్ట్ 1666</span>
-        <span class="tl-te-date">శాలివాహన శకం 1588 • శ్రావణ శుద్ధ దశమి • హస్త నక్షత్రం • సోమవారం</span>
-        <h3 class="tl-title">ఆగ్రా నుండి అద్భుతమైన తప్పింపు — మిఠాయి బుట్టలు</h3>
-        <p class="tl-body">ఔరంగజేబు శివాజీని ఆగ్రాలో బంధించాడు. శివాజీ తెలివిగా <strong>మిఠాయి బుట్టల్లో</strong> కొడుకు సంభాజీతో సహా మారువేషంలో తప్పించుకున్నాడు. వేలాది కిలోమీటర్లు ప్రయాణించి మహారాష్ట్ర చేరుకున్నాడు. ఇది చరిత్రలో అత్యంత సాహసోపేత తప్పింపు. మళ్ళీ రెండు సంవత్సరాలలో అన్ని కోటలు తిరిగి స్వాధీనం చేసుకున్నాడు.</p>
-        <p class="tl-quote">శత్రువు జైలు కూడా మన ఆపలేదు — అది శివాజీ.</p>
-        <button class="share-btn" onclick="shareWA('ఆగ్రా తప్పింపు — 17 Aug 1666 | శ్రావణ మాసం | హస్త నక్షత్రం 🚩 జై శివాజీ!')">📤 Share</button>
-      </div>
-
     </div>
   </div>
 
   <!-- ═══ ERA 6 ═══ -->
-  <div class="timeline-era" id="era6">
-    <div class="era-header">
-      <div class="era-header-bg" style="background:linear-gradient(135deg,#0A0A1A,#1A1A4A,#3A3A8A)">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Shivaji_BhosaleI.jpg/800px-Shivaji_BhosaleI.jpg"
-             alt="" onerror="this.style.display='none'" style="opacity:.3">
-      </div>
-      <div class="era-header-content">
-        <span class="era-num">అధ్యాయం 6 • CHAPTER 6</span>
+  <div class="timeline-era fade-in" id="era6">
+    <div class="era-animated-banner">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Raigad_fort_Maharashtra.jpg/1200px-Raigad_fort_Maharashtra.jpg"
+           alt="రాయగఢ్ కోట" onerror="this.parentElement.style.background='linear-gradient(135deg,#1A1400,#5A4800,#9B7800)'">
+      <div class="banner-overlay" style="background:linear-gradient(135deg,rgba(60,40,0,.88),rgba(120,80,0,.6))"></div>
+      <div class="banner-content">
+        <div class="era-gif-badge" style="background:#8B6800">👑 CHAPTER 6</div>
+        <span class="era-num">అధ్యాయం 6</span>
         <h2 class="era-title">చత్రపతి — సామ్రాజ్య స్థాపన</h2>
         <p class="era-te">The Crown & The Empire</p>
         <p class="era-period">1670 CE — 1680 CE</p>
       </div>
     </div>
-    <p class="era-intro">1666 లో తప్పించుకున్న శివాజీ మళ్ళీ శక్తి కూడగట్టాడు. 1670 నాటికి అన్ని కోటలు వెనక్కి తీసుకున్నాడు. 1674 లో ఆయన కోరిక నెరవేరింది — హైందవి స్వరాజ్య రాజుగా పట్టాభిషేకం.</p>
-    <div class="timeline-items">
+    <div class="era-body">
+      <p class="era-intro-inner">1666 లో తప్పించుకున్న శివాజీ మళ్ళీ శక్తి కూడగట్టాడు. 1670 నాటికి అన్ని కోటలు వెనక్కి తీసుకున్నాడు. 1674 లో ఆయన కోరిక నెరవేరింది — హైందవి స్వరాజ్య రాజుగా పట్టాభిషేకం.</p>
+      <div class="timeline-items">
 
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1670–1674</span>
-        <span class="tl-te-date">శాలివాహన శకం 1592–1596</span>
-        <h3 class="tl-title">అన్ని కోటలు వెనక్కి — నావికాదళ నిర్మాణం</h3>
-        <p class="tl-body">శివాజీ <strong>23 కోటలన్నీ</strong> 1670 నాటికి వెనక్కి తీసుకున్నాడు. రెండవ సూరత్ దాడి (1670), ఔరంగ్జేబ్ పై నిరంతర దాడులు జరిపాడు. సముద్రంపై అధికారం కోసం <strong>నావికాదళం</strong> నిర్మించాడు — సింధుదుర్గ్, విజయదుర్గ్ నావికా కోటలు. ఇది భారత చరిత్రలో మొదటి సారి.</p>
+        <div class="timeline-item fade-in">
+          <span class="tl-year">1670–1674</span>
+          <span class="tl-te-date">శాలివాహన శకం 1592–1596</span>
+          <h3 class="tl-title">అన్ని కోటలు వెనక్కి — నావికాదళ నిర్మాణం</h3>
+          <p class="tl-body">శివాజీ <strong>23 కోటలన్నీ</strong> 1670 నాటికి వెనక్కి తీసుకున్నాడు. సముద్రంపై అధికారం కోసం <strong>నావికాదళం</strong> నిర్మించాడు — భారత చరిత్రలో మొదటి సారి.</p>
+          <div class="img-scroll-strip">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Sindhudurg_fort.jpg/600px-Sindhudurg_fort.jpg" alt="సింధుదుర్గ్" onerror="this.style.display='none'">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Raigad_fort_Maharashtra.jpg/600px-Raigad_fort_Maharashtra.jpg" alt="రాయగఢ్" onerror="this.style.display='none'">
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <span class="tl-year">6 జూన్ 1674</span>
+          <span class="tl-te-date">శాలివాహన శకం 1596 • జ్యేష్ఠ శుద్ధ త్రయోదశి • జ్యేష్ఠ నక్షత్రం • గురువారం</span>
+          <h3 class="tl-title">చత్రపతి పట్టాభిషేకం — రాయగఢ్ కోట <span class="crown-shine">👑</span></h3>
+          <p class="tl-body">రాయగఢ్ కోటలో <strong>50,000 మంది</strong> సాక్షిగా శివాజీ "చత్రపతి" పట్టాభిషేకం జరిగింది. తల్లి జిజాబాయి ఈ మహోత్సవం చూసారు — 12 రోజుల తర్వాత కన్ను మూసారు.</p>
+          <div class="coronation-box">
+            <h4>🏅 చత్రపతి పట్టాభిషేక వివరాలు</h4>
+            <p>
+              📅 <strong>తేదీ:</strong> జ్యేష్ఠ శుద్ధ త్రయోదశి, 1596 శాలివాహన శకం<br>
+              🏰 <strong>స్థలం:</strong> రాయగఢ్ కోట, మహారాష్ట్ర<br>
+              👥 <strong>సాక్షులు:</strong> 50,000+ మంది — రాజులు, బ్రాహ్మణులు, సైనికులు, ప్రజలు<br>
+              👑 <strong>బిరుదు:</strong> ఛత్రపతి (సార్వభౌముడు), శ్రీమంత్ రాజ శివాజీ<br>
+              🎊 <strong>వేడుక:</strong> 12 రోజులు నిరంతర ఉత్సవాలు
+            </p>
+          </div>
+          <p class="tl-quote">ఆ రోజు కేవలం ఒక రాజు పట్టాభిషేకం కాదు — హిందూ ప్రజల ఆత్మగౌరవం నిలబడిన రోజు.</p>
+          <button class="share-btn" onclick="shareWA('చత్రపతి పట్టాభిషేకం — 6 Jun 1674 | జ్యేష్ఠ శుద్ధ త్రయోదశి 🚩 జై శివాజీ!')">📤 Share</button>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <span class="tl-year">1674–1680</span>
+          <span class="tl-te-date">శాలివాహన శకం 1596–1602</span>
+          <h3 class="tl-title">అష్టప్రధాన్ పాలన — ప్రజాహిత రాజ్యం</h3>
+          <p class="tl-body">శివాజీ <strong>అష్టప్రధాన్</strong> (8 మంది మంత్రులు) వ్యవస్థ ఏర్పాటు చేశాడు. న్యాయమైన పన్నులు, రైతులకు రక్షణ, మహిళలకు గౌరవం — ఇవి శివాజీ పాలన సూత్రాలు.</p>
+          <div class="inline-stats">
+            <div class="ist"><span class="ist-num">8</span><span class="ist-label">అష్టప్రధాన్ మంత్రులు</span></div>
+            <div class="ist"><span class="ist-num">300+</span><span class="ist-label">కోటలు స్వాధీనం</span></div>
+            <div class="ist"><span class="ist-num">3L+</span><span class="ist-label">చ.కి.మీ. సామ్రాజ్యం</span></div>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <span class="tl-year">3 ఏప్రిల్ 1680</span>
+          <span class="tl-te-date">శాలివాహన శకం 1602 • చైత్ర కృష్ణ ద్వాదశి • ఉత్తరభాద్ర నక్షత్రం</span>
+          <h3 class="tl-title">చత్రపతి శివాజీ మహారాజ్ మహాప్రయాణం</h3>
+          <p class="tl-body">రాయగఢ్ కోటలో <strong>52 ఏళ్ళ వయసులో</strong> చత్రపతి శివాజీ కన్ను మూసారు. అల్పాయుష్కులైనా చేసిన పని శాశ్వతమైంది — స్వతంత్ర మరాఠా సామ్రాజ్యం, 300+ కోటలు, నావికాదళం.</p>
+          <p class="tl-quote">శివాజీ మరణించలేదు — ఆయన ప్రతి మరాఠా వీరుడిలో, ప్రతి హిందువు గుండెలో జీవిస్తున్నారు.</p>
+          <button class="share-btn" onclick="shareWA('శివాజీ మహాప్రయాణం — 3 Apr 1680 | చైత్ర కృష్ణ ద్వాదశి 🚩')">📤 Share</button>
+        </div>
+
       </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">6 జూన్ 1674</span>
-        <span class="tl-te-date">శాలివాహన శకం 1596 • జ్యేష్ఠ శుద్ధ త్రయోదశి • జ్యేష్ఠ నక్షత్రం • గురువారం</span>
-        <h3 class="tl-title">చత్రపతి పట్టాభిషేకం — రాయగఢ్ కోట</h3>
-        <p class="tl-body">రాయగఢ్ కోటలో <strong>50,000 మంది</strong> సాక్షిగా శివాజీ "చత్రపతి" పట్టాభిషేకం జరిగింది. బ్రాహ్మణులు, రాజులు, సైనికులు, సామాన్య ప్రజలు అందరూ పాల్గొన్నారు. బంగారు సింహాసనం, ముత్యాల కిరీటం, వెండి రాజదండం — అన్నీ ఘనంగా ఉన్నాయి. తల్లి జిజాబాయి ఈ మహోత్సవం చూసారు — 12 రోజుల తర్వాత కన్ను మూసారు.</p>
-        <p class="tl-quote">ఆ రోజు కేవలం ఒక రాజు పట్టాభిషేకం కాదు — హిందూ ప్రజల ఆత్మగౌరవం నిలబడిన రోజు.</p>
-        <button class="share-btn" onclick="shareWA('చత్రపతి పట్టాభిషేకం — 6 Jun 1674 | జ్యేష్ఠ శుద్ధ త్రయోదశి | జ్యేష్ఠ నక్షత్రం 🚩 జై శివాజీ!')">📤 Share</button>
-      </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1674–1680</span>
-        <span class="tl-te-date">శాలివాహన శకం 1596–1602</span>
-        <h3 class="tl-title">అష్టప్రధాన్ పాలన — ప్రజాహిత రాజ్యం</h3>
-        <p class="tl-body">శివాజీ <strong>అష్టప్రధాన్</strong> (8 మంది మంత్రులు) వ్యవస్థ ఏర్పాటు చేశాడు. పేష్వా (ప్రధానమంత్రి), అమాత్య (ఆర్థిక మంత్రి), సచివ (రికార్డులు), మంత్రి (సలహాదారుడు), సేనాపతి, సుమంత్ (విదేశాంగం), న్యాయాధీశుడు, పండిత్ (ధర్మాధికారి). న్యాయమైన పన్నులు, రైతులకు రక్షణ, మహిళలకు గౌరవం — ఇవి శివాజీ పాలన సూత్రాలు.</p>
-      </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1676–1680</span>
-        <span class="tl-te-date">శాలివాహన శకం 1598–1602</span>
-        <h3 class="tl-title">దక్షిణ భారత దండయాత్ర — కర్నాటక, తమిళనాడు వరకు</h3>
-        <p class="tl-body">1676–77 లో శివాజీ దక్షిణంగా వెళ్ళి <strong>వేలూరు, జింజీ</strong> (ప్రస్తుత తమిళనాడు) వరకు కోటలు స్వాధీనం చేసుకున్నాడు. ఈ కోటలు తర్వాత సంభాజీ పంచమ్ కి రాజధానిగా ఉపయోగపడ్డాయి. మరాఠా సామ్రాజ్యం 3 లక్షల చదరపు కిలోమీటర్లకు విస్తరించింది.</p>
-      </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">3 ఏప్రిల్ 1680</span>
-        <span class="tl-te-date">శాలివాహన శకం 1602 • చైత్ర కృష్ణ ద్వాదశి • ఉత్తరభాద్ర నక్షత్రం • మంగళవారం</span>
-        <h3 class="tl-title">చత్రపతి శివాజీ మహారాజ్ మహాప్రయాణం</h3>
-        <p class="tl-body">రాయగఢ్ కోటలో <strong>52 ఏళ్ళ వయసులో</strong> చత్రపతి శివాజీ కన్ను మూసారు. రక్తవిరేచనం (dysentery) వ్యాధికి లక్ష్యమయ్యారు. అల్పాయుష్కులైనా చేసిన పని శాశ్వతమైంది. ఆయన వెనక — స్వతంత్ర మరాఠా సామ్రాజ్యం, 300+ కోటలు, నావికాదళం, న్యాయమైన పాలన వ్యవస్థ.</p>
-        <p class="tl-quote">శివాజీ మరణించలేదు — ఆయన ప్రతి మరాఠా వీరుడిలో, ప్రతి హిందువు గుండెలో జీవిస్తున్నారు.</p>
-        <button class="share-btn" onclick="shareWA('శివాజీ మహాప్రయాణం — 3 Apr 1680 | చైత్ర కృష్ణ ద్వాదశి | ఉత్తరభాద్ర నక్షత్రం 🚩')">📤 Share</button>
-      </div>
-
     </div>
   </div>
 
   <!-- ═══ ERA 7 ═══ -->
-  <div class="timeline-era" id="era7">
-    <div class="era-header">
-      <div class="era-header-bg" style="background:linear-gradient(135deg,#1a0a2e,#3D0050,#6B0070)"></div>
-      <div class="era-header-content">
-        <span class="era-num">అధ్యాయం 7 • CHAPTER 7</span>
+  <div class="timeline-era fade-in" id="era7">
+    <div class="era-animated-banner">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/SambhajiMaharaj.jpg/800px-SambhajiMaharaj.jpg"
+           alt="సంభాజీ" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a0a2e,#3D0050,#6B0070)'">
+      <div class="banner-overlay" style="background:linear-gradient(135deg,rgba(40,10,60,.9),rgba(80,20,120,.6))"></div>
+      <div class="banner-content">
+        <div class="era-gif-badge" style="background:#5C0080">🦁 CHAPTER 7</div>
+        <span class="era-num">అధ్యాయం 7</span>
         <h2 class="era-title">సంభాజీ మహారాజ్ — వీర మరణం</h2>
         <p class="era-te">Sambhaji — The Fearless Warrior</p>
         <p class="era-period">1680 CE — 1689 CE</p>
       </div>
     </div>
-    <p class="era-intro">శివాజీ మరణం తర్వాత పెద్ద కొడుకు సంభాజీ మహారాజ్ సింహాసనం అధిష్టించాడు. తండ్రి స్ఫూర్తిని ఇంకా సాహసంగా కొనసాగించాడు — చివరికి అత్యంత వేదనతో కూడిన మరణాన్ని స్వీకరించాడు.</p>
-    <div class="timeline-items">
+    <div class="era-body">
+      <p class="era-intro-inner">శివాజీ మరణం తర్వాత పెద్ద కొడుకు సంభాజీ మహారాజ్ సింహాసనం అధిష్టించాడు. తండ్రి స్ఫూర్తిని ఇంకా సాహసంగా కొనసాగించాడు — చివరికి అత్యంత వేదనతో కూడిన మరణాన్ని స్వీకరించాడు.</p>
+      <div class="timeline-items">
 
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1681–1689</span>
-        <span class="tl-te-date">శాలివాహన శకం 1603–1611</span>
-        <h3 class="tl-title">సంభాజీ మహారాజ్ పాలన — ఔరంగజేబుతో నిరంతర యుద్ధం</h3>
-        <p class="tl-body"><strong>సంభాజీ మహారాజ్</strong> ఔరంగజేబు 5 లక్షల సైన్యాన్ని 9 సంవత్సరాలు ఆపాడు. ఒక్కసారి కూడా ఓటమి అంగీకరించలేదు. ఔరంగజేబు "ఈయనను ఎలా ఓడించాలో తెలియట్లేదు" అని చెప్పుకున్నాడు.</p>
+        <div class="timeline-item fade-in">
+          <span class="tl-year">1681–1689</span>
+          <span class="tl-te-date">శాలివాహన శకం 1603–1611</span>
+          <h3 class="tl-title">సంభాజీ మహారాజ్ పాలన — ఔరంగజేబుతో నిరంతర యుద్ధం</h3>
+          <p class="tl-body"><strong>సంభాజీ మహారాజ్</strong> ఔరంగజేబు 5 లక్షల సైన్యాన్ని 9 సంవత్సరాలు ఆపాడు. ఒక్కసారి కూడా ఓటమి అంగీకరించలేదు.</p>
+          <div class="inline-stats">
+            <div class="ist"><span class="ist-num">5L</span><span class="ist-label">మొఘల్ సైన్యం</span></div>
+            <div class="ist"><span class="ist-num">9</span><span class="ist-label">సంవత్సరాల పోరాటం</span></div>
+            <div class="ist"><span class="ist-num">0</span><span class="ist-label">ఓటమి లేదు</span></div>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <span class="tl-year">11 మార్చి 1689</span>
+          <span class="tl-te-date">శాలివాహన శకం 1611 • ఫాల్గుణ కృష్ణ అమావాస్య</span>
+          <h3 class="tl-title">సంభాజీ మహారాజ్ అమర వీర మరణం 🦁</h3>
+          <p class="tl-body">శత్రువులు సంభాజీని పట్టుకున్నారు. ఔరంగజేబు ఇస్లాం స్వీకరించమని ఒత్తిడి చేశాడు. సంభాజీ నిరాకరించాడు. <strong>40 రోజుల పాటు</strong> అత్యంత క్రూరమైన హింసకు గురయ్యాడు — అయినా మతం మార్చుకోలేదు.</p>
+          <div class="tl-highlight">
+            <p>💪 <strong>సంభాజీ మహారాజ్ సందేశం:</strong> "మతమార్పు అంగీకరించడం కంటే ఈ శరీరానికి ఎంత వేదన వచ్చినా సహించడం మేలు."<br><br>ఈ బలిదానం మరాఠాలకు కొత్త ఉత్సాహం ఇచ్చింది.</p>
+          </div>
+          <p class="tl-quote">మతమార్పు కంటే మరణం మేలు అన్నాడు — అదే మరాఠా ధర్మం.</p>
+        </div>
+
       </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">11 మార్చి 1689</span>
-        <span class="tl-te-date">శాలివాహన శకం 1611 • ఫాల్గుణ కృష్ణ అమావాస్య</span>
-        <h3 class="tl-title">సంభాజీ మహారాజ్ అమర వీర మరణం</h3>
-        <p class="tl-body">శత్రువులు సంభాజీని పట్టుకున్నారు. ఔరంగజేబు ఇస్లాం స్వీకరించమని ఒత్తిడి చేశాడు. సంభాజీ నిరాకరించాడు. <strong>40 రోజుల పాటు</strong> అత్యంత క్రూరమైన హింసకు గురయ్యాడు — కళ్ళు తీశారు, నాలుక కోశారు, అయినా మతం మార్చుకోలేదు. చివరికి అమరుడయ్యాడు. ఈ బలిదానం మరాఠాలకు కొత్త ఉత్సాహం ఇచ్చింది.</p>
-        <p class="tl-quote">మతమార్పు కంటే మరణం మేలు అన్నాడు — అదే మరాఠా ధర్మం.</p>
-      </div>
-
     </div>
   </div>
 
   <!-- ═══ ERA 8 ═══ -->
-  <div class="timeline-era" id="era8">
-    <div class="era-header">
-      <div class="era-header-bg" style="background:linear-gradient(135deg,#0D1F0D,#1A4020,#2D6040)"></div>
-      <div class="era-header-content">
-        <span class="era-num">అధ్యాయం 8 • CHAPTER 8</span>
+  <div class="timeline-era fade-in" id="era8">
+    <div class="era-animated-banner" style="background:linear-gradient(135deg,#0D3020,#1A5A40,#2D8060)">
+      <div class="banner-overlay" style="background:linear-gradient(135deg,rgba(10,40,20,.9),rgba(20,90,50,.6))"></div>
+      <div class="banner-content">
+        <div class="era-gif-badge" style="background:#1A6040">💪 CHAPTER 8</div>
+        <span class="era-num">అధ్యాయం 8</span>
         <h2 class="era-title">తారాబాయి — మహిళా నేతృత్వం</h2>
         <p class="era-te">Tarabai — The Iron Queen</p>
         <p class="era-period">1689 CE — 1707 CE</p>
       </div>
     </div>
-    <div class="timeline-items">
+    <div class="era-body">
+      <div class="timeline-items">
 
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1700–1707</span>
-        <span class="tl-te-date">శాలివాహన శకం 1622–1629</span>
-        <h3 class="tl-title">తారాబాయి — ఔరంగజేబుతో వీరోచిత పోరాటం</h3>
-        <p class="tl-body">రాజరామ్ మరణం తర్వాత <strong>తారాబాయి</strong> మొత్తం మరాఠా సైన్యానికి నాయకత్వం వహించింది. ఆమె గుర్రంపై స్వయంగా యుద్ధభూమికి వెళ్ళింది. ఔరంగజేబు 5 లక్షల సైన్యాన్ని ఆపింది. ఒక మహిళ సమగ్ర మరాఠా సామ్రాజ్యాన్ని రక్షించింది — ఇది చారిత్రక సత్యం.</p>
-        <p class="tl-quote">శివాజీ లేని మరాఠా సామ్రాజ్యాన్ని ఒక మహిళ కాపాడింది.</p>
+        <div class="timeline-item fade-in">
+          <span class="tl-year">1700–1707</span>
+          <span class="tl-te-date">శాలివాహన శకం 1622–1629</span>
+          <h3 class="tl-title">తారాబాయి — ఔరంగజేబుతో వీరోచిత పోరాటం</h3>
+          <p class="tl-body">రాజరామ్ మరణం తర్వాత <strong>తారాబాయి</strong> మొత్తం మరాఠా సైన్యానికి నాయకత్వం వహించింది. ఆమె గుర్రంపై స్వయంగా యుద్ధభూమికి వెళ్ళింది. ఔరంగజేబు 5 లక్షల సైన్యాన్ని ఆపింది.</p>
+          <div class="tl-highlight">
+            <p>👑 ఒక మహిళ సమగ్ర మరాఠా సామ్రాజ్యాన్ని రక్షించింది — ఇది చారిత్రక సత్యం. శివాజీ లేని మరాఠా సామ్రాజ్యాన్ని తారాబాయి కాపాడింది.</p>
+          </div>
+          <p class="tl-quote">శివాజీ లేని మరాఠా సామ్రాజ్యాన్ని ఒక మహిళ కాపాడింది.</p>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <span class="tl-year">3 మార్చి 1707</span>
+          <span class="tl-te-date">శాలివాహన శకం 1629 • ఫాల్గుణ మాసం</span>
+          <h3 class="tl-title">ఔరంగజేబు మరణం — మొఘల్ సామ్రాజ్యం క్షీణత</h3>
+          <p class="tl-body">88 ఏళ్ళ వయసులో <strong>ఔరంగజేబు</strong> మరణించాడు. జీవితమంతా మరాఠాలతో యుద్ధం చేసినా ఓడించలేకపోయాడు. ఔరంగజేబు మరణంతో మొఘల్ సామ్రాజ్యం విచ్ఛిన్నమైంది.</p>
+        </div>
+
       </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">3 మార్చి 1707</span>
-        <span class="tl-te-date">శాలివాహన శకం 1629 • ఫాల్గుణ మాసం</span>
-        <h3 class="tl-title">ఔరంగజేబు మరణం — మొఘల్ సామ్రాజ్యం క్షీణత</h3>
-        <p class="tl-body">88 ఏళ్ళ వయసులో <strong>ఔరంగజేబు</strong> మరణించాడు. జీవితమంతా మరాఠాలతో యుద్ధం చేసినా ఓడించలేకపోయాడు. "నా సమాధి తవ్వకముందే నా సామ్రాజ్యం కూలిపోతుంది" అన్నాడు. ఔరంగజేబు మరణంతో మొఘల్ సామ్రాజ్యం విచ్ఛిన్నమైంది. మరాఠాలు మళ్ళీ విస్తరించారు.</p>
-      </div>
-
     </div>
   </div>
 
   <!-- ═══ ERA 9 ═══ -->
-  <div class="timeline-era" id="era9">
-    <div class="era-header">
-      <div class="era-header-bg" style="background:linear-gradient(135deg,#1A1400,#4A3A00,#8B6A00)"></div>
-      <div class="era-header-content">
-        <span class="era-num">అధ్యాయం 9 • CHAPTER 9</span>
+  <div class="timeline-era fade-in" id="era9">
+    <div class="era-animated-banner" style="background:linear-gradient(135deg,#2A1800,#7A5000,#C88000)">
+      <div class="banner-overlay" style="background:linear-gradient(135deg,rgba(60,30,0,.88),rgba(120,80,0,.6))"></div>
+      <div class="banner-content">
+        <div class="era-gif-badge" style="background:#8B6000">🚩 CHAPTER 9</div>
+        <span class="era-num">అధ్యాయం 9</span>
         <h2 class="era-title">పేష్వా యుగం — అఖిల భారత విజయాలు</h2>
         <p class="era-te">The Peshwa Era — All India Conquest</p>
         <p class="era-period">1707 CE — 1761 CE</p>
       </div>
     </div>
-    <p class="era-intro">ఔరంగజేబు మరణం తర్వాత పేష్వాలు మరాఠా సామ్రాజ్యాన్ని అఖిల భారత స్థాయికి తీసుకెళ్ళారు. ఉత్తరాన అటక్ (ఇప్పటి పాకిస్తాన్) నుండి దక్షిణాన కన్యాకుమారి వరకు మరాఠా పతాకం ఎగిరింది.</p>
-    <div class="timeline-items">
+    <div class="era-body">
+      <p class="era-intro-inner">ఔరంగజేబు మరణం తర్వాత పేష్వాలు మరాఠా సామ్రాజ్యాన్ని అఖిల భారత స్థాయికి తీసుకెళ్ళారు. అటక్ (ఇప్పటి పాకిస్తాన్) నుండి కన్యాకుమారి వరకు మరాఠా పతాకం ఎగిరింది.</p>
+      <div class="timeline-items">
 
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1713–1720</span>
-        <span class="tl-te-date">శాలివాహన శకం 1635–1642</span>
-        <h3 class="tl-title">బాలాజీ విశ్వనాథ్ — మొదటి పేష్వా</h3>
-        <p class="tl-body"><strong>బాలాజీ విశ్వనాథ్</strong> మొదటి ప్రభావవంతమైన పేష్వా అయ్యారు. మరాఠా రాజ్యంలో ఆర్థిక వ్యవస్థ, సైనిక సంస్కరణలు చేశారు. శాహు మహారాజు కింద పేష్వాలు నిజమైన పాలకులయ్యారు. మరాఠా సంఘాన్ని ఏకం చేశారు.</p>
+        <div class="timeline-item fade-in">
+          <span class="tl-year">1720–1740</span>
+          <span class="tl-te-date">శాలివాహన శకం 1642–1662</span>
+          <h3 class="tl-title">బాజీ రావు I — అజేయ సేనాని <span class="flag-float">🚩</span></h3>
+          <p class="tl-body"><strong>బాజీ రావు I</strong> అత్యంత గొప్ప మరాఠా సేనాని. <strong>41 యుద్ధాలలో పాల్గొని ఒక్కటీ ఓడలేదు</strong>. 1737 లో ఢిల్లీ వరకు వెళ్ళి మొఘల్ చక్రవర్తిని భయపెట్టాడు.</p>
+          <div class="inline-stats">
+            <div class="ist"><span class="ist-num">41</span><span class="ist-label">యుద్ధాలు పాల్గొన్నారు</span></div>
+            <div class="ist"><span class="ist-num">41</span><span class="ist-label">విజయాలు సాధించారు</span></div>
+            <div class="ist"><span class="ist-num">0</span><span class="ist-label">ఓటమి లేదు!</span></div>
+          </div>
+          <p class="tl-quote">41 యుద్ధాలు, 41 విజయాలు — అదే బాజీ రావు.</p>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <span class="tl-year">1758</span>
+          <span class="tl-te-date">శాలివాహన శకం 1680 • మాఘ మాసం</span>
+          <h3 class="tl-title">అటక్ పర్యంత విజయం — భారత్ అంతటా మరాఠా పతాకం</h3>
+          <p class="tl-body">మరాఠా సేనాని <strong>రఘునాథ్ రావు</strong> అటక్ (ప్రస్తుత పాకిస్తాన్ లో) వరకు విజయం సాధించాడు. మరాఠా పతాకం సింధు నదిపై ఎగిరింది. ఉత్తర నుండి దక్షిణం, తూర్పు నుండి పడమర — భారత్ మళ్ళీ హిందూ సామ్రాజ్యంగా నిలిచింది.</p>
+        </div>
+
       </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1720–1740</span>
-        <span class="tl-te-date">శాలివాహన శకం 1642–1662</span>
-        <h3 class="tl-title">బాజీ రావు I — అజేయ సేనాని</h3>
-        <p class="tl-body"><strong>బాజీ రావు I</strong> అత్యంత గొప్ప మరాఠా సేనాని. 41 యుద్ధాలలో పాల్గొని ఒక్కటీ ఓడలేదు. 1737 లో ఢిల్లీ వరకు వెళ్ళి మొఘల్ చక్రవర్తిని భయపెట్టాడు. మాల్వా, గుజరాత్, రాజస్థాన్ జయించాడు. "అజేయ మరాఠా" అని పేరు పొందాడు. 40 ఏళ్ళకే మరణించాడు — కానీ జీవించినంత కాలం చరిత్ర మార్చాడు.</p>
-        <p class="tl-quote">41 యుద్ధాలు, 41 విజయాలు — అదే బాజీ రావు.</p>
-      </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1758</span>
-        <span class="tl-te-date">శాలివాహన శకం 1680 • మాఘ మాసం</span>
-        <h3 class="tl-title">అటక్ పర్యంత విజయం — పాకిస్తాన్ వరకు మరాఠా పతాకం</h3>
-        <p class="tl-body">మరాఠా సేనాని <strong>రఘునాథ్ రావు</strong> అటక్ (ప్రస్తుత పాకిస్తాన్ లో) వరకు విజయం సాధించాడు. మరాఠా పతాకం సింధు నదిపై ఎగిరింది. ఇది మరాఠా సామ్రాజ్యం అత్యంత ఉన్నత స్థాయి. ఉత్తర నుండి దక్షిణం, తూర్పు నుండి పడమర — భారత్ మళ్ళీ హిందూ సామ్రాజ్యంగా నిలిచింది.</p>
-      </div>
-
     </div>
   </div>
 
   <!-- ═══ ERA 10 ═══ -->
-  <div class="timeline-era" id="era10">
-    <div class="era-header">
-      <div class="era-header-bg" style="background:linear-gradient(135deg,#0A0A0A,#1A1A2A,#2A2A4A)"></div>
-      <div class="era-header-content">
-        <span class="era-num">అధ్యాయం 10 • CHAPTER 10</span>
-        <h2 class="era-title">పానిపట్ పతనం & క్షీణత</h2>
+  <div class="timeline-era fade-in" id="era10">
+    <div class="era-animated-banner" style="background:linear-gradient(135deg,#0A0A1A,#1A1A3A,#2A2A5A)">
+      <div class="banner-overlay" style="background:linear-gradient(135deg,rgba(10,10,30,.9),rgba(30,30,70,.6))"></div>
+      <div class="banner-content">
+        <div class="era-gif-badge" style="background:#303080">📉 CHAPTER 10</div>
+        <span class="era-num">అధ్యాయం 10</span>
+        <h2 class="era-title">పానిపట్ పతనం & వారసత్వం</h2>
         <p class="era-te">The Fall — But Legacy Lives On</p>
-        <p class="era-period">1761 CE — 1818 CE</p>
+        <p class="era-period">1761 CE — నేటి వరకు</p>
       </div>
     </div>
-    <div class="timeline-items">
+    <div class="era-body">
+      <div class="timeline-items">
 
-      <div class="timeline-item fade-in">
-        <span class="tl-year">14 జనవరి 1761</span>
-        <span class="tl-te-date">శాలివాహన శకం 1683 • పుష్య కృష్ణ అష్టమి • మకర సంక్రాంతి</span>
-        <h3 class="tl-title">మూడవ పానిపట్ యుద్ధం — మరాఠా శక్తికి పెద్ద దెబ్బ</h3>
-        <p class="tl-body">అహ్మద్ షా అబ్దాలి నేతృత్వంలో అఫ్ఘాన్ సేనలతో <strong>మూడవ పానిపట్</strong> యుద్ధంలో మరాఠాలు ఓటమి పాలయ్యారు. 50,000+ మంది మరాఠా వీరులు వీరమరణం పొందారు. పేష్వా విశ్వాస్ రావు సహా అనేక నాయకులు మరణించారు. ఇది మరాఠా చరిత్రలో అత్యంత నొప్పికరమైన రోజు.</p>
-        <p class="tl-quote">పానిపట్ వల్ల మరాఠాలు ఓడారు కానీ, శివాజీ ఆదర్శం ఓడలేదు.</p>
-        <button class="share-btn" onclick="shareWA('మూడవ పానిపట్ — 14 Jan 1761 | పుష్య కృష్ణ అష్టమి | మకర సంక్రాంతి | మరాఠా వీరమరణం 🚩')">📤 Share</button>
+        <div class="timeline-item fade-in">
+          <span class="tl-year">14 జనవరి 1761</span>
+          <span class="tl-te-date">శాలివాహన శకం 1683 • పుష్య కృష్ణ అష్టమి • మకర సంక్రాంతి</span>
+          <h3 class="tl-title">మూడవ పానిపట్ యుద్ధం — మరాఠా శక్తికి పెద్ద దెబ్బ</h3>
+          <p class="tl-body">అహ్మద్ షా అబ్దాలి నేతృత్వంలో అఫ్ఘాన్ సేనలతో <strong>మూడవ పానిపట్</strong> యుద్ధంలో మరాఠాలు ఓటమి పాలయ్యారు. 50,000+ మంది మరాఠా వీరులు వీరమరణం పొందారు.</p>
+          <p class="tl-quote">పానిపట్ వల్ల మరాఠాలు ఓడారు కానీ, శివాజీ ఆదర్శం ఓడలేదు.</p>
+          <button class="share-btn" onclick="shareWA('మూడవ పానిపట్ — 14 Jan 1761 | మరాఠా వీరమరణం 🚩')">📤 Share</button>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <span class="tl-year">1947 — నేటి వరకు</span>
+          <span class="tl-te-date">శాలివాహన శకం 1869 — 1947</span>
+          <h3 class="tl-title">శివాజీ స్ఫూర్తి — ఈనాటి మంచాల వరకు <span class="flag-float">🚩</span></h3>
+          <p class="tl-body">1947 లో భారత్ స్వతంత్రం పొందింది — శివాజీ కల నెరవేరింది. నేడు మంచాలలో <strong>చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ</strong> ఆయన విగ్రహ నిర్మాణం చేపట్టింది.</p>
+          <div class="coronation-box">
+            <h4>🚩 జై శివాజీ! జై భవాని!</h4>
+            <p>400 సంవత్సరాల తర్వాత కూడా శివాజీ స్ఫూర్తి తెలంగాణలో, మంచాలలో నిలిచి ఉంది.<br>
+            <strong>హైందవి స్వరాజ్యం అమరమైంది!</strong></p>
+          </div>
+          <button class="share-btn" onclick="shareWA('హైందవి స్వరాజ్య చరిత్ర — శివాజీకి ముందు నుండి నేటి మంచాల వరకు 🚩 చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ, మంచాల')">📤 Complete Chronicle Share</button>
+        </div>
+
       </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1761–1800</span>
-        <span class="tl-te-date">శాలివాహన శకం 1683–1722</span>
-        <h3 class="tl-title">పానిపట్ తర్వాత పునరుజ్జీవనం — మాధవ్ రావు పేష్వా</h3>
-        <p class="tl-body"><strong>మాధవ్ రావు పేష్వా</strong> కేవలం 27 ఏళ్ళ వయసులో మళ్ళీ మరాఠా శక్తిని నిలబెట్టాడు. అత్యల్ప కాలంలో ఉత్తర భారత్ లో మళ్ళీ ఆధిపత్యం స్థాపించాడు. కానీ 27 ఏళ్ళకే మరణించాడు — దురదృష్టవశాత్తు.</p>
-      </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1803–1818</span>
-        <span class="tl-te-date">శాలివాహన శకం 1725–1740</span>
-        <h3 class="tl-title">ఆంగ్లో-మరాఠా యుద్ధాలు — బ్రిటిష్ ఈస్ట్ ఇండియా కంపెనీ</h3>
-        <p class="tl-body">మూడు ఆంగ్లో-మరాఠా యుద్ధాల తర్వాత <strong>1818</strong> లో చివరి పేష్వా బాజీ రావు II బ్రిటిష్ ముందు శరణాగతి పొందాడు. హైందవి స్వరాజ్యం అధికారికంగా ముగిసింది. కానీ శివాజీ ఆదర్శం, తిలక్ ద్వారా, భగత్ సింగ్ ద్వారా, స్వాతంత్ర్య పోరాటం ద్వారా కొనసాగింది.</p>
-      </div>
-
-      <div class="timeline-item fade-in">
-        <span class="tl-year">1947 — నేటి వరకు</span>
-        <span class="tl-te-date">శాలివాహన శకం 1869 — 1947</span>
-        <h3 class="tl-title">శివాజీ స్ఫూర్తి — ఈనాటి మంచాల వరకు</h3>
-        <p class="tl-body">1947 లో భారత్ స్వతంత్రం పొందింది — శివాజీ కల నెరవేరింది. నేడు మంచాలలో <strong>చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ</strong> ఆయన విగ్రహ నిర్మాణం చేపట్టింది. 400 సంవత్సరాల తర్వాత కూడా శివాజీ స్ఫూర్తి తెలంగాణలో, మంచాలలో నిలిచి ఉంది.</p>
-        <p class="tl-quote">🚩 జై శివాజీ! జై భవాని! హైందవి స్వరాజ్యం అమరమైంది!</p>
-        <button class="share-btn" onclick="shareWA('హైందవి స్వరాజ్య చరిత్ర — శివాజీకి ముందు నుండి నేటి మంచాల వరకు 🚩 చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ, మంచాల')">📤 Complete Chronicle Share</button>
-      </div>
-
     </div>
   </div>
 
@@ -509,4 +639,7 @@
 
 <div id="footer-placeholder"></div>
 <script src="script.js"></script>
+<script>
+function shareWA(text){ window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank'); }
+</script>
 </body></html>

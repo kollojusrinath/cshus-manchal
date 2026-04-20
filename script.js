@@ -129,3 +129,28 @@ function imgFail(img, emoji, bgClass) {
   ph.innerHTML = emoji || '🏰';
   img.parentNode.replaceChild(ph, img);
 }
+
+// ── HERO PARTICLES ─────────────────────────────────
+(function(){
+  const c = document.getElementById('heroParticles');
+  if(!c) return;
+  const colors = ['#E8600A','#C8860A','#E6A818','#FF8C42','#FFF8EC'];
+  for(let i=0;i<18;i++){
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.cssText = [
+      'left:' + Math.random()*100 + '%',
+      'background:' + colors[Math.floor(Math.random()*colors.length)],
+      '--dur:' + (7+Math.random()*6) + 's',
+      '--delay:' + (Math.random()*8) + 's',
+      'width:' + (4+Math.random()*5) + 'px',
+      'height:' + (4+Math.random()*5) + 'px'
+    ].join(';');
+    c.appendChild(p);
+  }
+})();
+
+// ── SHARE WHATSAPP ─────────────────────────────────
+function shareWA(text){
+  window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank');
+}
