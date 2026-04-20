@@ -1,1 +1,0 @@
-# cshus-manchal

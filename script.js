@@ -1,59 +1,31 @@
-// Nav active state
-document.addEventListener('DOMContentLoaded', () => {
-  const page = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(a => {
-    const href = a.getAttribute('href');
-    if (href && (href === page || (page === '' && href === 'index.html'))) {
-      a.classList.add('active');
-    }
-  });
-});
-
-// Mobile menu
-function toggleMenu() {
-  document.getElementById('mobileMenu').classList.toggle('open');
-}
-document.addEventListener('click', function(e) {
-  const menu = document.getElementById('mobileMenu');
-  const ham = document.getElementById('hamburger');
-  if (menu && menu.classList.contains('open') && !menu.contains(e.target) && ham && !ham.contains(e.target)) {
-    menu.classList.remove('open');
-  }
-});
-
-// WhatsApp share
-function shareWA(text) {
-  const msg = encodeURIComponent(text + '\n\n🚩 చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ, మంచాల\nజై శివాజీ! జై భవాని!');
-  window.open('https://wa.me/?text=' + msg, '_blank');
-}
-
-// Nav HTML
+// ── NAV HTML ─────────────────────────────────────────
 const NAV_HTML = `
-<nav>
-  <div class="nav-brand">
-    <span class="nav-flag">🚩</span>
-    <div class="nav-brand-text">
-      <span class="line1">చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ</span>
-      <span class="line2">మంచాల • Manchal</span>
+<nav id="mainNav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-logo">🚩</div>
+      <div class="nav-brand-text">
+        <span class="l1">చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ</span>
+        <span class="l2">మంచాల • Manchal</span>
+      </div>
     </div>
+    <ul class="nav-links">
+      <li><a href="index.html">హోమ్</a></li>
+      <li><a href="history.html">చరిత్ర</a></li>
+      <li><a href="gallery.html">గ్యాలరీ</a></li>
+      <li><a href="events.html">ఉత్సవాలు</a></li>
+      <li><a href="members.html">సభ్యులు</a></li>
+      <li><a href="updates.html">అప్‌డేట్స్</a></li>
+      <li><a href="contact.html">సంప్రదించండి</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-  <ul class="nav-links">
-    <li><a href="index.html">🏠 హోమ్</a></li>
-    <li><a href="history.html">📜 చరిత్ర</a></li>
-    <li><a href="gallery.html">🖼️ గ్యాలరీ</a></li>
-    <li><a href="events.html">🎊 ఉత్సవాలు</a></li>
-    <li><a href="members.html">👥 సభ్యులు</a></li>
-    <li><a href="updates.html">📢 అప్‌డేట్స్</a></li>
-    <li><a href="contact.html">📞 సంప్రదించండి</a></li>
-    <li><a href="sitemap.html">🗺️ సైట్ మ్యాప్</a></li>
-  </ul>
-  <button class="hamburger" onclick="toggleMenu()" id="hamburger">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html">🏠 హోమ్</a>
-  <a href="history.html">📜 చరిత్ర కార్డులు</a>
+  <a href="history.html">📜 హైందవి స్వరాజ్య చరిత్ర</a>
   <a href="gallery.html">🖼️ గ్యాలరీ</a>
   <a href="events.html">🎊 ఉత్సవాలు</a>
   <a href="members.html">👥 సభ్యులు</a>
@@ -62,31 +34,98 @@ const NAV_HTML = `
   <a href="sitemap.html">🗺️ సైట్ మ్యాప్</a>
 </div>`;
 
+// ── FOOTER HTML ──────────────────────────────────────
 const FOOTER_HTML = `
 <footer>
-  <div style="font-size:28px;margin-bottom:12px">🚩</div>
-  <div class="footer-logo">చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ</div>
-  <div class="footer-place">మంచాల, హైదరాబాద్</div>
-  <div class="footer-links">
-    <a href="index.html">హోమ్</a>
-    <a href="history.html">చరిత్ర</a>
-    <a href="gallery.html">గ్యాలరీ</a>
-    <a href="events.html">ఉత్సవాలు</a>
-    <a href="members.html">సభ్యులు</a>
-    <a href="updates.html">అప్‌డేట్స్</a>
-    <a href="contact.html">సంప్రదించండి</a>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="fb-logo">🚩</div>
+      <h3>చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ</h3>
+      <p>మంచాల, హైదరాబాద్, తెలంగాణ<br>
+      శివాజీ స్ఫూర్తిని నిత్యం వెలిగిద్దాం<br>
+      జై శివాజీ! జై భవాని!</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="index.html">హోమ్</a></li>
+        <li><a href="history.html">హైందవి స్వరాజ్య చరిత్ర</a></li>
+        <li><a href="gallery.html">గ్యాలరీ</a></li>
+        <li><a href="sitemap.html">సైట్ మ్యాప్</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Committee</h4>
+      <ul>
+        <li><a href="members.html">సభ్యులు</a></li>
+        <li><a href="events.html">ఉత్సవాలు</a></li>
+        <li><a href="updates.html">అప్‌డేట్స్</a></li>
+        <li><a href="contact.html">సంప్రదించండి</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Admin</h4>
+      <ul>
+        <li><a href="admin/">Admin Login</a></li>
+        <li><a href="admin/">Photos Upload</a></li>
+        <li><a href="admin/">Content Edit</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="footer-copy">© 2025 చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ, మంచాల • జై శివాజీ 🚩</div>
+  <div class="footer-copy">© 2025 చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ, మంచాల &nbsp;•&nbsp; జై శివాజీ 🚩</div>
 </footer>`;
 
+// ── INIT ─────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   const navEl = document.getElementById('nav-placeholder');
   const footerEl = document.getElementById('footer-placeholder');
   if (navEl) navEl.innerHTML = NAV_HTML;
   if (footerEl) footerEl.innerHTML = FOOTER_HTML;
-  // Re-run active state after nav injection
+
+  // Active nav
   const page = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(a => {
     if (a.getAttribute('href') === page) a.classList.add('active');
   });
+
+  // Scroll nav effect
+  const nav = document.getElementById('mainNav');
+  if (nav) {
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 60);
+    window.addEventListener('scroll', onScroll, {passive: true});
+    onScroll();
+  }
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }});
+  }, {threshold: 0.1});
+  document.querySelectorAll('.fade-in').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(28px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
 });
+
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+document.addEventListener('click', e => {
+  const menu = document.getElementById('mobileMenu');
+  const ham = document.getElementById('hamburger');
+  if (menu && menu.classList.contains('open') && !menu.contains(e.target) && ham && !ham.contains(e.target)) menu.classList.remove('open');
+});
+
+function shareWA(text) {
+  const msg = encodeURIComponent(text + '\n\n🚩 చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ, మంచాల\nజై శివాజీ! జై భవాని!\n' + window.location.origin);
+  window.open('https://wa.me/?text=' + msg, '_blank');
+}
+
+// Image fallback helper
+function imgFail(img, emoji, bgClass) {
+  const ph = document.createElement('div');
+  ph.className = 'ph-bg ' + (bgClass || 'fort');
+  ph.innerHTML = emoji || '🏰';
+  img.parentNode.replaceChild(ph, img);
+}

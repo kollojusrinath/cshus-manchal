@@ -3,73 +3,52 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>సంప్రదించండి — చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ, మంచాల</title>
-<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Sanskrit:ital@0;1&family=Cinzel+Decorative:wght@400;700;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<style>
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:40px 0 60px}
-.contact-info h3{font-family:'Tiro Devanagari Sanskrit',serif;font-size:20px;color:var(--bright-gold);margin-bottom:20px}
-.contact-row{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px}
-.contact-icon{font-size:22px;flex-shrink:0;margin-top:2px}
-.contact-row label{font-size:10px;color:var(--saffron);letter-spacing:1px;font-family:'Cinzel Decorative',cursive;display:block;margin-bottom:3px}
-.contact-row p{font-family:'Tiro Devanagari Sanskrit',serif;font-size:14px;color:var(--cream);line-height:1.5}
-.contact-form{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:28px}
-.contact-form h3{font-family:'Tiro Devanagari Sanskrit',serif;font-size:18px;color:var(--bright-gold);margin-bottom:20px}
-.form-group{margin-bottom:16px}
-.form-group label{font-family:'Tiro Devanagari Sanskrit',serif;font-size:12px;color:var(--gold);display:block;margin-bottom:6px}
-.form-group input,.form-group textarea,.form-group select{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-family:'Tiro Devanagari Sanskrit',serif;font-size:13px;color:var(--cream);outline:none;transition:border-color .2s;resize:vertical}
-.form-group input:focus,.form-group textarea:focus{border-color:var(--border-bright)}
-.form-group select option{background:#1A0A00;color:var(--cream)}
-.form-note{font-size:11px;color:var(--muted);margin-top:12px;font-style:italic}
-@media(max-width:768px){.contact-grid{grid-template-columns:1fr}}
-</style>
 </head>
 <body>
 <div id="nav-placeholder"></div>
-<main>
-  <div class="page-hero">
+<div class="page-hero">
+  <div class="page-hero-bg" style="background:linear-gradient(135deg,#0A0A1A,#1A1A4A,#2D2D6B)"></div>
+  <div class="page-hero-content">
     <span class="section-tag">Contact Us</span>
     <h1 class="section-title">సంప్రదించండి</h1>
-    <p class="section-telugu">మాతో అనుసంధానమవ్వండి</p>
+    <p class="section-te">మాతో అనుసంధానమవ్వండి</p>
   </div>
-  <div class="container">
-    <div class="contact-grid">
-      <div class="contact-info">
-        <h3>📍 మా వివరాలు</h3>
-        <div class="contact-row"><span class="contact-icon">🏠</span><div><label>ADDRESS</label><p>చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ<br>మంచాల, హైదరాబాద్<br>తెలంగాణ</p></div></div>
-        <div class="contact-row"><span class="contact-icon">📱</span><div><label>WHATSAPP GROUP</label><p>Chatrapathi Shivaji Hindu<br>Utsava Committee, Manchal</p></div></div>
-        <div class="contact-row"><span class="contact-icon">🎊</span><div><label>MAIN EVENT</label><p>శివాజీ జయంతి — 19 ఫిబ్రవరి<br>ఫాల్గుణ మాసం • కృత్తిక నక్షత్రం</p></div></div>
-        <div class="contact-row"><span class="contact-icon">🚩</span><div><label>OUR MISSION</label><p>శివాజీ విగ్రహ నిర్మాణం, మంచాల</p></div></div>
+</div>
+<div class="container section-sm">
+  <div class="contact-grid" style="padding-bottom:60px">
+    <div class="contact-info-card fade-in">
+      <h3 style="font-family:'Tiro Devanagari Sanskrit',serif;font-size:20px;color:var(--gold2);margin-bottom:24px">📍 మా వివరాలు</h3>
+      <div class="contact-row"><span class="ci-icon">🏠</span><div><span class="ci-label">ADDRESS</span><span class="ci-val">చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ<br>మంచాల, హైదరాబాద్<br>తెలంగాణ</span></div></div>
+      <div class="contact-row"><span class="ci-icon">📱</span><div><span class="ci-label">WHATSAPP GROUP</span><span class="ci-val">Chatrapathi Shivaji Hindu<br>Utsava Committee, Manchal</span></div></div>
+      <div class="contact-row"><span class="ci-icon">🎊</span><div><span class="ci-label">MAIN EVENT</span><span class="ci-val">శివాజీ జయంతి — 19 ఫిబ్రవరి<br>ఫాల్గుణ మాసం • కృత్తిక నక్షత్రం</span></div></div>
+      <div class="contact-row"><span class="ci-icon">🗿</span><div><span class="ci-label">MISSION</span><span class="ci-val">శివాజీ విగ్రహ నిర్మాణం, మంచాల</span></div></div>
+    </div>
+    <div class="contact-form fade-in">
+      <h3 style="font-family:'Tiro Devanagari Sanskrit',serif;font-size:20px;color:var(--gold2);margin-bottom:24px">✉️ సందేశం పంపండి</h3>
+      <div class="form-group"><label>మీ పేరు</label><input type="text" id="fname" placeholder="పేరు ఇక్కడ రాయండి"></div>
+      <div class="form-group"><label>మొబైల్ నంబర్</label><input type="tel" id="fphone" placeholder="+91 XXXXX XXXXX"></div>
+      <div class="form-group"><label>విషయం</label>
+        <select id="fsubject">
+          <option>విరాళం ఇవ్వాలనుకుంటున్నాను</option>
+          <option>కమిటీలో చేరాలనుకుంటున్నాను</option>
+          <option>ఉత్సవాల గురించి</option>
+          <option>విగ్రహ నిర్మాణం గురించి</option>
+          <option>ఇతర విషయం</option>
+        </select>
       </div>
-      <div class="contact-form">
-        <h3>✉️ సందేశం పంపండి</h3>
-        <div class="form-group"><label>మీ పేరు</label><input type="text" placeholder="పేరు ఇక్కడ రాయండి"></div>
-        <div class="form-group"><label>మొబైల్ నంబర్</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
-        <div class="form-group"><label>విషయం</label>
-          <select>
-            <option>విరాళం ఇవ్వాలనుకుంటున్నాను</option>
-            <option>కమిటీలో చేరాలనుకుంటున్నాను</option>
-            <option>ఉత్సవాల గురించి</option>
-            <option>విగ్రహ నిర్మాణం గురించి</option>
-            <option>ఇతర విషయం</option>
-          </select>
-        </div>
-        <div class="form-group"><label>మీ సందేశం</label><textarea rows="4" placeholder="ఇక్కడ రాయండి..."></textarea></div>
-        <button class="btn-primary" style="width:100%" onclick="sendWA()">📤 WhatsApp కి పంపించండి</button>
-        <p class="form-note">* నొక్కిన తర్వాత WhatsApp తెరుచుకుంటుంది. మీ సందేశం రెడీగా ఉంటుంది.</p>
-      </div>
+      <div class="form-group"><label>మీ సందేశం</label><textarea id="fmsg" rows="4" placeholder="ఇక్కడ రాయండి..."></textarea></div>
+      <button class="btn btn-primary" style="width:100%" onclick="sendWAForm()">📤 WhatsApp కి పంపించండి</button>
+      <p class="form-note">* నొక్కిన తర్వాత WhatsApp తెరుచుకుంటుంది.</p>
     </div>
   </div>
-</main>
+</div>
 <div id="footer-placeholder"></div>
 <script src="script.js"></script>
 <script>
-function sendWA(){
-  const name=document.querySelector('input[type=text]').value||'పేరు లేదు';
-  const phone=document.querySelector('input[type=tel]').value||'నంబర్ లేదు';
-  const subject=document.querySelector('select').value;
-  const msg=document.querySelector('textarea').value||'సందేశం లేదు';
-  const text=`నమస్కారం! చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ, మంచాల వెబ్‌సైట్ నుండి:\n\nపేరు: ${name}\nమొబైల్: ${phone}\nవిషయం: ${subject}\nసందేశం: ${msg}\n\n🚩 జై శివాజీ!`;
-  window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank');
+function sendWAForm(){
+  const t=`నమస్కారం!\nచత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ, మంచాల వెబ్‌సైట్ నుండి:\n\nపేరు: ${document.getElementById('fname').value||'—'}\nమొబైల్: ${document.getElementById('fphone').value||'—'}\nవిషయం: ${document.getElementById('fsubject').value}\nసందేశం: ${document.getElementById('fmsg').value||'—'}\n\n🚩 జై శివాజీ!`;
+  window.open('https://wa.me/?text='+encodeURIComponent(t),'_blank');
 }
 </script>
 </body></html>

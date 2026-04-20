@@ -3,118 +3,225 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ, మంచాల</title>
-<meta name="description" content="చత్రపతి శివాజీ మహారాజ్ చరిత్ర, ఉత్సవాలు — మంచాల కమిటీ">
-<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Sanskrit:ital@0;1&family=Cinzel+Decorative:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<meta name="description" content="హైందవి స్వరాజ్యం — చత్రపతి శివాజీ మహారాజ్ చరిత్ర, ఉత్సవాలు — మంచాల కమిటీ">
 <link rel="stylesheet" href="styles.css">
 <style>
-.hero{min-height:calc(100vh - var(--nav-h));display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 24px 40px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(122,16,32,.25) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 70% 80%,rgba(255,107,26,.08) 0%,transparent 60%);pointer-events:none}
-.hero-flag{font-size:40px;margin-bottom:16px;animation:flagWave 2s ease-in-out infinite}
-.hero-sub{font-size:12px;letter-spacing:4px;color:var(--saffron);text-transform:uppercase;margin-bottom:16px;font-family:'Cinzel Decorative',cursive;opacity:.8}
-.hero-title{font-family:'Cinzel Decorative',cursive;font-size:clamp(18px,5vw,42px);color:var(--bright-gold);line-height:1.2;margin-bottom:8px;text-shadow:0 0 40px rgba(212,160,23,.4)}
-.hero-te{font-family:'Tiro Devanagari Sanskrit',serif;font-size:clamp(20px,4vw,36px);color:var(--cream);margin-bottom:8px;line-height:1.4}
-.hero-place{font-family:'Tiro Devanagari Sanskrit',serif;font-size:clamp(14px,2.5vw,20px);color:var(--saffron);margin-bottom:32px}
-.hero-div{width:160px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 32px}
-.hero-quote{font-style:italic;font-size:clamp(14px,2vw,18px);color:var(--muted);max-width:600px;line-height:1.7;margin-bottom:40px;font-family:'Tiro Devanagari Sanskrit',serif}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:800px;margin:60px auto 0;padding:0 24px}
-.stat-box{background:rgba(212,160,23,.06);border:1px solid var(--border);border-radius:12px;padding:20px 12px;text-align:center;transition:border-color .3s}
-.stat-box:hover{border-color:var(--border-bright)}
-.stat-num{font-family:'Cinzel Decorative',cursive;font-size:clamp(22px,4vw,32px);color:var(--bright-gold);display:block}
-.stat-label{font-family:'Tiro Devanagari Sanskrit',serif;font-size:11px;color:var(--muted);margin-top:4px;display:block;line-height:1.4}
-.about-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:28px 22px;transition:all .3s}
-.about-card:hover{border-color:var(--border-bright);transform:translateY(-3px)}
-.about-icon{font-size:28px;margin-bottom:14px}
-.about-card h3{font-family:'Tiro Devanagari Sanskrit',serif;font-size:16px;color:var(--gold);margin-bottom:10px}
-.about-card p{font-family:'Tiro Devanagari Sanskrit',serif;font-size:13px;color:var(--muted);line-height:1.7}
-.preview-card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:20px;cursor:pointer;transition:all .3s}
-.preview-card:hover{border-color:var(--border-bright);transform:translateY(-2px);background:rgba(212,160,23,.05)}
-.preview-day{font-size:10px;color:var(--saffron);letter-spacing:2px;margin-bottom:6px;font-family:'Cinzel Decorative',cursive}
-.preview-title{font-family:'Tiro Devanagari Sanskrit',serif;font-size:14px;color:var(--cream);margin-bottom:8px}
-.preview-year{font-size:11px;color:var(--gold);opacity:.7}
-.update-strip{background:rgba(255,107,26,.08);border:1px solid rgba(255,107,26,.2);border-radius:10px;padding:14px 20px;display:flex;align-items:center;gap:12px;margin-bottom:12px;transition:border-color .2s}
-.update-strip:hover{border-color:rgba(255,107,26,.4)}
-.update-badge{font-size:10px;background:rgba(255,107,26,.2);color:var(--saffron);padding:2px 8px;border-radius:10px;font-family:'Cinzel Decorative',cursive;white-space:nowrap}
-.update-title{font-family:'Tiro Devanagari Sanskrit',serif;font-size:14px;color:var(--cream)}
-.update-date{font-size:11px;color:var(--muted);margin-left:auto;white-space:nowrap}
-@media(max-width:768px){.stats-row{grid-template-columns:1fr 1fr}}
+/* Home-specific */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.why-card{border:1px solid var(--border);border-radius:6px;padding:32px 24px;background:rgba(255,255,255,.02);transition:all .3s;position:relative;overflow:hidden}
+.why-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--saffron),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.why-card:hover{border-color:var(--border2);transform:translateY(-4px)}
+.why-card:hover::after{transform:scaleX(1)}
+.why-icon{font-size:36px;margin-bottom:18px}
+.why-card h3{font-family:'Tiro Devanagari Sanskrit',serif;font-size:18px;color:var(--gold2);margin-bottom:12px}
+.why-card p{font-family:'Tiro Devanagari Sanskrit',serif;font-size:13.5px;color:var(--muted);line-height:1.75}
+.news-strip{background:rgba(255,107,26,.06);border:1px solid rgba(255,107,26,.2);border-radius:4px;padding:14px 22px;display:flex;align-items:center;gap:14px;margin-bottom:14px;transition:border-color .2s;cursor:pointer}
+.news-strip:hover{border-color:rgba(255,107,26,.4)}
+.ns-badge{font-size:9.5px;background:rgba(255,107,26,.18);color:var(--saffron);padding:3px 10px;border-radius:3px;font-family:'Cinzel Decorative',cursive;white-space:nowrap;border:1px solid rgba(255,107,26,.25)}
+.ns-title{font-family:'Tiro Devanagari Sanskrit',serif;font-size:14px;color:var(--cream);flex:1}
+.ns-date{font-size:11px;color:var(--muted);white-space:nowrap}
+@media(max-width:768px){.why-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div id="nav-placeholder"></div>
-<main>
-  <div class="hero">
-    <div class="hero-flag">🚩</div>
-    <div class="hero-sub">Jai Shivaji • జై శివాజీ</div>
-    <h1 class="hero-title">Chatrapathi Shivaji<br>Hindu Utsava Committee</h1>
-    <p class="hero-te">చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ</p>
-    <p class="hero-place">📍 మంచాల, హైదరాబాద్</p>
-    <div class="hero-div"></div>
-    <p class="hero-quote">"స్వాతంత్ర్యం అనేది భగవంతుని వరం — దానిని కాపాడటం మన ధర్మం."<br><span style="font-size:12px;opacity:.6">— చత్రపతి శివాజీ మహారాజ్</span></p>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Shivaji_BhosaleI.jpg/1200px-Shivaji_BhosaleI.jpg"
+         alt="చత్రపతి శివాజీ మహారాజ్"
+         onerror="this.parentNode.style.background='linear-gradient(160deg,#0A0400 0%,#3D0008 35%,#6B2E00 65%,#1A0A00 100%)'">
+  </div>
+  <div class="hero-content">
+    <span class="hero-tag">హైందవి స్వరాజ్యం • Haindavi Swarajya</span>
+    <h1 class="hero-title">Chatrapathi Shivaji<br>Maharaj</h1>
+    <p class="hero-telugu">చత్రపతి శివాజీ మహారాజ్</p>
+    <p class="hero-sub">హిందూ ఉత్సవ కమిటీ • మంచాల, హైదరాబాద్</p>
+    <div class="hero-divider"></div>
+    <blockquote class="hero-quote">
+      "స్వరాజ్యం నా జన్మహక్కు — నేను దానిని పొందుతాను."<br>
+      <cite style="font-size:13px;opacity:.7;font-style:normal">— చత్రపతి శివాజీ మహారాజ్</cite>
+    </blockquote>
     <div class="hero-btns">
-      <a href="history.html" class="btn-primary">📜 చరిత్ర చదవండి</a>
-      <a href="members.html" class="btn-outline">👥 మా కమిటీ</a>
+      <a href="history.html" class="btn btn-primary">📜 హైందవి స్వరాజ్య చరిత్ర</a>
+      <a href="contact.html" class="btn btn-gold">🚩 కమిటీలో చేరండి</a>
     </div>
   </div>
+  <div class="hero-scroll"><span>SCROLL</span></div>
+</section>
 
-  <div class="stats-row">
-    <div class="stat-box"><span class="stat-num">1630</span><span class="stat-label">జన్మ సంవత్సరం<br>Birth Year</span></div>
-    <div class="stat-box"><span class="stat-num">300+</span><span class="stat-label">కోటలు స్వాధీనం<br>Forts Captured</span></div>
-    <div class="stat-box"><span class="stat-num">52</span><span class="stat-label">ఏళ్ళ వయసులో<br>Age at Death</span></div>
-    <div class="stat-box"><span class="stat-num">1674</span><span class="stat-label">పట్టాభిషేకం<br>Coronation</span></div>
+<!-- ── STATS BAR ── -->
+<div class="stats-bar">
+  <div class="stats-inner container">
+    <div class="stat-item"><span class="stat-num">1630</span><span class="stat-label">జన్మ సంవత్సరం<br><small>శివనేరి కోట, పుణే</small></span></div>
+    <div class="stat-item"><span class="stat-num">300+</span><span class="stat-label">కోటలు స్వాధీనం<br><small>Forts Captured</small></span></div>
+    <div class="stat-item"><span class="stat-num">1674</span><span class="stat-label">పట్టాభిషేకం<br><small>రాయగఢ్ కోట</small></span></div>
+    <div class="stat-item"><span class="stat-num">350+</span><span class="stat-label">సంవత్సరాల స్ఫూర్తి<br><small>Years of Inspiration</small></span></div>
+    <div class="stat-item"><span class="stat-num">1</span><span class="stat-label">మంచాల విగ్రహం<br><small>Our Mission</small></span></div>
   </div>
+</div>
 
-  <!-- About -->
-  <div class="container section">
-    <div class="section-header">
+<!-- ── PHOTO STRIP ── -->
+<div class="photo-strip">
+  <div class="photo-panel">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Raigad_fort_Maharashtra.jpg/800px-Raigad_fort_Maharashtra.jpg"
+         alt="రాయగఢ్ కోట" onerror="this.outerHTML='<div class=\'ph-bg fort\'>🏰</div>'">
+    <div class="photo-panel-cap"><h4>రాయగఢ్ కోట</h4><p>Shivaji's Capital Fort</p></div>
+  </div>
+  <div class="photo-panel">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Shivaji_at_Pratapgad.jpg/800px-Shivaji_at_Pratapgad.jpg"
+         alt="ప్రతాపగఢ్" onerror="this.outerHTML='<div class=\'ph-bg battle\'>⚔️</div>'">
+    <div class="photo-panel-cap"><h4>ప్రతాపగఢ్ యుద్ధం</h4><p>అఫ్జల్ ఖాన్ వధ — 1659</p></div>
+  </div>
+  <div class="photo-panel">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Sindhudurg_fort.jpg/800px-Sindhudurg_fort.jpg"
+         alt="సింధుదుర్గ్" onerror="this.outerHTML='<div class=\'ph-bg navy\'>🚢</div>'">
+    <div class="photo-panel-cap"><h4>సింధుదుర్గ్ నావికా కోట</h4><p>India's First Naval Fort</p></div>
+  </div>
+</div>
+
+<!-- ── WHY OUR COMMITTEE ── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-in">
       <span class="section-tag">About Us</span>
       <h2 class="section-title">మా కమిటీ గురించి</h2>
-      <div class="section-divider"></div>
+      <p class="section-te">చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ, మంచాల</p>
+      <div class="section-rule"></div>
     </div>
-    <div class="grid-3">
-      <div class="about-card"><div class="about-icon">🚩</div><h3>మా లక్ష్యం</h3><p>చత్రపతి శివాజీ మహారాజ్ యొక్క గొప్ప చరిత్రను మంచాల ప్రజలకు తెలియజేయడం మరియు ఆయన విగ్రహాన్ని నిర్మించడం మా ముఖ్యమైన లక్ష్యం.</p></div>
-      <div class="about-card"><div class="about-icon">🎊</div><h3>ఉత్సవాలు</h3><p>ప్రతి సంవత్సరం శివాజీ జయంతిని ఘనంగా నిర్వహిస్తాము. సాంస్కృతిక కార్యక్రమాలు, ర్యాలీలు మరియు విద్యా కార్యక్రమాలు ఏర్పాటు చేస్తాము.</p></div>
-      <div class="about-card"><div class="about-icon">📚</div><h3>చరిత్ర అవగాహన</h3><p>రోజువారీ WhatsApp కార్డుల ద్వారా శివాజీ జీవిత చరిత్ర తెలుగులో పంచుకుంటున్నాము. పంచాంగం తేదీలతో సహా.</p></div>
+    <div class="why-grid">
+      <div class="why-card fade-in">
+        <div class="why-icon">🚩</div>
+        <h3>మా లక్ష్యం</h3>
+        <p>హైందవి స్వరాజ్యం యొక్క గొప్ప చరిత్రను మంచాల ప్రజలకు తెలియజేయడం, చత్రపతి శివాజీ మహారాజ్ విగ్రహ నిర్మాణం మా పవిత్రమైన లక్ష్యం.</p>
+      </div>
+      <div class="why-card fade-in" style="transition-delay:.1s">
+        <div class="why-icon">🎊</div>
+        <h3>వార్షిక ఉత్సవాలు</h3>
+        <p>శివాజీ జయంతి, పట్టాభిషేక దినోత్సవం, ప్రతాపగఢ్ విజయోత్సవం — మంచాలలో ప్రతి సంవత్సరం ఘనంగా నిర్వహిస్తాము.</p>
+      </div>
+      <div class="why-card fade-in" style="transition-delay:.2s">
+        <div class="why-icon">📚</div>
+        <h3>చరిత్ర అవగాహన</h3>
+        <p>శివాజీకి ముందు నుండి పేష్వా పతనం వరకు — హైందవి స్వరాజ్యం యొక్క సమగ్ర చరిత్రను తెలుగులో అందిస్తున్నాము.</p>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- Latest Updates -->
-  <div class="container section" style="padding-top:0">
-    <div class="section-header">
-      <span class="section-tag">Latest</span>
+<!-- ── FULL-WIDTH QUOTE SECTION ── -->
+<section class="photo-section">
+  <div class="photo-section-bg" style="background:linear-gradient(135deg,#0A0400,#3D0008,#6B2E00)">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Shivaji_Maharaj_painting.jpg/1200px-Shivaji_Maharaj_painting.jpg"
+         alt="" onerror="this.style.display='none'" style="opacity:.35">
+  </div>
+  <div class="photo-section-content container fade-in">
+    <blockquote>"నా మరాఠా వీరులు సూర్యుని వలె ప్రకాశించారు, మేఘాల వలె పర్వతాలను ఆవరించారు, నదుల వలె నిరంతరం ప్రవహించారు."</blockquote>
+    <cite>— చత్రపతి శివాజీ మహారాజ్</cite>
+    <div style="margin-top:28px">
+      <a href="history.html" class="btn btn-outline">సమగ్ర చరిత్ర చదవండి →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── LATEST UPDATES ── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag">Latest News</span>
       <h2 class="section-title">తాజా అప్‌డేట్స్</h2>
-      <div class="section-divider"></div>
+      <div class="section-rule"></div>
     </div>
     <div id="updates-home"><div class="loading">లోడ్ అవుతోంది...</div></div>
-    <div style="text-align:center;margin-top:20px"><a href="updates.html" class="btn-outline">అన్ని అప్‌డేట్స్ చూడండి →</a></div>
+    <div class="text-center mt-32 fade-in">
+      <a href="updates.html" class="btn btn-outline">అన్ని అప్‌డేట్స్ చూడండి →</a>
+    </div>
   </div>
+</section>
 
-  <!-- Card Preview -->
-  <div class="container section" style="padding-top:0">
-    <div class="section-header">
-      <span class="section-tag">Daily Cards</span>
-      <h2 class="section-title">రోజువారీ చరిత్ర కార్డులు</h2>
-      <div class="section-divider"></div>
+<!-- ── EVENTS PREVIEW ── -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag">Events</span>
+      <h2 class="section-title">ముఖ్యమైన ఉత్సవాలు</h2>
+      <p class="section-te">కమిటీ కార్యక్రమాలు</p>
+      <div class="section-rule"></div>
     </div>
-    <div class="grid-3">
-      <div class="preview-card" onclick="location.href='history.html'"><div class="preview-day">DAY 01</div><div class="preview-title">శివనేరి కోటలో జన్మం</div><div class="preview-year">19 ఫిబ్రవరి 1630 • ఫాల్గుణ మాసం</div></div>
-      <div class="preview-card" onclick="location.href='history.html'"><div class="preview-day">DAY 05</div><div class="preview-title">అఫ్జల్ ఖాన్ వధ</div><div class="preview-year">10 నవంబర్ 1659 • కార్తీక మాసం</div></div>
-      <div class="preview-card" onclick="location.href='history.html'"><div class="preview-day">DAY 09</div><div class="preview-title">చత్రపతి పట్టాభిషేకం</div><div class="preview-year">6 జూన్ 1674 • జ్యేష్ఠ మాసం</div></div>
+    <div class="events-grid">
+      <div class="event-card fade-in">
+        <div class="event-card-img ev-bg jayanti">🎊</div>
+        <div class="event-card-body">
+          <span class="event-date">19 FEB • ఫాల్గుణ మాసం</span>
+          <h3>శివాజీ జయంతి మహోత్సవం</h3>
+          <p>మంచాలలో ఘనమైన ర్యాలీ, సాంస్కృతిక కార్యక్రమాలు. శాలివాహన శకం ప్రకారం ఫాల్గుణ కృష్ణ తృతీయ.</p>
+        </div>
+      </div>
+      <div class="event-card fade-in" style="transition-delay:.1s">
+        <div class="event-card-img ev-bg patron">👑</div>
+        <div class="event-card-body">
+          <span class="event-date">6 JUN • జ్యేష్ఠ మాసం</span>
+          <h3>పట్టాభిషేక దినోత్సవం</h3>
+          <p>1674 జూన్ 6న రాయగఢ్ కోటలో చత్రపతి బిరుదు. జ్యేష్ఠ మాసం — జ్యేష్ఠ నక్షత్రం.</p>
+        </div>
+      </div>
+      <div class="event-card fade-in" style="transition-delay:.2s">
+        <div class="event-card-img ev-bg statue">🗿</div>
+        <div class="event-card-body">
+          <span class="event-date">2025 • మంచాల</span>
+          <h3>విగ్రహ నిర్మాణ ప్రాజెక్ట్</h3>
+          <p>మంచాలలో చత్రపతి శివాజీ మహారాజ్ విగ్రహ నిర్మాణం. విరాళాలు మరియు సహయోగం ఆహ్వానించబడుతున్నాయి.</p>
+        </div>
+      </div>
     </div>
-    <div style="text-align:center;margin-top:24px"><a href="history.html" class="btn-primary">అన్ని కార్డులు చూడండి →</a></div>
+    <div class="text-center mt-32 fade-in">
+      <a href="events.html" class="btn btn-outline">అన్ని ఉత్సవాలు చూడండి →</a>
+    </div>
   </div>
-</main>
+</section>
+
+<!-- ── GALLERY PREVIEW ── -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag">Gallery</span>
+      <h2 class="section-title">గ్యాలరీ</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="gallery-masonry">
+      <div class="gallery-item fade-in">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Shivaji_BhosaleI.jpg/600px-Shivaji_BhosaleI.jpg"
+             alt="శివాజీ మహారాజ్" onerror="this.outerHTML='<div class=\'gallery-ph ph-bg battle\'>🏛️</div>'">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-cap"><h4>చత్రపతి శివాజీ మహారాజ్</h4><p>Famous Portrait</p></div>
+      </div>
+      <div class="gallery-item fade-in" style="transition-delay:.1s">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Raigad_fort_Maharashtra.jpg/600px-Raigad_fort_Maharashtra.jpg"
+             alt="రాయగఢ్" onerror="this.outerHTML='<div class=\'gallery-ph ph-bg fort\'>🏰</div>'">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-cap"><h4>రాయగఢ్ కోట</h4><p>Shivaji's Capital</p></div>
+      </div>
+      <div class="gallery-item fade-in" style="transition-delay:.2s">
+        <div class="gallery-ph ph-bg people">🎊</div>
+        <div class="gallery-overlay"></div>
+        <div class="gallery-cap"><h4>మంచాల శివాజీ జయంతి</h4><p>మా కమిటీ నిర్వహణ</p></div>
+      </div>
+    </div>
+    <div class="text-center mt-32"><a href="gallery.html" class="btn btn-outline">మొత్తం గ్యాలరీ →</a></div>
+  </div>
+</section>
+
 <div id="footer-placeholder"></div>
 <script src="script.js"></script>
 <script>
 fetch('content/updates.json').then(r=>r.json()).then(data=>{
   const el=document.getElementById('updates-home');
-  const items=data.updates.slice(0,3);
-  el.innerHTML=items.map(u=>`
-    <div class="update-strip">
-      <span class="update-badge">${u.badge}</span>
-      <span class="update-title">${u.title}</span>
-      <span class="update-date">${u.date_te}</span>
+  el.innerHTML=data.updates.slice(0,3).map(u=>`
+    <div class="news-strip" onclick="location.href='updates.html'">
+      <span class="ns-badge">${u.badge}</span>
+      <span class="ns-title">${u.title}</span>
+      <span class="ns-date">${u.date_te}</span>
     </div>`).join('');
 }).catch(()=>{document.getElementById('updates-home').innerHTML='';});
 </script>

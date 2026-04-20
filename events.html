@@ -1,56 +1,55 @@
+<!-- events.html -->
 <!DOCTYPE html>
 <html lang="te">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>ఉత్సవాలు — చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ, మంచాల</title>
-<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Sanskrit:ital@0;1&family=Cinzel+Decorative:wght@400;700;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-.events-list{padding:32px 0 60px;max-width:780px;margin:0 auto}
-.event-item{display:grid;grid-template-columns:80px 1fr;gap:20px;padding:24px 0;border-bottom:1px solid var(--border);transition:all .3s}
-.event-item:hover .event-title{color:var(--bright-gold)}
-.event-date-box{background:rgba(212,160,23,.08);border:1px solid var(--border);border-radius:10px;padding:12px 8px;text-align:center;align-self:start}
-.event-day-num{font-family:'Cinzel Decorative',cursive;font-size:22px;color:var(--bright-gold);display:block}
-.event-month{font-family:'Tiro Devanagari Sanskrit',serif;font-size:10px;color:var(--saffron);display:block}
-.event-te-month{font-family:'Tiro Devanagari Sanskrit',serif;font-size:9px;color:var(--muted);display:block}
-.event-badge{display:inline-block;font-size:9px;background:rgba(255,107,26,.15);border:1px solid rgba(255,107,26,.3);color:var(--saffron);padding:2px 8px;border-radius:10px;margin-bottom:8px;font-family:'Cinzel Decorative',cursive;letter-spacing:1px}
-.event-title{font-family:'Tiro Devanagari Sanskrit',serif;font-size:18px;color:var(--cream);margin-bottom:6px;transition:color .3s}
-.event-desc{font-family:'Tiro Devanagari Sanskrit',serif;font-size:13px;color:var(--muted);line-height:1.6}
-@media(max-width:480px){.event-item{grid-template-columns:64px 1fr;gap:12px}}
+.events-timeline{max-width:800px;margin:0 auto;padding:40px 0 60px}
+.ev-item{display:grid;grid-template-columns:90px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--border)}
+.ev-date{background:rgba(212,160,23,.07);border:1px solid var(--border);border-radius:4px;padding:14px 10px;text-align:center;align-self:start}
+.ev-day{font-family:'Cinzel Decorative',cursive;font-size:26px;color:var(--gold2);display:block;line-height:1}
+.ev-mon{font-size:10px;color:var(--saffron);display:block;letter-spacing:1px;margin-top:4px}
+.ev-te{font-size:9px;color:var(--muted);display:block;margin-top:2px;font-family:'Tiro Devanagari Sanskrit',serif}
+.ev-badge{display:inline-block;font-size:9px;background:rgba(255,107,26,.1);border:1px solid rgba(255,107,26,.25);color:var(--saffron);padding:2px 10px;border-radius:3px;margin-bottom:10px;font-family:'Cinzel Decorative',cursive;letter-spacing:1px}
+.ev-title{font-family:'Tiro Devanagari Sanskrit',serif;font-size:20px;color:var(--gold2);margin-bottom:8px}
+.ev-desc{font-family:'Tiro Devanagari Sanskrit',serif;font-size:14px;color:var(--muted);line-height:1.7}
+@media(max-width:480px){.ev-item{grid-template-columns:68px 1fr;gap:14px}}
 </style>
 </head>
 <body>
 <div id="nav-placeholder"></div>
-<main>
-  <div class="page-hero">
+<div class="page-hero">
+  <div class="page-hero-bg" style="background:linear-gradient(135deg,#3D0008,#6B0F1A,#2D0010)"></div>
+  <div class="page-hero-content">
     <span class="section-tag">Events</span>
     <h1 class="section-title">ఉత్సవాలు & కార్యక్రమాలు</h1>
-    <p class="section-telugu">శివాజీ జయంతి మరియు ఇతర కార్యక్రమాలు</p>
+    <p class="section-te">శివాజీ జయంతి మరియు ఇతర కార్యక్రమాలు</p>
   </div>
-  <div class="container">
-    <div class="events-list" id="events-list">
-      <div class="loading">ఉత్సవాల వివరాలు లోడ్ అవుతున్నాయి...</div>
-    </div>
+</div>
+<div class="container">
+  <div class="events-timeline" id="events-list">
+    <div class="loading">లోడ్ అవుతోంది...</div>
   </div>
-</main>
+</div>
 <div id="footer-placeholder"></div>
 <script src="script.js"></script>
 <script>
 fetch('content/events.json').then(r=>r.json()).then(data=>{
-  const list=document.getElementById('events-list');
-  list.innerHTML=data.events.map(e=>`
-    <div class="event-item">
-      <div class="event-date-box">
-        <span class="event-day-num">${e.day}</span>
-        <span class="event-month">${e.month_en}</span>
-        <span class="event-te-month">${e.month_te}</span>
+  document.getElementById('events-list').innerHTML=data.events.map(e=>`
+    <div class="ev-item fade-in">
+      <div class="ev-date">
+        <span class="ev-day">${e.day}</span>
+        <span class="ev-mon">${e.month_en}</span>
+        <span class="ev-te">${e.month_te}</span>
       </div>
       <div>
-        <div class="event-badge">${e.badge}</div>
-        <div class="event-title">${e.title}</div>
-        <div class="event-desc">${e.desc}</div>
+        <div class="ev-badge">${e.badge}</div>
+        <div class="ev-title">${e.title}</div>
+        <div class="ev-desc">${e.desc}</div>
       </div>
     </div>`).join('');
-}).catch(()=>{document.getElementById('events-list').innerHTML='<p style="color:var(--muted);text-align:center;padding:40px">ఉత్సవాల వివరాలు త్వరలో అందుబాటులో ఉంటాయి.</p>';});
+}).catch(()=>{document.getElementById('events-list').innerHTML='<p style="color:var(--muted);padding:60px;text-align:center">త్వరలో అందుబాటులో ఉంటుంది.</p>';});
 </script>
 </body></html>

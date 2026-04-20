@@ -3,56 +3,40 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>సభ్యులు — చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ, మంచాల</title>
-<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Sanskrit:ital@0;1&family=Cinzel+Decorative:wght@400;700;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<style>
-.members-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;padding:32px 0}
-.member-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:24px 20px;text-align:center;transition:all .3s;position:relative;overflow:hidden}
-.member-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--saffron),var(--gold));opacity:0;transition:opacity .3s}
-.member-card:hover{border-color:var(--border-bright);transform:translateY(-3px)}
-.member-card:hover::before{opacity:1}
-.member-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--maroon),var(--deep-maroon));border:2px solid var(--border-bright);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 14px}
-.member-name{font-family:'Tiro Devanagari Sanskrit',serif;font-size:15px;color:var(--cream);margin-bottom:4px}
-.member-name-en{font-size:11px;color:var(--muted);margin-bottom:8px}
-.member-role{display:inline-block;background:rgba(212,160,23,.12);border:1px solid var(--border);color:var(--gold);font-size:10px;padding:3px 10px;border-radius:12px;font-family:'Tiro Devanagari Sanskrit',serif;margin-bottom:8px}
-.member-phone{font-size:12px;color:var(--saffron)}
-.join-banner{background:linear-gradient(135deg,rgba(122,16,32,.3),rgba(255,107,26,.1));border:1px solid rgba(255,107,26,.3);border-radius:16px;padding:32px;text-align:center;max-width:680px;margin:0 auto 60px}
-.join-banner h3{font-family:'Tiro Devanagari Sanskrit',serif;font-size:20px;color:var(--bright-gold);margin-bottom:12px}
-.join-banner p{font-family:'Tiro Devanagari Sanskrit',serif;font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:20px}
-</style>
 </head>
 <body>
 <div id="nav-placeholder"></div>
-<main>
-  <div class="page-hero">
+<div class="page-hero">
+  <div class="page-hero-bg" style="background:linear-gradient(135deg,#0D1F0D,#1A4020,#2D6040)"></div>
+  <div class="page-hero-content">
     <span class="section-tag">Our Team</span>
     <h1 class="section-title">కమిటీ సభ్యులు</h1>
-    <p class="section-telugu">చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ, మంచాల</p>
+    <p class="section-te">చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ, మంచాల</p>
   </div>
-  <div class="container">
-    <div class="members-grid" id="members-grid">
-      <div class="loading">సభ్యుల వివరాలు లోడ్ అవుతున్నాయి...</div>
-    </div>
-    <div class="join-banner">
-      <h3>🚩 మా కమిటీలో చేరండి</h3>
-      <p>శివాజీ స్ఫూర్తిని మంచాలలో వ్యాప్తి చేయాలని అనుకుంటున్నారా? విగ్రహ నిర్మాణంలో భాగస్వాములు అవ్వండి.</p>
-      <a href="contact.html" class="btn-primary">📞 సంప్రదించండి</a>
-    </div>
+</div>
+<div class="container section-sm">
+  <div class="members-grid" id="members-grid">
+    <div class="loading">సభ్యుల వివరాలు లోడ్ అవుతున్నాయి...</div>
   </div>
-</main>
+  <div style="background:linear-gradient(135deg,rgba(122,16,32,.25),rgba(255,107,26,.08));border:1px solid rgba(255,107,26,.25);border-radius:6px;padding:36px;text-align:center;max-width:680px;margin:48px auto 60px">
+    <h3 style="font-family:'Tiro Devanagari Sanskrit',serif;font-size:22px;color:var(--gold2);margin-bottom:12px">🚩 మా కమిటీలో చేరండి</h3>
+    <p style="font-family:'Tiro Devanagari Sanskrit',serif;font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:24px">శివాజీ స్ఫూర్తిని మంచాలలో వ్యాప్తి చేయాలని అనుకుంటున్నారా? విగ్రహ నిర్మాణంలో భాగస్వాములు అవ్వండి.</p>
+    <a href="contact.html" class="btn btn-primary">📞 సంప్రదించండి</a>
+  </div>
+</div>
 <div id="footer-placeholder"></div>
 <script src="script.js"></script>
 <script>
 fetch('content/members.json').then(r=>r.json()).then(data=>{
-  const grid=document.getElementById('members-grid');
-  grid.innerHTML=data.members.map(m=>`
-    <div class="member-card">
+  document.getElementById('members-grid').innerHTML=data.members.map((m,i)=>`
+    <div class="member-card fade-in" style="transition-delay:${i*.07}s">
       <div class="member-avatar">${m.avatar}</div>
       <div class="member-name">${m.name_te}</div>
       <div class="member-name-en">${m.name_en}</div>
       <div class="member-role">${m.role}</div>
       ${m.phone?`<div class="member-phone">${m.phone}</div>`:''}
     </div>`).join('');
-}).catch(()=>{document.getElementById('members-grid').innerHTML='<p style="color:var(--muted);text-align:center;padding:40px">సభ్యుల వివరాలు త్వరలో అందుబాటులో ఉంటాయి.</p>';});
+}).catch(()=>{document.getElementById('members-grid').innerHTML='<p style="color:var(--muted);padding:60px;text-align:center;grid-column:1/-1">సభ్యుల వివరాలు త్వరలో అందుబాటులో ఉంటాయి.</p>';});
 </script>
 </body></html>
