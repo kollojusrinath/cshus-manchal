@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>గ్యాలరీ — చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ, మంచాల</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Sanskrit:ital@0;1&family=Cinzel+Decorative:wght@400;700;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.upload-prompt{margin:28px auto;background:rgba(212,160,23,.05);border:1px dashed var(--border-bright);border-radius:14px;padding:28px;text-align:center;max-width:600px}
+.upload-prompt p{font-family:'Tiro Devanagari Sanskrit',serif;font-size:13px;color:var(--muted);line-height:1.7}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;padding:8px 0 60px}
+.gallery-item{border-radius:12px;overflow:hidden;border:1px solid var(--border);transition:all .3s;cursor:pointer}
+.gallery-item:hover{border-color:var(--border-bright);transform:scale(1.02)}
+.gallery-img{width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:48px;position:relative;overflow:hidden}
+.gallery-img.fort{background:linear-gradient(135deg,#1A0A00,#6B2E00)}
+.gallery-img.battle{background:linear-gradient(135deg,#1a0a2e,#6B0F1A)}
+.gallery-img.navy{background:linear-gradient(135deg,#0A1A2A,#1A4060)}
+.gallery-img.crown{background:linear-gradient(135deg,#1A1400,#6B5500)}
+.gallery-img.people{background:linear-gradient(135deg,#1A0A2E,#3D2060)}
+.gallery-img.admin{background:linear-gradient(135deg,#0D1F0D,#2D5A2D)}
+.gallery-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.gallery-cap{padding:14px 16px;background:rgba(255,255,255,.02)}
+.gallery-cap h4{font-family:'Tiro Devanagari Sanskrit',serif;font-size:14px;color:var(--cream);margin-bottom:4px}
+.gallery-cap p{font-family:'Tiro Devanagari Sanskrit',serif;font-size:11px;color:var(--muted)}
+/* Lightbox */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:9999;align-items:center;justify-content:center;padding:20px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:90vw;max-height:80vh;border-radius:8px;border:1px solid var(--border)}
+.lb-close{position:absolute;top:20px;right:24px;color:var(--gold);font-size:32px;cursor:pointer;background:none;border:none}
+.lb-cap{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:var(--cream);font-family:'Tiro Devanagari Sanskrit',serif;font-size:14px;text-align:center}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<main>
+  <div class="page-hero">
+    <span class="section-tag">Gallery</span>
+    <h1 class="section-title">గ్యాలరీ</h1>
+    <p class="section-telugu">చిత్రాలు మరియు జ్ఞాపకాలు</p>
+  </div>
+  <div class="container">
+    <div class="upload-prompt">
+      <div style="font-size:32px;margin-bottom:12px">📸</div>
+      <p>Admin panel లో photos upload చేయండి — అవి ఇక్కడ automatically కనిపిస్తాయి.<br>
+      <strong style="color:var(--gold)">yoursite.com/admin</strong> కి వెళ్ళి గ్యాలరీ section లో photos జోడించండి.</p>
+    </div>
+    <div class="gallery-grid" id="gallery-grid">
+      <div class="loading">గ్యాలరీ లోడ్ అవుతోంది...</div>
+    </div>
+  </div>
+</main>
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLB()">
+  <button class="lb-close" onclick="closeLB()">✕</button>
+  <img id="lb-img" src="" alt="">
+  <div class="lb-cap" id="lb-cap"></div>
+</div>
+<div id="footer-placeholder"></div>
+<script src="script.js"></script>
+<script>
+function openLB(src,cap){
+  document.getElementById('lb-img').src=src;
+  document.getElementById('lb-cap').textContent=cap;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLB(){document.getElementById('lightbox').classList.remove('open')}
+
+fetch('content/gallery.json').then(r=>r.json()).then(data=>{
+  const grid=document.getElementById('gallery-grid');
+  grid.innerHTML=data.items.map(item=>`
+    <div class="gallery-item" onclick="${item.image?`openLB('${item.image}','${item.title}')`:''}" style="${item.image?'':'cursor:default'}">
+      <div class="gallery-img ${item.bg_class}">
+        ${item.image?`<img src="${item.image}" alt="${item.title}">`:`<span>${item.emoji}</span>`}
+      </div>
+      <div class="gallery-cap"><h4>${item.title}</h4><p>${item.desc}</p></div>
+    </div>`).join('');
+}).catch(()=>{document.getElementById('gallery-grid').innerHTML='<p style="color:var(--muted);text-align:center;padding:40px;grid-column:1/-1">గ్యాలరీ త్వరలో అందుబాటులో ఉంటుంది.</p>';});
+</script>
+</body></html>

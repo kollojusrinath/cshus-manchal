@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>అప్‌డేట్స్ — చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ, మంచాల</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Sanskrit:ital@0;1&family=Cinzel+Decorative:wght@400;700;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.updates-list{padding:32px 0 60px;max-width:760px;margin:0 auto}
+.update-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:20px;transition:all .3s}
+.update-card:hover{border-color:var(--border-bright);transform:translateY(-2px)}
+.update-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.update-badge{font-size:10px;background:rgba(255,107,26,.15);color:var(--saffron);padding:3px 10px;border-radius:10px;font-family:'Cinzel Decorative',cursive;border:1px solid rgba(255,107,26,.25)}
+.update-date{font-size:11px;color:var(--muted);margin-left:auto}
+.update-title{font-family:'Tiro Devanagari Sanskrit',serif;font-size:18px;color:var(--bright-gold);margin-bottom:10px}
+.update-body{font-family:'Tiro Devanagari Sanskrit',serif;font-size:14px;color:var(--muted);line-height:1.7}
+.update-img{width:100%;border-radius:8px;margin-top:14px;border:1px solid var(--border)}
+.update-date-te{font-size:11px;color:var(--gold);opacity:.7;margin-top:10px;font-family:'Tiro Devanagari Sanskrit',serif}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<main>
+  <div class="page-hero">
+    <span class="section-tag">Latest News</span>
+    <h1 class="section-title">అప్‌డేట్స్ & ప్రకటనలు</h1>
+    <p class="section-telugu">కమిటీ తాజా వార్తలు మరియు ప్రకటనలు</p>
+  </div>
+  <div class="container">
+    <div class="updates-list" id="updates-list">
+      <div class="loading">లోడ్ అవుతోంది...</div>
+    </div>
+  </div>
+</main>
+<div id="footer-placeholder"></div>
+<script src="script.js"></script>
+<script>
+fetch('content/updates.json').then(r=>r.json()).then(data=>{
+  const list=document.getElementById('updates-list');
+  if(!data.updates.length){list.innerHTML='<p style="color:var(--muted);text-align:center;padding:60px">త్వరలో అప్‌డేట్స్ వస్తాయి.</p>';return;}
+  list.innerHTML=data.updates.map(u=>`
+    <div class="update-card">
+      <div class="update-header">
+        <span class="update-badge">${u.badge}</span>
+        <span class="update-date">${u.date}</span>
+      </div>
+      <div class="update-title">${u.title}</div>
+      <div class="update-body">${u.body}</div>
+      ${u.image?`<img class="update-img" src="${u.image}" alt="${u.title}">`:''}
+      <div class="update-date-te">📅 ${u.date_te}</div>
+    </div>`).join('');
+}).catch(()=>{document.getElementById('updates-list').innerHTML='<p style="color:var(--muted);text-align:center;padding:60px">త్వరలో అప్‌డేట్స్ వస్తాయి.</p>';});
+</script>
+</body></html>
