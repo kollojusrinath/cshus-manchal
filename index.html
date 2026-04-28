@@ -21,6 +21,12 @@
 .ns-title{font-family:'Tiro Devanagari Sanskrit',serif;font-size:14px;color:var(--cream);flex:1}
 .ns-date{font-size:11px;color:var(--muted);white-space:nowrap}
 @media(max-width:768px){.why-grid{grid-template-columns:1fr}}
+.hero-chapters{margin-top:28px;max-width:720px}
+.hc-label{font-family:'Cinzel Decorative',cursive;font-size:9px;letter-spacing:2.5px;color:var(--saffron);text-transform:uppercase;margin-bottom:12px;display:block;opacity:.85}
+.hc-grid{display:flex;flex-wrap:wrap;gap:8px}
+.hc-chip{display:inline-flex;flex-direction:column;background:rgba(255,255,255,.78);border:1px solid var(--border2);border-radius:4px;padding:7px 13px;font-family:'Tiro Devanagari Sanskrit',serif;font-size:12px;color:var(--maroon);font-weight:600;transition:all .25s;line-height:1.2;box-shadow:0 2px 8px rgba(100,40,10,.08);cursor:pointer;text-decoration:none}
+.hc-chip span{font-size:9px;color:var(--saffron);font-family:'Crimson Pro',serif;font-weight:400;margin-top:2px;letter-spacing:.5px}
+.hc-chip:hover{background:#fff;border-color:var(--saffron);transform:translateY(-2px);box-shadow:0 6px 18px rgba(212,90,0,.18);color:var(--maroon2)}
 </style>
 </head>
 <body>
@@ -45,7 +51,25 @@
     </blockquote>
     <div class="hero-btns">
       <a href="history.html" class="btn btn-primary">📜 హైందవి స్వరాజ్య చరిత్ర</a>
+      <a href="dharma.html" class="btn btn-saffron">🕉️ సనాతన ధర్మం</a>
       <a href="contact.html" class="btn btn-gold">🚩 కమిటీలో చేరండి</a>
+    </div>
+
+    <!-- Chapter quick links -->
+    <div class="hero-chapters">
+      <p class="hc-label">చరిత్రలో నేరుగా వెళ్ళండి ↓</p>
+      <div class="hc-grid">
+        <a href="history.html#era1" class="hc-chip">🗡️ అంధకార యుగం<span>1000–1600</span></a>
+        <a href="history.html#era2" class="hc-chip">🏛️ విజయనగర సామ్రాజ్యం<span>1336–1646</span></a>
+        <a href="history.html#era3" class="hc-chip">⚔️ మరాఠా వీరులు<span>1550–1630</span></a>
+        <a href="history.html#era4" class="hc-chip">🌅 శివాజీ జన్మం<span>1630–1655</span></a>
+        <a href="history.html#era5" class="hc-chip">🔥 మహా యుద్ధాలు<span>1656–1670</span></a>
+        <a href="history.html#era6" class="hc-chip">👑 చత్రపతి పట్టాభిషేకం<span>1670–1680</span></a>
+        <a href="history.html#era7" class="hc-chip">🚩 సంభాజీ మహారాజ్<span>1680–1689</span></a>
+        <a href="history.html#era8" class="hc-chip">👸 తారాబాయి<span>1689–1707</span></a>
+        <a href="history.html#era9" class="hc-chip">🏇 పేష్వా యుగం<span>1707–1761</span></a>
+        <a href="history.html#era10" class="hc-chip">📜 పానిపట్ & పతనం<span>1761–1818</span></a>
+      </div>
     </div>
   </div>
   <div class="hero-scroll"><span>SCROLL</span></div>
