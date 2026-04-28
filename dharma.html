@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>సనాతన ధర్మం — చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ, మంచాల</title>
+<meta name="description" content="సనాతన ధర్మం ఆచారాలు, సంప్రదాయాలు, యోగ, ధ్యానం, షోడశ సంస్కారాలు — Dr. దామర్ల త్యాగరాజు రచన ఆధారంగా">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Sanathana Dharma specific styles */
+.dharma-intro{background:#fff;border:1px solid var(--border);border-radius:8px;padding:32px;margin-bottom:48px;box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 2fr;gap:32px;align-items:center}
+.dharma-book-card{background:linear-gradient(135deg,var(--maroon2),var(--maroon));border-radius:8px;padding:28px 20px;text-align:center;color:#fff}
+.dharma-book-card .book-icon{font-size:48px;margin-bottom:14px}
+.dharma-book-card h3{font-family:'Tiro Devanagari Sanskrit',serif;font-size:16px;margin-bottom:8px;line-height:1.4}
+.dharma-book-card p{font-size:12px;opacity:.8;line-height:1.6;font-family:'Crimson Pro',serif}
+.dharma-book-card .author{font-size:13px;color:rgba(255,200,150,.9);margin-top:10px;font-family:'Tiro Devanagari Sanskrit',serif}
+.dharma-intro-text h2{font-family:'Tiro Devanagari Sanskrit',serif;font-size:22px;color:var(--maroon);margin-bottom:14px}
+.dharma-intro-text p{font-family:'Tiro Devanagari Sanskrit',serif;font-size:14px;color:var(--text2);line-height:1.85;margin-bottom:12px}
+
+/* Chapter sections */
+.dharma-chapter{margin-bottom:64px}
+.chapter-header{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid var(--border)}
+.chapter-num{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--saffron),var(--gold));display:flex;align-items:center;justify-content:center;font-family:'Cinzel Decorative',cursive;font-size:14px;color:#fff;flex-shrink:0;box-shadow:0 4px 12px rgba(212,90,0,.25)}
+.chapter-header h2{font-family:'Tiro Devanagari Sanskrit',serif;font-size:clamp(18px,2.8vw,26px);color:var(--maroon)}
+.chapter-header p{font-size:12px;color:var(--saffron);font-family:'Crimson Pro',serif;letter-spacing:1px}
+
+/* Content blocks */
+.dharma-block{background:#fff;border:1px solid var(--border);border-radius:8px;padding:26px 24px;margin-bottom:20px;box-shadow:var(--shadow);transition:border-color .3s}
+.dharma-block:hover{border-color:var(--border2)}
+.dharma-block h3{font-family:'Tiro Devanagari Sanskrit',serif;font-size:17px;color:var(--maroon);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.dharma-block p{font-family:'Tiro Devanagari Sanskrit',serif;font-size:14px;color:var(--text2);line-height:1.85}
+.dharma-block ul{list-style:none;margin-top:12px}
+.dharma-block ul li{font-family:'Tiro Devanagari Sanskrit',serif;font-size:13.5px;color:var(--text2);padding:7px 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:10px;line-height:1.6}
+.dharma-block ul li:last-child{border-bottom:none}
+.dharma-block ul li::before{content:'🔸';flex-shrink:0;margin-top:1px}
+.dharma-quote{background:var(--saffron-light);border-left:4px solid var(--saffron);border-radius:0 6px 6px 0;padding:16px 20px;margin:16px 0;font-family:'Tiro Devanagari Sanskrit',serif;font-size:15px;color:var(--text2);line-height:1.75;font-style:italic}
+
+/* Grid layouts */
+.dharma-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.dharma-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.dharma-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+
+/* Samskar cards */
+.samskar-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:20px 16px;text-align:center;box-shadow:var(--shadow);transition:all .3s}
+.samskar-card:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:var(--shadow2)}
+.samskar-num{width:36px;height:36px;border-radius:50%;background:var(--maroon);color:#fff;font-family:'Cinzel Decorative',cursive;font-size:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+.samskar-card h4{font-family:'Tiro Devanagari Sanskrit',serif;font-size:14px;color:var(--maroon);margin-bottom:6px}
+.samskar-card p{font-family:'Tiro Devanagari Sanskrit',serif;font-size:11.5px;color:var(--muted);line-height:1.5}
+
+/* Panchadeva cards */
+.deva-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:24px 18px;text-align:center;box-shadow:var(--shadow);transition:all .3s}
+.deva-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.deva-icon{font-size:36px;margin-bottom:12px}
+.deva-card h4{font-family:'Tiro Devanagari Sanskrit',serif;font-size:16px;color:var(--maroon);margin-bottom:8px}
+.deva-card p{font-family:'Tiro Devanagari Sanskrit',serif;font-size:12px;color:var(--muted);line-height:1.6}
+
+/* Yoga types */
+.yoga-card{background:#fff;border-top:4px solid var(--saffron);border:1px solid var(--border);border-radius:8px;padding:24px;box-shadow:var(--shadow);transition:all .3s}
+.yoga-card:hover{box-shadow:var(--shadow2);transform:translateY(-3px)}
+.yoga-card h4{font-family:'Tiro Devanagari Sanskrit',serif;font-size:16px;color:var(--maroon);margin-bottom:10px}
+.yoga-card p{font-family:'Tiro Devanagari Sanskrit',serif;font-size:13px;color:var(--muted);line-height:1.7}
+.yoga-card .yoga-num{display:inline-block;background:var(--saffron);color:#fff;font-size:10px;padding:2px 8px;border-radius:3px;font-family:'Cinzel Decorative',cursive;margin-bottom:8px}
+
+/* Source banner */
+.source-banner{background:var(--gold-light);border:1px solid rgba(184,134,11,.3);border-radius:6px;padding:16px 20px;display:flex;align-items:center;gap:12px;margin-top:48px}
+.source-banner p{font-family:'Tiro Devanagari Sanskrit',serif;font-size:12px;color:var(--text2);line-height:1.6}
+.source-banner strong{color:var(--maroon)}
+
+@media(max-width:768px){
+  .dharma-intro{grid-template-columns:1fr}
+  .dharma-grid-2,.dharma-grid-3,.dharma-grid-4{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .dharma-grid-3{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg" style="background:linear-gradient(135deg,#3A1A00,#6B3A10,#A06020)">
+    <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" style="display:none">
+  </div>
+  <div class="page-hero-content container">
+    <span class="section-tag">Eternal Way of Life</span>
+    <h1 class="section-title" style="font-size:clamp(22px,4vw,44px)">సనాతన ధర్మం</h1>
+    <p class="section-te">ఆచార విధానం — The Eternal Natural Law</p>
+    <p style="font-family:'Tiro Devanagari Sanskrit',serif;font-size:14px;color:var(--saffron3);margin-top:8px">Dr. దామర్ల త్యాగరాజు రచన ఆధారంగా</p>
+  </div>
+</div>
+
+<div class="container section-sm">
+
+  <!-- BOOK INTRO -->
+  <div class="dharma-intro fade-in">
+    <div class="dharma-book-card">
+      <div class="book-icon">📖</div>
+      <h3>సనాతన ధర్మము<br>ఆచార్ విధానం</h3>
+      <p>రచన & ప్రచురణ<br>డిసంబర్ 2021</p>
+      <div class="author">Dr. దామర్ల త్యాగరాజు, Ph.D.<br><small style="opacity:.7">Hanover, MD, USA</small></div>
+    </div>
+    <div class="dharma-intro-text">
+      <h2>సనాతన ధర్మం అంటే ఏమిటి?</h2>
+      <p>సనాతన అంటే <strong>శాశ్వతమైన</strong>, ధర్మం అంటే <strong>నిజమైన స్వభావం లేదా సత్యం</strong>. అంటే "శాశ్వతమైన సత్య ధర్మం" — Eternal Natural Law. ఇది ఏదైనా ఒక్క మతానికి చెందినది కాదు. ఇది మనిషి యొక్క నిజమైన స్వభావం.</p>
+      <p>అబ్రహామిక్ మతాలు (యూదు, క్రైస్తవ, ఇస్లాం) రావడానికి ముందు <strong>అందరూ సనాతన ధర్మం ఆచరించేవారు</strong>. ఇది అందరినీ కలుపుకొని జీవించమని, అన్ని మతాలపై సమభావం చూపించే మార్గం.</p>
+      <p>అమెరికాలో దాదాపు <strong>రెండు కోట్ల మంది</strong> యోగ, ధ్యానం నేర్చుకుంటున్నారు. అక్కడి పాఠశాలల్లో 5వ తరగతి నుండి యోగా క్లాసులు నేర్పుతున్నారు — మనం మన సంప్రదాయాన్ని విస్మరిస్తున్నాం.</p>
+      <div class="dharma-quote">
+        "సనాతన ధర్మం అందరి మేలు కోరి సమైక్య భావంతో ఇతర మతాలపై సమభావం చూపించే మతం. అందరినీ కలుపుకొని జీవించమని బోధించే మతం."
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 1: PANCHA TATTVALU -->
+  <div class="dharma-chapter" id="pancha">
+    <div class="chapter-header fade-in">
+      <div class="chapter-num">1</div>
+      <div>
+        <h2>పంచభూతాలు — Pancha Tattvalu</h2>
+        <p>Five Elements of Creation</p>
+      </div>
+    </div>
+    <div class="dharma-block fade-in">
+      <p>సనాతన ధర్మం ప్రకారం సమస్త సృష్టి <strong>పంచభూతాలతో</strong> నిర్మించబడింది. ఈ అయిదు తత్వాలే మానవ శరీరానికి, ప్రపంచానికి ఆధారం.</p>
+    </div>
+    <div class="dharma-grid-3">
+      <div class="dharma-block fade-in">
+        <h3>🌍 పృథ్వి (Earth)</h3>
+        <p>భూమి తత్వం — ఘన పదార్థాలన్నీ పృథ్వి తత్వంతో నిర్మించబడ్డాయి. మన శరీరంలో ఎముకలు, మాంసం పృథ్వి తత్వం.</p>
+      </div>
+      <div class="dharma-block fade-in">
+        <h3>💧 జలం (Water)</h3>
+        <p>నీటి తత్వం — ద్రవ పదార్థాలు. మన శరీరంలో రక్తం, లాలాజలం జల తత్వం. జీవనానికి ఆధారం.</p>
+      </div>
+      <div class="dharma-block fade-in">
+        <h3>🔥 అగ్ని (Fire)</h3>
+        <p>అగ్ని తత్వం — వేడి, వెలుతురు. మన శరీరంలో జఠరాగ్ని (పాచన శక్తి), శరీర వేడి అగ్ని తత్వం.</p>
+      </div>
+      <div class="dharma-block fade-in">
+        <h3>🌬️ వాయువు (Air)</h3>
+        <p>వాయు తత్వం — గాలి, శ్వాస. ప్రాణశక్తి. మన శ్వాస, రక్త ప్రసరణ వాయు తత్వం.</p>
+      </div>
+      <div class="dharma-block fade-in">
+        <h3>✨ ఆకాశం (Space)</h3>
+        <p>ఆకాశ తత్వం — శబ్దానికి ఆధారం. అన్నిటికీ స్థలం ఇచ్చే శక్తి. అనంతమైనది.</p>
+      </div>
+      <div class="dharma-block fade-in" style="background:var(--saffron-light);border-color:rgba(212,90,0,.2)">
+        <h3>🙏 పంచభూత ఆరాధన</h3>
+        <p>ఈ అయిదు తత్వాలను దేవుడుగా పూజించడమే సనాతన ధర్మం మూలం. మనిషి మరియు ప్రకృతి ఒక్కటే అని బోధిస్తుంది.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 2: PANCHADEVA -->
+  <div class="dharma-chapter" id="panchadeva">
+    <div class="chapter-header fade-in">
+      <div class="chapter-num">2</div>
+      <div>
+        <h2>పంచాయతన పూజ — Panchadeva</h2>
+        <p>Five Principal Deities</p>
+      </div>
+    </div>
+    <div class="dharma-block fade-in" style="margin-bottom:24px">
+      <p>సనాతన ధర్మంలో <strong>పంచాయతన పూజ</strong> అనేది ఆది శంకరాచార్యులు ప్రచారం చేసారు. అయిదు ముఖ్యమైన దేవతలను ఒకే సమయంలో పూజించడం.</p>
+    </div>
+    <div class="dharma-grid-3">
+      <div class="deva-card fade-in">
+        <div class="deva-icon">🔱</div>
+        <h4>శివుడు</h4>
+        <p>సంహారకర్త, తాండవ నృత్యకారుడు, అర్ధనారీశ్వరుడు. కైలాసం నివాసి.</p>
+      </div>
+      <div class="deva-card fade-in">
+        <div class="deva-icon">🪷</div>
+        <h4>విష్ణువు</h4>
+        <p>పాలకుడు, పరిపాలకుడు. దశావతారాలు దాల్చి ధర్మాన్ని రక్షించేవాడు.</p>
+      </div>
+      <div class="deva-card fade-in">
+        <div class="deva-icon">🌟</div>
+        <h4>గణేశుడు</h4>
+        <p>విఘ్నేశ్వరుడు, ప్రథమ పూజ్యుడు. అన్ని శుభకార్యాలకు మొదట పూజించేవారు.</p>
+      </div>
+      <div class="deva-card fade-in">
+        <div class="deva-icon">☀️</div>
+        <h4>సూర్యుడు</h4>
+        <p>ప్రత్యక్ష దేవుడు, జీవాధారం. సంధ్యావందనం ద్వారా సూర్యోపాసన.</p>
+      </div>
+      <div class="deva-card fade-in">
+        <div class="deva-icon">🌺</div>
+        <h4>అంబిక (శక్తి)</h4>
+        <p>జగన్మాత, ఆది పరాశక్తి. దుర్గ, లక్ష్మి, సరస్వతి రూపాలు.</p>
+      </div>
+      <div class="deva-card fade-in" style="background:var(--maroon-light)">
+        <div class="deva-icon">🙏</div>
+        <h4>ఏకం సత్ విప్రా బహుధా వదంతి</h4>
+        <p>సత్యం ఒక్కటే — పండితులు దాన్ని వేర్వేరు పేర్లతో పిలుస్తారు. అన్ని దేవతలు ఒకే పరమాత్మ రూపాలు.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 3: SHODASHA SAMSKARAM -->
+  <div class="dharma-chapter" id="samskaras">
+    <div class="chapter-header fade-in">
+      <div class="chapter-num">3</div>
+      <div>
+        <h2>షోడశ సంస్కారాలు</h2>
+        <p>Sixteen Life Sacraments</p>
+      </div>
+    </div>
+    <div class="dharma-block fade-in" style="margin-bottom:24px">
+      <p>సనాతన ధర్మంలో జననం నుండి మరణం వరకు <strong>16 సంస్కారాలు</strong> మానవ జీవితంలో వివిధ దశలను పవిత్రపరుస్తాయి. ఇవి వ్యక్తిత్వ వికాసానికి, సమాజ శ్రేయస్సుకు ఉద్దేశించబడ్డాయి.</p>
+    </div>
+    <div class="dharma-grid-4">
+      <div class="samskar-card fade-in"><div class="samskar-num">1</div><h4>గర్భాధానం</h4><p>గర్భధారణకు పూర్వం జరిపే సంస్కారం</p></div>
+      <div class="samskar-card fade-in"><div class="samskar-num">2</div><h4>పుంసవనం</h4><p>గర్భంలో శిశువు ఆరోగ్యానికి</p></div>
+      <div class="samskar-card fade-in"><div class="samskar-num">3</div><h4>సీమంతోన్నయనం</h4><p>బేబీ షవర్ — 7వ నెలలో</p></div>
+      <div class="samskar-card fade-in"><div class="samskar-num">4</div><h4>జాతకర్మ</h4><p>శిశువు జన్మించిన వెంటనే</p></div>
+      <div class="samskar-card fade-in"><div class="samskar-num">5</div><h4>నామకరణం</h4><p>పేరు పెట్టే సంస్కారం — 11వ రోజు</p></div>
+      <div class="samskar-card fade-in"><div class="samskar-num">6</div><h4>నిష్క్రమణం</h4><p>శిశువుకు మొదటిసారి సూర్యదర్శనం</p></div>
+      <div class="samskar-card fade-in"><div class="samskar-num">7</div><h4>అన్నప్రాశన</h4><p>మొదటిసారి అన్నం పెట్టడం</p></div>
+      <div class="samskar-card fade-in"><div class="samskar-num">8</div><h4>చూడాకర్మ</h4><p>మొదటి తల గొరగించడం</p></div>
+      <div class="samskar-card fade-in"><div class="samskar-num">9</div><h4>కర్ణవేధం</h4><p>చెవులు కుట్టించడం</p></div>
+      <div class="samskar-card fade-in"><div class="samskar-num">10</div><h4>విద్యారంభం</h4><p>అక్షరాభ్యాసం — విద్య ప్రారంభం</p></div>
+      <div class="samskar-card fade-in"><div class="samskar-num">11</div><h4>ఉపనయనం</h4><p>జంధ్యం వేయడం — గురుకులం ప్రారంభం</p></div>
+      <div class="samskar-card fade-in"><div class="samskar-num">12</div><h4>వేదారంభం</h4><p>వేద అధ్యయనం ప్రారంభం</p></div>
+      <div class="samskar-card fade-in"><div class="samskar-num">13</div><h4>కేశాంతం</h4><p>మొదటిసారి గడ్డం గొరగించడం</p></div>
+      <div class="samskar-card fade-in"><div class="samskar-num">14</div><h4>సమావర్తనం</h4><p>విద్య పూర్తయిన తర్వాత</p></div>
+      <div class="samskar-card fade-in"><div class="samskar-num">15</div><h4>వివాహం</h4><p>పవిత్రమైన గృహస్థాశ్రమ ప్రవేశం</p></div>
+      <div class="samskar-card fade-in"><div class="samskar-num">16</div><h4>అంత్యేష్టి</h4><p>మరణానంతర సంస్కారాలు</p></div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 4: YOGA & DHYANA -->
+  <div class="dharma-chapter" id="yoga">
+    <div class="chapter-header fade-in">
+      <div class="chapter-num">4</div>
+      <div>
+        <h2>యోగ & ధ్యానం</h2>
+        <p>Yoga & Meditation — Path to Liberation</p>
+      </div>
+    </div>
+    <div class="dharma-block fade-in" style="margin-bottom:24px">
+      <p>అమెరికాలో <strong>రెండు కోట్ల మంది</strong> యోగ, ధ్యానం నేర్చుకుంటున్నారు. అక్కడి పాఠశాలల్లో 5వ తరగతి నుండి యోగా నేర్పుతున్నారు. మనం మన పూర్వీకులు ఇచ్చిన ఈ అమూల్యమైన సంపదను విస్మరించకూడదు.</p>
+    </div>
+
+    <h3 style="font-family:'Tiro Devanagari Sanskrit',serif;font-size:20px;color:var(--maroon);margin-bottom:20px;padding-left:4px">యోగ యొక్క లాభాలు</h3>
+    <div class="dharma-grid-2" style="margin-bottom:32px">
+      <div class="dharma-block fade-in">
+        <h3>🧘 శారీరక లాభాలు</h3>
+        <ul>
+          <li>నరాల బిరుసు తొలగడం</li>
+          <li>కండరాలలో బలం పెరగడం</li>
+          <li>గుండె సరిగా పని చేయడం</li>
+          <li>కీళ్ళ నొప్పులు తగ్గడం</li>
+          <li>పాచన శక్తి మెరుగవడం</li>
+          <li>రోగ నిరోధక శక్తి పెరగడం</li>
+        </ul>
+      </div>
+      <div class="dharma-block fade-in">
+        <h3>🧠 మానసిక లాభాలు</h3>
+        <ul>
+          <li>మనశ్శాంతి లభించడం</li>
+          <li>మనసు నిబ్బరంగా ఉండటం</li>
+          <li>ఏకాగ్రత పెరగడం</li>
+          <li>మనో వైకల్యం తగ్గడం</li>
+          <li>వ్యాకులత తగ్గడం</li>
+          <li>సానుకూల దృక్పథం పెరగడం</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Tiro Devanagari Sanskrit',serif;font-size:20px;color:var(--maroon);margin-bottom:20px;padding-left:4px">నాలుగు మార్గాలు</h3>
+    <div class="dharma-grid-2">
+      <div class="yoga-card fade-in">
+        <div class="yoga-num">మార్గం 1</div>
+        <h4>జ్ఞాన యోగం</h4>
+        <p>జ్ఞానం ద్వారా మోక్షం. వేదాంత అధ్యయనం, ఆత్మ విచారణ ద్వారా పరమాత్మను తెలుసుకోవడం. ఆది శంకరాచార్యులు ఈ మార్గాన్ని బోధించారు.</p>
+      </div>
+      <div class="yoga-card fade-in">
+        <div class="yoga-num">మార్గం 2</div>
+        <h4>భక్తి యోగం</h4>
+        <p>భక్తి ద్వారా మోక్షం. దేవుణ్ణి ప్రేమించడం, భజన, కీర్తన, పూజ. మీరాబాయి, తులసీదాసు, త్యాగరాజ స్వామి ఈ మార్గంలో నడిచారు.</p>
+      </div>
+      <div class="yoga-card fade-in">
+        <div class="yoga-num">మార్గం 3</div>
+        <h4>కర్మ యోగం</h4>
+        <p>నిష్కామ కర్మ ద్వారా మోక్షం. ఫలాపేక్ష లేకుండా కర్తవ్యం నిర్వహించడం. భగవద్గీతలో శ్రీకృష్ణుడు అర్జునుడికి ఈ మార్గం బోధించాడు.</p>
+      </div>
+      <div class="yoga-card fade-in">
+        <div class="yoga-num">మార్గం 4</div>
+        <h4>రాజ యోగం</h4>
+        <p>ధ్యానం ద్వారా మోక్షం. పతంజలి అష్టాంగ యోగం. యమ, నియమ, ఆసన, ప్రాణాయామ, ప్రత్యాహార, ధారణ, ధ్యాన, సమాధి.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 5: VARNASHRAMA -->
+  <div class="dharma-chapter" id="ashrama">
+    <div class="chapter-header fade-in">
+      <div class="chapter-num">5</div>
+      <div>
+        <h2>చతురాశ్రమాలు</h2>
+        <p>Four Stages of Life</p>
+      </div>
+    </div>
+    <div class="dharma-grid-2">
+      <div class="dharma-block fade-in">
+        <h3>📚 బ్రహ్మచర్యాశ్రమం</h3>
+        <p><strong>విద్యార్థి దశ (0–25 సంవత్సరాలు):</strong> గురుకులంలో విద్య నేర్చుకోవడం, బ్రహ్మచర్య పాలన, గురువుసేవ, వేద అధ్యయనం. శారీరక, మానసిక, ఆధ్యాత్మిక శక్తుల నిర్మాణ దశ.</p>
+      </div>
+      <div class="dharma-block fade-in">
+        <h3>🏠 గృహస్థాశ్రమం</h3>
+        <p><strong>గృహస్థ దశ (25–50 సంవత్సరాలు):</strong> వివాహం, కుటుంబ జీవనం, సంతానం, సమాజ కర్తవ్యం. ధర్మ, అర్థ, కామ పురుషార్థాలు సాధించే దశ.</p>
+      </div>
+      <div class="dharma-block fade-in">
+        <h3>🌳 వానప్రస్థాశ్రమం</h3>
+        <p><strong>వానప్రస్థ దశ (50–75 సంవత్సరాలు):</strong> కుటుంబ బాధ్యతలు పిల్లలకు అప్పగించి, ఆధ్యాత్మిక మార్గంలో ప్రవేశించడం. సమాజ సేవ, తీర్థయాత్రలు.</p>
+      </div>
+      <div class="dharma-block fade-in">
+        <h3>🕉️ సంన్యాసాశ్రమం</h3>
+        <p><strong>సంన్యాస దశ (75+ సంవత్సరాలు):</strong> అన్ని బంధాలను వదిలి మోక్ష సాధన. ఈ దశలో వ్యక్తి పూర్తిగా ఆధ్యాత్మిక జీవనం గడుపుతారు.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 6: PANCHA MAHA YAJNAS -->
+  <div class="dharma-chapter" id="yajnas">
+    <div class="chapter-header fade-in">
+      <div class="chapter-num">6</div>
+      <div>
+        <h2>పంచ మహా యజ్ఞాలు</h2>
+        <p>Five Daily Duties</p>
+      </div>
+    </div>
+    <div class="dharma-block fade-in" style="margin-bottom:24px">
+      <p>సనాతన ధర్మంలో ప్రతి గృహస్థుడు ప్రతిరోజూ ఈ <strong>అయిదు మహా యజ్ఞాలు</strong> నిర్వహించాలని చెప్పబడింది. ఇవి మనిషికి, ప్రకృతికి, సమాజానికి మధ్య అనుబంధాన్ని పటిష్ఠం చేస్తాయి.</p>
+    </div>
+    <div class="dharma-grid-3">
+      <div class="dharma-block fade-in">
+        <h3>🙏 దేవ యజ్ఞం</h3>
+        <p>దేవతలకు పూజ చేయడం, హోమం, సంధ్యావందనం. పరమాత్మ పట్ల కృతజ్ఞత తెలుపుకోవడం.</p>
+      </div>
+      <div class="dharma-block fade-in">
+        <h3>👴 పితృ యజ్ఞం</h3>
+        <p>పితృదేవతలకు తర్పణాలు, శ్రాద్ధకర్మలు. పూర్వీకుల పట్ల కృతజ్ఞత, కర్తవ్యం నిర్వహించడం.</p>
+      </div>
+      <div class="dharma-block fade-in">
+        <h3>📖 బ్రహ్మ యజ్ఞం</h3>
+        <p>వేద పారాయణం, స్వాధ్యాయం. జ్ఞానానికి కృతజ్ఞత. ప్రతిరోజు కొంత సమయం వేదాభ్యాసం.</p>
+      </div>
+      <div class="dharma-block fade-in">
+        <h3>👥 మనుష్య యజ్ఞం</h3>
+        <p>అతిథి సత్కారం. "అతిథి దేవో భవ" — వచ్చిన అతిథిని దేవుడిగా సేవించడం.</p>
+      </div>
+      <div class="dharma-block fade-in">
+        <h3>🐾 భూత యజ్ఞం</h3>
+        <p>జంతువులకు, పక్షులకు ఆహారం పెట్టడం. సమస్త జీవులపై దయ చూపించడం. ప్రకృతి రక్షణ.</p>
+      </div>
+      <div class="dharma-block fade-in" style="background:var(--saffron-light);border-color:rgba(212,90,0,.2)">
+        <h3>🌿 ఈ 5 యజ్ఞాలు ఎందుకు?</h3>
+        <p>ఈ యజ్ఞాలు మనిషికి దేవుడు, పూర్వీకులు, జ్ఞానం, సమాజం, ప్రకృతి — అన్నిటి పట్లా కర్తవ్యాన్ని గుర్తు చేస్తాయి.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 7: DHARMIC ACHARA -->
+  <div class="dharma-chapter" id="achara">
+    <div class="chapter-header fade-in">
+      <div class="chapter-num">7</div>
+      <div>
+        <h2>దైనందిన ఆచారాలు</h2>
+        <p>Daily Dharmic Practices</p>
+      </div>
+    </div>
+    <div class="dharma-grid-2">
+      <div class="dharma-block fade-in">
+        <h3>🌅 ప్రాతఃకాల ఆచారాలు</h3>
+        <ul>
+          <li>బ్రహ్మముహూర్తంలో (4–6 గంటలు) లేవడం</li>
+          <li>నిద్ర లేవగానే చేతులు చూసుకొని "కరాగ్రే వసతే లక్ష్మి..." చదవడం</li>
+          <li>భూమిపై కాలు పెట్టేముందు "సముద్రవసనే దేవి..." చదవడం</li>
+          <li>సంధ్యావందనం, సూర్యనమస్కారాలు</li>
+          <li>దేవుని పూజ, ధూప, దీప నైవేద్యం</li>
+          <li>తల్లిదండ్రులకు, పెద్దలకు నమస్కరించడం</li>
+        </ul>
+      </div>
+      <div class="dharma-block fade-in">
+        <h3>🌙 సాయంకాల & రాత్రి ఆచారాలు</h3>
+        <ul>
+          <li>సాయం సంధ్యావందనం</li>
+          <li>సాయంకాలం దీపారాధన — "శుభం కరోతి కళ్యాణం..."</li>
+          <li>రాత్రి భోజనానికి ముందు ప్రార్థన</li>
+          <li>పడుకునే ముందు "రామ స్మరణ" లేదా భగవన్నామ జపం</li>
+          <li>కుటుంబ సభ్యులతో కలసి భోజనం</li>
+          <li>సూర్యాస్తమయం తర్వాత గృహంలో ఉండటం</li>
+        </ul>
+      </div>
+      <div class="dharma-block fade-in">
+        <h3>🍽️ భోజన ఆచారాలు</h3>
+        <ul>
+          <li>భోజనానికి ముందు "అన్నం బ్రహ్మ..." చదవడం</li>
+          <li>తూర్పు లేదా ఉత్తరం వైపు కూర్చుని తినడం</li>
+          <li>నేలపై కూర్చుని తినడం శ్రేష్ఠం</li>
+          <li>భోజనానికి ముందు ఆవు, కుక్క, కాకి, అతిథికి పెట్టడం</li>
+          <li>నిలబడి, నడుస్తూ తినకూడదు</li>
+          <li>ఎడమ చేత్తో తినకూడదు</li>
+        </ul>
+      </div>
+      <div class="dharma-block fade-in">
+        <h3>🏠 గృహ ఆచారాలు</h3>
+        <ul>
+          <li>ప్రతి ఇంటిలో తులసి మొక్క పెంచడం</li>
+          <li>ముందు వాకిలి ముగ్గు వేయడం</li>
+          <li>ఇంటి ద్వారానికి మామిడి ఆకుల తోరణం</li>
+          <li>ప్రతి అమావాస్య, పౌర్ణమి పూజలు</li>
+          <li>ఆవు పేడతో ఇల్లు అలుకడం</li>
+          <li>ఇంట్లో ఉత్తర దిక్కు తల పెట్టి పడుకోకూడదు</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 8: FESTIVALS -->
+  <div class="dharma-chapter" id="festivals">
+    <div class="chapter-header fade-in">
+      <div class="chapter-num">8</div>
+      <div>
+        <h2>పండుగలు — ఆధ్యాత్మిక అర్థం</h2>
+        <p>Festivals & Their Spiritual Significance</p>
+      </div>
+    </div>
+    <div class="dharma-block fade-in" style="margin-bottom:24px">
+      <p>సనాతన ధర్మంలో ప్రతి పండుగ కేవలం సంతోషం కోసం మాత్రమే కాదు — దానికి <strong>ఆధ్యాత్మిక, వైజ్ఞానిక అర్థం</strong> ఉంది.</p>
+    </div>
+    <div class="dharma-grid-3">
+      <div class="dharma-block fade-in">
+        <h3>🪔 దీపావళి</h3>
+        <p><strong>అమావాస్య — కార్తీక మాసం:</strong> చీకటిపై వెలుతురు విజయం. నరకాసుర వధ. లక్ష్మీ పూజ. అజ్ఞానంపై జ్ఞానం విజయానికి ప్రతీక.</p>
+      </div>
+      <div class="dharma-block fade-in">
+        <h3>🌈 హోళీ</h3>
+        <p><strong>ఫాల్గుణ పౌర్ణమి:</strong> హిరణ్యకశిపుడిపై భక్తుడు ప్రహ్లాద విజయం. వసంత ఋతువు ప్రారంభం. రంగులు జీవన వైవిధ్యానికి ప్రతీక.</p>
+      </div>
+      <div class="dharma-block fade-in">
+        <h3>🏹 దసరా</h3>
+        <p><strong>ఆశ్వయుజ శుద్ధ దశమి:</strong> రావణాసుర వధ, దుష్టశక్తులపై ధర్మ శక్తి విజయం. శక్తి పూజ, విజయదశమి.</p>
+      </div>
+      <div class="dharma-block fade-in">
+        <h3>🌾 సంక్రాంతి</h3>
+        <p><strong>మకర సంక్రమణం — పుష్య మాసం:</strong> సూర్యుని ఉత్తరాయణ ప్రవేశం. రైతుల పండుగ. కొత్త పంట కోత. గొబ్బెమ్మలు, కోలాటం, మంటలు.</p>
+      </div>
+      <div class="dharma-block fade-in">
+        <h3>🪷 ఉగాది</h3>
+        <p><strong>చైత్ర శుద్ధ పాడ్యమి:</strong> తెలుగు నూతన సంవత్సర ప్రారంభం. పంచాంగ శ్రవణం. ఉగాది పచ్చడి — జీవితంలో అన్ని రుచులు ఉంటాయని గుర్తు.</p>
+      </div>
+      <div class="dharma-block fade-in">
+        <h3>🙏 శివరాత్రి</h3>
+        <p><strong>మాఘ కృష్ణ చతుర్దశి:</strong> శివుడు పార్వతిని పెళ్ళి చేసుకున్న రోజు. ఉపవాసం, రాత్రి జాగారం, శివ పూజ.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER 9: VEDAS & UPANISHADS -->
+  <div class="dharma-chapter" id="vedas">
+    <div class="chapter-header fade-in">
+      <div class="chapter-num">9</div>
+      <div>
+        <h2>వేదాలు — జ్ఞాన భండారం</h2>
+        <p>The Vedas — Eternal Knowledge</p>
+      </div>
+    </div>
+    <div class="dharma-grid-2">
+      <div class="dharma-block fade-in">
+        <h3>📜 నాలుగు వేదాలు</h3>
+        <ul>
+          <li><strong>ఋగ్వేదం</strong> — మంత్రాల వేదం. 10 మండలాలు, 1,028 సూక్తాలు. అగ్నిస్తుతి, దేవతా స్తోత్రాలు.</li>
+          <li><strong>యజుర్వేదం</strong> — యజ్ఞ కర్మల వేదం. వేద కర్మకాండకు ఆధారం.</li>
+          <li><strong>సామవేదం</strong> — సంగీత వేదం. ఋగ్వేద మంత్రాలనే సురలో పాడటం.</li>
+          <li><strong>అథర్వవేదం</strong> — ఆయుర్వేద, తంత్ర విద్యల వేదం. రోజువారీ జీవన మార్గం.</li>
+        </ul>
+      </div>
+      <div class="dharma-block fade-in">
+        <h3>🕉️ ఉపనిషత్తుల సారాంశం</h3>
+        <ul>
+          <li><strong>అహం బ్రహ్మాస్మి</strong> — నేనే బ్రహ్మాన్ని (బృహదారణ్యక)</li>
+          <li><strong>తత్ త్వమ్ అసి</strong> — అది నువ్వే (ఛాందోగ్య)</li>
+          <li><strong>అయమ్ ఆత్మా బ్రహ్మ</strong> — ఈ ఆత్మ బ్రహ్మమే (మాండూక్య)</li>
+          <li><strong>ప్రజ్ఞానం బ్రహ్మ</strong> — చేతనే బ్రహ్మమ్ (ఐతరేయ)</li>
+          <li>ఈ నాలుగూ <strong>మహావాక్యాలు</strong> — జీవాత్మ పరమాత్మ ఒక్కటే అని చెప్తాయి.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dharma-block fade-in" style="margin-top:20px;background:linear-gradient(135deg,var(--maroon-light),var(--saffron-light))">
+      <h3>🌟 సనాతన ధర్మం యొక్క ప్రత్యేకత</h3>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px">
+        <div style="text-align:center;padding:12px">
+          <div style="font-size:28px;margin-bottom:8px">🌏</div>
+          <p style="font-family:'Tiro Devanagari Sanskrit',serif;font-size:13px;color:var(--text2)"><strong>వసుధైవ కుటుంబకం</strong><br>ప్రపంచమే ఒక కుటుంబం</p>
+        </div>
+        <div style="text-align:center;padding:12px">
+          <div style="font-size:28px;margin-bottom:8px">☮️</div>
+          <p style="font-family:'Tiro Devanagari Sanskrit',serif;font-size:13px;color:var(--text2)"><strong>అహింస పరమో ధర్మః</strong><br>హింస చేయకపోవడమే ధర్మం</p>
+        </div>
+        <div style="text-align:center;padding:12px">
+          <div style="font-size:28px;margin-bottom:8px">🤝</div>
+          <p style="font-family:'Tiro Devanagari Sanskrit',serif;font-size:13px;color:var(--text2)"><strong>సర్వే జనాః సుఖినో భవంతు</strong><br>అందరూ సుఖంగా ఉండాలి</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOURCE CREDIT -->
+  <div class="source-banner fade-in">
+    <div style="font-size:32px;flex-shrink:0">📚</div>
+    <p>
+      <strong>మూలం:</strong> సనాతన ధర్మము – ఆచార్ విధానం | రచన: <strong>Dr. దామర్ల త్యాగరాజు, Ph.D.</strong> | Hanover, MD, USA |
+      ప్రచురణ: డిసంబర్ 2021 | ముద్రణ: విజయా ప్రెస్, మంగళగిరి (ఆం.ప్ర.) |
+      <strong>ముఖచిత్రం:</strong> శ్రీ తోటా వంకట నారాయణ & శ్రీ నీలి వంకటరమ్ణ |
+      సమస్త హక్కులు రచయితవి.
+    </p>
+  </div>
+
+  <div style="text-align:center;padding:40px 0 20px">
+    <button class="btn btn-primary" onclick="shareWA('సనాతన ధర్మం — ఆచార విధానం | Dr. దామర్ల త్యాగరాజు రచన ఆధారంగా 🙏 చత్రపతి శివాజీ హిందూ ఉత్సవ కమిటీ, మంచాల')">📤 WhatsApp లో Share చేయండి</button>
+  </div>
+
+</div><!-- end container -->
+
+<div id="footer-placeholder"></div>
+<script src="script.js"></script>
+</body></html>
