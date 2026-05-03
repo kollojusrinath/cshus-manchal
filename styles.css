@@ -85,18 +85,126 @@ nav.scrolled{background:rgba(254,250,244,0.98);box-shadow:var(--shadow2)}
 .mobile-menu a:hover{background:var(--saffron-light);color:var(--maroon)}
 
 /* ─── HERO ─────────────────────────────────────────── */
-.hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center top}
-.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(254,250,244,1) 0%,rgba(254,250,244,0.95) 30%,rgba(254,250,244,0.5) 52%,rgba(254,250,244,0) 70%),linear-gradient(180deg,rgba(254,250,244,0) 0%,rgba(254,250,244,0) 70%,rgba(254,250,244,0.7) 90%,var(--bg) 100%)}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:80% center}
-.hero-content{position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:0 28px 80px}.hero-content-inner{max-width:520px}
-.hero-tag{font-family:'Cinzel Decorative',cursive;font-size:10px;letter-spacing:4px;color:var(--saffron);text-transform:uppercase;display:block;margin-bottom:14px}
-.hero-title{font-family:'Cinzel Decorative',cursive;font-size:clamp(28px,6vw,68px);color:var(--maroon);line-height:1.1;margin-bottom:10px;text-shadow:0 2px 12px rgba(139,16,32,.1)}
-.hero-telugu{font-family:'Tiro Devanagari Sanskrit',serif;font-size:clamp(20px,3.5vw,40px);color:var(--text);margin-bottom:8px;line-height:1.3}
-.hero-sub{font-size:clamp(14px,2vw,18px);color:var(--saffron);margin-bottom:6px;font-family:'Tiro Devanagari Sanskrit',serif}
-.hero-divider{width:120px;height:3px;background:linear-gradient(90deg,var(--saffron),var(--gold));margin:24px 0;border-radius:2px}
-.hero-quote{font-style:italic;font-size:clamp(15px,2vw,20px);color:var(--text2);max-width:680px;line-height:1.7;margin-bottom:36px;font-family:'Tiro Devanagari Sanskrit',serif;border-left:4px solid var(--saffron);padding-left:18px;background:rgba(255,255,255,.5);padding:14px 18px;border-radius:0 6px 6px 0}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+}
+
+/* Background container */
+.hero-bg{
+  position:absolute;
+  inset:0;
+}
+
+/* Image FIX (main fix here) */
+.hero-bg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position: 92% center; /* 🔥 RIGHT ALIGN */
+}
+
+/* Gradient overlay FIX */
+.hero-bg::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,
+      rgba(254,250,244,1) 0%,
+      rgba(254,250,244,0.95) 35%,
+      rgba(254,250,244,0.5) 55%,
+      rgba(254,250,244,0.15) 70%,
+      rgba(254,250,244,0) 85%  /* 🔥 pushed far right */
+    ),
+    linear-gradient(180deg,
+      rgba(254,250,244,0) 0%,
+      rgba(254,250,244,0) 70%,
+      rgba(254,250,244,0.7) 90%,
+      var(--bg) 100%
+    );
+}
+
+/* Content */
+.hero-content{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 28px 80px;
+}
+
+.hero-content-inner{
+  max-width:520px;
+}
+
+/* Text styles */
+.hero-tag{
+  font-family:'Cinzel Decorative',cursive;
+  font-size:10px;
+  letter-spacing:4px;
+  color:var(--saffron);
+  text-transform:uppercase;
+  display:block;
+  margin-bottom:14px;
+}
+
+.hero-title{
+  font-family:'Cinzel Decorative',cursive;
+  font-size:clamp(28px,6vw,68px);
+  color:var(--maroon);
+  line-height:1.1;
+  margin-bottom:10px;
+  text-shadow:0 2px 12px rgba(139,16,32,.1);
+}
+
+.hero-telugu{
+  font-family:'Tiro Devanagari Sanskrit',serif;
+  font-size:clamp(20px,3.5vw,40px);
+  color:var(--text);
+  margin-bottom:8px;
+  line-height:1.3;
+}
+
+.hero-sub{
+  font-size:clamp(14px,2vw,18px);
+  color:var(--saffron);
+  margin-bottom:6px;
+  font-family:'Tiro Devanagari Sanskrit',serif;
+}
+
+.hero-divider{
+  width:120px;
+  height:3px;
+  background:linear-gradient(90deg,var(--saffron),var(--gold));
+  margin:24px 0;
+  border-radius:2px;
+}
+
+.hero-quote{
+  font-style:italic;
+  font-size:clamp(15px,2vw,20px);
+  color:var(--text2);
+  max-width:680px;
+  line-height:1.7;
+  margin-bottom:36px;
+  font-family:'Tiro Devanagari Sanskrit',serif;
+  border-left:4px solid var(--saffron);
+  padding:14px 18px;
+  background:rgba(255,255,255,.5);
+  border-radius:0 6px 6px 0;
+}
+
+.hero-btns{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
 
 /* ─── BUTTONS ───────────────────────────────────────── */
 .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 30px;border-radius:4px;font-size:14px;font-weight:600;font-family:'Tiro Devanagari Sanskrit',serif;transition:all .3s;cursor:pointer;border:none;white-space:nowrap}
