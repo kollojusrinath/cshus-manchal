@@ -100,12 +100,14 @@ nav.scrolled{background:rgba(254,250,244,0.98);box-shadow:var(--shadow2)}
   inset:0;
 }
 
-/* Image FIX (main fix here) */
 .hero-bg img{
-  width:100%;
+  position:absolute;
+  top:0;
+  right:0;          /* 🔥 FORCE RIGHT */
   height:100%;
-  object-fit:cover;
-  object-position: 92% center; /* 🔥 RIGHT ALIGN */
+  width:auto;       /* 🔥 IMPORTANT */
+  max-width:none;   /* 🔥 REMOVE CONSTRAINT */
+  object-fit:unset; /* 🔥 disable cropping */
 }
 
 /* Gradient overlay FIX */
